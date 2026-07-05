@@ -1,6 +1,6 @@
 ---
 name: make-interfaces-feel-better
-description: Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing animations, hover states, shadows, borders, typography, micro-interactions, enter/exit animations, or any visual detail work. Triggers on UI polish, design details, "make it feel better", "feels off", stagger animations, border radius, optical alignment, font smoothing, tabular numbers, image outlines, box shadows.
+description: Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing animations, hover states, shadows, borders, typography, micro-interactions, enter/exit animations, or any visual detail work. Covers web (CSS/React) and Qt desktop apps (Qt Widgets, QSS, QPainter, QML). Triggers on UI polish, design details, "make it feel better", "feels off", stagger animations, border radius, optical alignment, font smoothing, tabular numbers, image outlines, box shadows, color palette, accent color, dark mode colors, Qt, QWidget, QSS, stylesheet, QPainter, paintEvent, QML, desktop UI.
 ---
 
 # Details that make interfaces feel better
@@ -15,6 +15,10 @@ Great interfaces rarely come from a single thing. It's usually a collection of s
 | [Surfaces](surfaces.md) | Border radius, optical alignment, shadows, image outlines, hit areas |
 | [Animations](animations.md) | Interruptible animations, enter/exit transitions, icon animations, scale on press |
 | [Performance](performance.md) | Transition specificity, `will-change` usage |
+| [Color](color.md) | Palette restraint, color tokens, dark mode backgrounds |
+| [Qt](qt.md) | Qt Widgets/QML projects — QSS limits, QPainter chrome, Qt animations |
+
+**Qt projects:** if the codebase is Qt (Qt Widgets or QML), read [qt.md](qt.md) before applying anything else — the CSS snippets in this skill do not translate to QSS, and QSS must stay a color-only layer.
 
 ## Core Principles
 
@@ -82,6 +86,14 @@ Only for `transform`, `opacity`, `filter` — properties the GPU can composite. 
 
 Interactive elements need at least 40×40px hit area. Extend with a pseudo-element if the visible element is smaller. Never let hit areas of two elements overlap.
 
+### 17. Restrain the Palette
+
+One dominant color family plus one accent; every other non-semantic color is derived by changing lightness, saturation, or alpha — never by adding a hue. Success/warning/danger are reserved words, not decoration. Never use pure `#000000`/`#FFFFFF` backgrounds or RGB primaries — tint them. See [color.md](color.md).
+
+### 18. In Qt, QSS Is Only a Color Coat
+
+Qt Style Sheets implement a frozen CSS 2.1 subset: no shadows, no transitions, no transforms, no variables. Use QSS solely for colors/fonts on stock controls via one token-substituted app-wide sheet. All chrome (depth, hover motion, knobs, focus rings) is QPainter custom painting, or QML where available. See [qt.md](qt.md).
+
 ## Common Mistakes
 
 | Mistake | Fix |
@@ -139,6 +151,8 @@ Rows should cite the specific file and the specific property that changed when i
 - [ ] No `transition: all` — only specific properties
 - [ ] `will-change` only on transform/opacity/filter, never `all`
 - [ ] Interactive elements have at least 40×40px hit area
+- [ ] One accent hue; semantic colors never used decoratively; no pure black/white backgrounds (see [color.md](color.md))
+- [ ] Qt projects: QSS carries colors only, chrome is painted, animations are interruptible code (see [qt.md](qt.md))
 
 ## Reference Files
 
@@ -146,3 +160,5 @@ Rows should cite the specific file and the specific property that changed when i
 - [surfaces.md](surfaces.md) — Border radius, optical alignment, shadows, image outlines
 - [animations.md](animations.md) — Interruptible animations, enter/exit transitions, icon animations, scale on press
 - [performance.md](performance.md) — Transition specificity, `will-change` usage
+- [color.md](color.md) — Palette restraint, color tokens, dark mode backgrounds
+- [qt.md](qt.md) — Qt Widgets/QML: QSS limits, design tokens, QPainter chrome, principle mapping
