@@ -11,7 +11,7 @@ Great interfaces rarely come from a single thing. It's usually a collection of s
 
 | Category | When to Use |
 | --- | --- |
-| [Typography](typography.md) | Text wrapping, font smoothing, tabular numbers |
+| [Typography](typography.md) | Text wrapping, font smoothing, tabular numbers, CJK fallback metrics |
 | [Surfaces](surfaces.md) | Border radius, optical alignment, shadows, image outlines, hit areas |
 | [Animations](animations.md) | Interruptible animations, enter/exit transitions, icon animations, scale on press |
 | [Performance](performance.md) | Transition specificity, `will-change` usage |
@@ -92,7 +92,7 @@ One dominant color family plus one accent; every other non-semantic color is der
 
 ### 18. In Qt, QSS Is Only a Color Coat
 
-Qt Style Sheets implement a frozen CSS 2.1 subset: no shadows, no transitions, no transforms, no variables. Use QSS solely for colors/fonts on stock controls via one token-substituted app-wide sheet. All chrome (depth, hover motion, knobs, focus rings) is QPainter custom painting, or QML where available. See [qt.md](qt.md).
+Qt Style Sheets implement a frozen CSS 2.1 subset: no shadows, no transitions, no transforms, no variables. Use QSS solely for colors/fonts on stock controls via one token-substituted app-wide sheet. All chrome (depth, hover motion, knobs, focus rings) is QPainter custom painting, or QML where available. Form before color: decide an element's shape, states, and motion in paint code first, then tint it with tokens — never start from a QSS edit. See [qt.md](qt.md).
 
 ## Common Mistakes
 
@@ -156,7 +156,7 @@ Rows should cite the specific file and the specific property that changed when i
 
 ## Reference Files
 
-- [typography.md](typography.md) — Text wrapping, font smoothing, tabular numbers
+- [typography.md](typography.md) — Text wrapping, font smoothing, tabular numbers, CJK fallback metrics
 - [surfaces.md](surfaces.md) — Border radius, optical alignment, shadows, image outlines
 - [animations.md](animations.md) — Interruptible animations, enter/exit transitions, icon animations, scale on press
 - [performance.md](performance.md) — Transition specificity, `will-change` usage

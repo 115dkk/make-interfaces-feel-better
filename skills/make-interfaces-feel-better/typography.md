@@ -133,3 +133,28 @@ Some fonts (like Inter) change the visual appearance of numerals with this prope
    Default:  1234  → proportional, "1" is narrow
    Tabular:  1234  → all digits equal width, "1" centered */
 ```
+
+## CJK Fallback Metrics
+
+When the primary font is Latin-only (DM Mono, Inter, JetBrains Mono, …) and the UI renders Korean/Japanese/Chinese text, line layout is computed from the **primary** font's ascent/descent while the CJK glyphs come from a fallback font with taller vertical metrics. The glyphs are bigger than the line box that was reserved for them.
+
+This bites hardest in Qt: fixed-height rows, labels sized from `QFontMetrics::height()` of the Latin font, and elided text all clip Hangul vertically — a label that should read `녹스` renders with the bottom of the last glyph cut off, looking like `녹ㅅ`. On the web the same mismatch shows up as clipped ascenders/descenders inside tight `line-height` + `overflow: hidden` containers.
+
+### Rules
+
+- **Never ship a Latin-only family alone** when the UI can contain CJK text — and any UI with user-supplied strings (file names, device names, presets) can. Declare the fallback chain explicitly everywhere a family is set:
+
+```cpp
+// Qt — code
+QFont font;
+font.setFamilies({ "DM Mono", "Pretendard", "Noto Sans KR", "Malgun Gothic" });
+```
+
+```css
+/* QSS / CSS — every font-family list, not just the root one */
+font-family: "DM Mono", "Pretendard", "Noto Sans KR", "Malgun Gothic", monospace;
+```
+
+- **Don't size containers from the Latin font's metrics.** `QFontMetrics::height()` of the primary family under-measures CJK. Measure the actual string (`fm.boundingRect(text)`), or take the tallest metrics across the declared family chain, and add 1–2px slack in fixed-height rows.
+- **Validate with a CJK sample whenever fonts change.** Any change to family, size, or a fixed `rowHeight` token gets checked against a Hangul string (e.g. `녹음 중 · 계량기 상태`), not just Latin text. Clipping only reproduces with fallback glyphs, so Latin-only screenshots prove nothing.
+- **Mono readouts are the highest-risk spot.** Numeric/mono fonts chosen for [tabular numbers](#tabular-numbers) are almost always Latin-only; the moment a unit label or localized suffix joins the number, the fallback kicks in. Keep the CJK fallback in the mono chain too.

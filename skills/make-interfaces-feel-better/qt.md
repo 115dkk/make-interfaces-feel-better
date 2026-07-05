@@ -52,6 +52,29 @@ up broken or ugly. The technology hierarchy is:
   and repeated calls trigger expensive re-polish passes. Centralize into one
   token-substituted app sheet applied once with `qApp->setStyleSheet(...)`.
 
+## Form Before Color
+
+When creating or reworking an element, decide its **form** first, and only
+then coat it with color tokens. Form means everything QPainter (or QML)
+owns: geometry, corner treatment, states (hover/pressed/selected/disabled),
+depth strategy, and how it moves. Work it out as if in grayscale; the token
+struct colors it afterwards.
+
+The order matters because of a strong failure mode: starting from QSS. If
+the first move is editing a stylesheet, the element's form silently inherits
+whatever QSS can express — a flat box with a border — and no amount of color
+tuning afterwards fixes that ceiling. Deciding form in paint code first means
+QSS never constrains the design; it only tints it.
+
+Practically, for every new element ask, in order:
+
+1. What shape and states does it have, and who paints them? (QPainter/QML —
+   never QSS)
+2. Which existing tokens color those states? (Add a token only if no role
+   fits — see [color.md](color.md); never hardcode a hex in paint code.)
+3. Is anything left for QSS at all? (Usually only stock sub-widgets embedded
+   inside the element.)
+
 ## Design Tokens: QSS Has No Variables
 
 QSS has no custom properties, no `var()`, no `calc()`. Keep one token struct
@@ -99,6 +122,10 @@ recomputation per toggle; a custom-painted widget just reads its own state in
 | Optical alignment | Nudge in paint code or per-side layout margins; icon-side padding = text-side − 2px still applies | Same, with `anchors` offsets |
 | Image outlines | After drawing a pixmap, stroke a 1px rounded rect in `rgba(0,0,0,0.1)` / `rgba(255,255,255,0.1)` (pure black/white only, per [surfaces.md](surfaces.md)) | 1px `border` on the wrapping `Rectangle` with the same colors |
 
+CJK text has an extra Qt-specific trap — Latin-only primary fonts clip
+Hangul/Han/Kana in fixed-height rows. See "CJK Fallback Metrics" in
+[typography.md](typography.md).
+
 ## Custom Painting Rules
 
 **Separate state from paint.** The widget owns input handling and state
@@ -122,6 +149,9 @@ disable backing-store optimizations. Prefer painting alpha directly.
 
 ## Qt Review Checklist (in addition to the main checklist)
 
+- [ ] Form before color: every new element's shape/states/motion were decided
+      in paint code (QPainter/QML) first, then colored via tokens — the work
+      did not start from a QSS edit
 - [ ] QSS contains only colors, fonts, and flat stock-control styling — no
       drawing tricks, no layout, no per-widget inline sheets
 - [ ] One app-wide token-substituted sheet; theme values come from a single
