@@ -1,6 +1,6 @@
 # Surfaces
 
-Border radius, optical alignment, shadows, and image outlines.
+Border radius, optical alignment, shadows, image outlines, status glyphs.
 
 ## Concentric Border Radius
 
@@ -254,3 +254,18 @@ Interactive elements should have a minimum hit area of 44×44px (WCAG) or at lea
 ### Collision Rule
 
 If the extended hit area overlaps another interactive element, shrink the pseudo-element — but make it as large as possible without colliding. Two interactive elements should never have overlapping hit areas.
+
+## Status Glyphs That Read as Characters
+
+Tiny status indicators sit at text size next to text, so users parse them as characters first. Shapes that collide with glyphs get misread:
+
+- A horizontal bar or slit lamp reads as a **minus sign**.
+- An unfilled ring reads as the letter **O** — or as "off".
+- A short vertical bar reads as **1** or **I**.
+- Text legends can carry unintended meaning: on an audio control, a `0dB` legend was read as "muted", even though 0 dB means unity (unchanged signal).
+
+Rules that follow from this:
+
+- Prefer a **filled** dot with a soft halo for "on/active". Express "off" by dimming the same shape — never by switching to an outline version, which reads as a different character rather than a different state.
+- When a legend would state the default/neutral value, omit it — print only values that deviate from neutral. Absence reads as "nothing to report"; a printed neutral invites misreading.
+- Verify candidate glyphs at final render size (8–14px), next to the text they'll sit with. Misreadings appear at final size, not in the design tool at 400% zoom.

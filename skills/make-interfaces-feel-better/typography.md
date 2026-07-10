@@ -134,6 +134,14 @@ Some fonts (like Inter) change the visual appearance of numerals with this prope
    Tabular:  1234  → all digits equal width, "1" centered */
 ```
 
+## Variable Fonts Need Static Instances (Qt)
+
+Qt cannot select a variable font's `wght` axis from QSS `font-weight`, and widget-level font weights only partially map onto it. Bundle a variable-only family and every weight in the app renders at the default instance — usually thin, everywhere, with nothing obviously "erroring".
+
+- **Ship static cuts** (Regular / Medium / SemiBold / Bold) instead of the variable file when the UI is Qt Widgets + QSS.
+- On the web this is a non-issue (`font-weight` and `font-variation-settings` both work); the trap is Qt-specific but fatal to typography when hit.
+- Symptom to recognize: an entire app whose headings and body text all look the same thin weight despite `font-weight` rules that look correct.
+
 ## CJK Fallback Metrics
 
 When the primary font is Latin-only (DM Mono, Inter, JetBrains Mono, …) and the UI renders Korean/Japanese/Chinese text, line layout is computed from the **primary** font's ascent/descent while the CJK glyphs come from a fallback font with taller vertical metrics. The glyphs are bigger than the line box that was reserved for them.

@@ -1,6 +1,6 @@
 ---
 name: make-interfaces-feel-better
-description: Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing animations, hover states, shadows, borders, typography, micro-interactions, enter/exit animations, or any visual detail work. Covers web (CSS/React) and Qt desktop apps (Qt Widgets, QSS, QPainter, QML). Triggers on UI polish, design details, "make it feel better", "feels off", stagger animations, border radius, optical alignment, font smoothing, tabular numbers, image outlines, box shadows, color palette, accent color, dark mode colors, Qt, QWidget, QSS, stylesheet, QPainter, paintEvent, QML, desktop UI.
+description: Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing animations, hover states, shadows, borders, typography, micro-interactions, enter/exit animations, or any visual detail work. Covers web (CSS/React) and Qt desktop apps (Qt Widgets, QSS, QPainter, QML). Triggers on UI polish, design details, "make it feel better", "feels off", stagger animations, border radius, optical alignment, font smoothing, tabular numbers, image outlines, box shadows, color palette, accent color, dark mode colors, Qt, QWidget, QSS, stylesheet, QPainter, paintEvent, QML, desktop UI, item delegate, sizeHint, HiDPI, theme switch, dark mode toggle, status indicator.
 ---
 
 # Details that make interfaces feel better
@@ -11,12 +11,12 @@ Great interfaces rarely come from a single thing. It's usually a collection of s
 
 | Category | When to Use |
 | --- | --- |
-| [Typography](typography.md) | Text wrapping, font smoothing, tabular numbers, CJK fallback metrics |
-| [Surfaces](surfaces.md) | Border radius, optical alignment, shadows, image outlines, hit areas |
+| [Typography](typography.md) | Text wrapping, font smoothing, tabular numbers, variable fonts (Qt), CJK fallback metrics |
+| [Surfaces](surfaces.md) | Border radius, optical alignment, shadows, image outlines, hit areas, status glyphs |
 | [Animations](animations.md) | Interruptible animations, enter/exit transitions, icon animations, scale on press |
 | [Performance](performance.md) | Transition specificity, `will-change` usage |
 | [Color](color.md) | Palette restraint, color tokens, dark mode backgrounds |
-| [Qt](qt.md) | Qt Widgets/QML projects — QSS limits, QPainter chrome, Qt animations |
+| [Qt](qt.md) | Qt Widgets/QML projects — QSS limits, QPainter chrome, Qt animations, size-hint traps, theme switching, pixel verification |
 
 **Qt projects:** if the codebase is Qt (Qt Widgets or QML), read [qt.md](qt.md) before applying anything else — the CSS snippets in this skill do not translate to QSS, and QSS must stay a color-only layer.
 
@@ -108,6 +108,10 @@ Qt Style Sheets implement a frozen CSS 2.1 subset: no shadows, no transitions, n
 | `transition: all` on elements | Specify exact properties |
 | First-frame animation stutter | Add `will-change: transform` (sparingly) |
 | Tiny hit areas on small controls | Extend with pseudo-element to 40×40px |
+| Status dot drawn as a bar or ring reads as a character (−, O) | Filled dot + halo; dim the same shape for "off" (see [surfaces.md](surfaces.md)) |
+| Subtle hover/state tint is painted but imperceptible | Pixel-diff the state render against normal and retune the alpha (see [qt.md](qt.md)) |
+| Panel body repeats the panel title as a static label | The header names the unit; the body holds only parameter captions |
+| Theme switch leaves startup-only styling stale (Qt) | Route startup and switch through one styling path; recreate construction-time chrome (see [qt.md](qt.md)) |
 
 ## Review Output Format
 
@@ -152,13 +156,14 @@ Rows should cite the specific file and the specific property that changed when i
 - [ ] `will-change` only on transform/opacity/filter, never `all`
 - [ ] Interactive elements have at least 40×40px hit area
 - [ ] One accent hue; semantic colors never used decoratively; no pure black/white backgrounds (see [color.md](color.md))
-- [ ] Qt projects: QSS carries colors only, chrome is painted, animations are interruptible code (see [qt.md](qt.md))
+- [ ] Status glyphs are filled shapes that can't be misread as characters; neutral values are omitted, not printed (see [surfaces.md](surfaces.md))
+- [ ] Qt projects: QSS carries colors only, chrome is painted, animations are interruptible code, theme switches re-run the startup styling path, and visual changes are proven with offscreen renders (see [qt.md](qt.md))
 
 ## Reference Files
 
-- [typography.md](typography.md) — Text wrapping, font smoothing, tabular numbers, CJK fallback metrics
-- [surfaces.md](surfaces.md) — Border radius, optical alignment, shadows, image outlines
+- [typography.md](typography.md) — Text wrapping, font smoothing, tabular numbers, variable fonts (Qt), CJK fallback metrics
+- [surfaces.md](surfaces.md) — Border radius, optical alignment, shadows, image outlines, status glyphs
 - [animations.md](animations.md) — Interruptible animations, enter/exit transitions, icon animations, scale on press
 - [performance.md](performance.md) — Transition specificity, `will-change` usage
 - [color.md](color.md) — Palette restraint, color tokens, dark mode backgrounds
-- [qt.md](qt.md) — Qt Widgets/QML: QSS limits, design tokens, QPainter chrome, principle mapping
+- [qt.md](qt.md) — Qt Widgets/QML: QSS limits, design tokens, QPainter chrome, principle mapping, size-hint and item-view traps, theme switching, pixel verification
