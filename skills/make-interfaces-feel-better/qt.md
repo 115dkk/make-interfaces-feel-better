@@ -244,6 +244,46 @@ until a user toggles dark mode at runtime.
   slower than the last. A simple widget census before/after N switches
   catches this.
 
+## Recurring Review Rejects
+
+Every pattern here has bounced the same kinds of new widgets across multiple
+review rounds. They cluster around two failure modes: text silently falling
+back to the wrong face, and content parked against an edge.
+
+- **The app-wide sheet eats `QLabel::setFont()`.** A global
+  `QWidget { font-family: …; font-size: 10pt; }` rule outranks programmatic
+  fonts, so a label you set to the mono face renders in the default sans and
+  nobody notices until review. The symptom is mixed typography inside one
+  card: painted text (QPainter is immune) keeps the intended face while every
+  QLabel around it falls back. There are exactly two sanctioned routes for a
+  non-default face: give the label an objectName and a font rule in the
+  token-substituted sheet (all themes), or paint the text. Never rely on
+  `setFont()` for a styled label.
+- **Edge-hugging.** New composite widgets keep shipping with zero content
+  margins: text in the top-left corner of the body, blocks touching the card
+  border, a rail label flush against the frame. Give every card body real
+  breathing room (≥ ~12 px sides, ≥ ~10 px vertical) before any other layout
+  decision, and treat "content touches the border" as an automatic reject.
+- **Painted text must be measured, never clipped.** Any string drawn in
+  `paintEvent` needs a `QFontMetrics` check against the space that actually
+  exists at the current size. If it cannot fit, elide it or drop the least
+  important element — half-rendered glyphs at a panel edge are the recurring
+  version of this bug (axis labels at a bottom edge, vertical rail captions).
+- **The other theme is a separate render target.** Chips and severity
+  indicators that read fine in dark mode ship invisible in light mode (muted
+  gray on white) or as an empty pill in the error state. Every state × every
+  theme must render something visible, and severity must never be color-only.
+- **Icon-only buttons floating in an empty band read as broken.** Action
+  buttons handed to a view are part of the composition: give them the skin's
+  button treatment, show text where there is room (`setToolButtonStyle` is
+  not overridden by QSS), and remove filler bands whose only content is two
+  16 px icons.
+- **No mid-elision, no dead ends, no path leaks.** `Qt::ElideMiddle` produces
+  fragments like "Iss…ont/Rear 4.1" — elide right and put the full string in
+  the tooltip. "Unavailable" readouts that could compute a fallback value are
+  lazy dead ends — compute with a documented default instead. And never print
+  absolute filesystem paths into a card; name the file.
+
 ## Prove Changes With Pixels
 
 Qt has no snapshot-testing culture like the web, but offscreen rendering
@@ -300,6 +340,15 @@ real regressions:
       reachable from `resizeEvent` resizes to `sizeHint()`
 - [ ] Theme switch re-runs the same styling path as startup and recreates
       construction-time chrome
+- [ ] No `QLabel::setFont()` for styled faces — every non-default label face
+      goes through an objectName + sheet rule (all themes) or QPainter
+- [ ] Card bodies have real content margins; nothing touches the border, and
+      every painted string is `QFontMetrics`-measured (elide, never clip)
+- [ ] Every state renders visibly in every theme (no empty pills, no
+      color-only severity); action buttons carry the skin's treatment and
+      text where there is room — no icon-only floats in empty bands
+- [ ] Elide right only; computed fallbacks instead of "unavailable"; no
+      absolute paths in UI strings
 - [ ] Physical↔logical pixel conversion (native child windows, DPR-baked
       pixmaps) happens at one boundary and was tested on a scaled monitor
 - [ ] Visual changes are proven with offscreen golden renders (same output
