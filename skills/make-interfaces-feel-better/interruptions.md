@@ -140,6 +140,32 @@ worth nothing by the tenth run.
   it reads as a detached decorative box and is skipped like an advertisement.
   Measure the copy and fit the surface to it, in every language.
 
+## Size Every Fixed Box From the Longest Translation
+
+A takeover is usually painted at fixed coordinates, and the copy on it is
+usually authored in the shortest language in the catalogue. Those two facts
+combine into clipped text that the author never sees, because the author reads
+the language the box was measured against.
+
+- **Measure, do not estimate.** Render each label in the face that locale
+  actually ships and count the lines it needs inside the real box. A button that
+  holds two lines in one language needs three in another, and the difference is
+  not visible in the source.
+- **Raising the type size re-opens this.** Every band, button and card sized
+  before the change has to be re-measured after it. A one-step increase in body
+  size is enough to turn a two-line label into a three-line one.
+- **Prefer a wider box to a taller one.** Width removes lines; height only
+  accommodates them. Widening until the worst case needs one line fewer is
+  usually cheaper than the vertical room three lines demand.
+- **Where two surfaces overlap, drop rather than clip.** A corner signature that
+  a card is painted over should disappear when the room runs out, not be sliced
+  by the card edge. Sliced text reads as a rendering fault and costs more trust
+  than the missing text would.
+- **A gallery only protects what it draws.** A screen absent from the review
+  set, or drawn with a forgiving `min-width` where the real control is a fixed
+  size, will keep regressing. Draw the real geometry, in the worst locales, and
+  assert that no text exceeds its own box.
+
 ## Codes and Secrets on Screen
 
 A QR code, a pairing code or a one-time secret is a machine-readable credential
@@ -187,6 +213,8 @@ Put the product mark and name in one corner, small and quiet.
 - [ ] The proceed button names the next screen instead of saying Continue
 - [ ] Warnings are rare, visually distinct, actionable, and amber rather than red
 - [ ] Warning surfaces are measured to fit their own text in every language
+- [ ] Every fixed box is sized from the longest translation, measured rather than estimated
+- [ ] Where a surface overlaps another, the covered text is dropped rather than clipped
 - [ ] Machine-readable codes carry a do-not-share line and keep a decode floor
 - [ ] Layout places the code first and the footer relative to the container
 - [ ] Sample codes in galleries and mocks are meaningless by construction
