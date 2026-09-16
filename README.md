@@ -8,6 +8,8 @@ This fork extends the original (which is web/CSS-focused) with:
 
 - **Qt guidance** (`qt.md`) — how each principle maps onto Qt Widgets and QML, why QSS must stay a color-only layer, and how to build chrome with QPainter and design tokens instead
 - **Color discipline** (`color.md`) — palette restraint, color tokenization, and dark mode background rules
+- **Interruptions and consent** (`interruptions.md`) — full-screen takeovers, security ceremonies, escape routes, countdown wording, warning habituation, and showing a machine-readable code without teaching people to trust one
+- **Icon discipline** (`icons.md`) — stroke weight matched to text, states through `currentColor`, outline versus fill, sizing, RTL flipping
 - **Field lessons** from shipping a multi-skin Qt desktop app — QSS selector traps (specificity ties, `Q_OBJECT` class matching), size-hint propagation and scroll-area clipping, item views with custom-painted rows, theme switching that goes stale, offscreen pixel verification (golden galleries, perceptibility measurement), status-glyph legibility, and variable-font weights under QSS
 
 ## What it covers
