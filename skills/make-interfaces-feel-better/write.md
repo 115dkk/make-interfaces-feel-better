@@ -116,7 +116,7 @@ Write the plain version: what the product is, what the user does in it, concrete
 | 실제 종합 관제 화면: 자원 생산, 시설 건설, 주변 성계와 함대 편성 | 종합 관제 화면. 자원 생산, 시설 건설, 함대 편성을 한 화면에서 합니다. |
 | COMMANDER ACCESS / 다시 오신 것을 환영합니다 / 계정에 로그인하고 개척을 이어가세요. | 로그인 (title, fields, a 로그인 button, nothing else) |
 
-- **A product's fiction may have a voice; its chrome does not.** A game's dialogue and events can be as playful as the game wants. The landing page, login, settings, errors and store description around it are plain.
+- **A product's fiction may have a voice; its chrome does not.** A game's dialogue and events can be as playful as the game wants. The landing page, login, settings, errors and store description around it are plain. Text inside a game (its world, system messages and character dialogue) has its own detailed policy in [game-write.md](game-write.md).
 - **Adjectives about the product itself are claims the reader cannot check.** Replace each with the fact that would have justified it, or delete it.
 
 ## Errors Are Instructions
@@ -164,7 +164,7 @@ When the app does something on the user's behalf (applies a default, starts a se
 - **Do not use 해요체 for statements.** Sentences in the UI use 합니다체 ("PC와 아직 연결하지 않았습니다"). Status lines, empty states and short labels use noun phrases ("승인 요청 없음", "확인 중"). One app rewrote its whole catalogue this way: "기다리는 요청이 없어요" became "승인 요청 없음", and "받은 요청을 확인하고 있어요" became "받은 요청을 확인 중입니다".
 - **Buttons and menu items take no sentence ending.** "저장", "다시 연결", "서비스 시작", never "저장해요".
 - **Instructions end in -세요.** "다시 연결을 눌러 재시도하세요." This is the one 해요체 form Korean interfaces conventionally pair with 합니다체 statements; do not let it spread to statements ("확인했어요"). -십시오 is stiffer and fits only a product that is formal throughout.
-- **The only exception is a deliberate character voice,** such as a game's in-world dialogue. Settings, errors and confirmations around it still use 합니다체.
+- **The only exception is a deliberate character voice,** such as a game's in-world dialogue. Settings, errors and confirmations around it still use 합니다체. See [game-write.md](game-write.md) for how system text and character monologue divide the work.
 - **READMEs and documentation use either the plain written style (-다) or 합니다체,** one of them for the whole document, never 해요체.
 
 ## READMEs Are Documents, Not Advertisements
