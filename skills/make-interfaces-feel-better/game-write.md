@@ -21,14 +21,14 @@ Detailed policy for game text, under [write.md](write.md). Every rule in `write.
 
 **터미널**
 
-- "실행 환경 없음 · 실제 Bash 세션 · 없음", "연습용 컴퓨터에 연결할 수 없습니다", "운영자에게 실행 환경을 확인해 달라고 알려주세요"는 게임을 돌리는 서버의 사정입니다. 게임 속 인물에게는 운영자도 실행 환경도 없습니다. '연습용 컴퓨터'라는 말은 이 세계가 연습 문제라고 스스로 털어놓습니다.
+- "실행 환경 없음 · 실제 Bash 세션 · 없음", "연습용 컴퓨터에 연결할 수 없습니다", "운영자에게 실행 환경을 확인해 달라고 알려주세요"는 게임을 돌리는 서버의 사정입니다. 게임 속 인물에게는 운영자도 실행 환경도 없습니다. '연습용 컴퓨터'라는 말에서 이 세계가 연습 문제라는 것이 드러납니다.
 - 같은 연결 오류를 검은 패널과 노란 배너에 두 번 적었고, '다시 연결' 버튼은 세 개입니다.
 - "완료 흐름 미리보기"는 개발 중에 쓰던 디버그 기능의 이름입니다.
 - 힌트 1부터 4까지는 정답을 네 번에 나눠 보여 줍니다. 힌트 4는 입력할 명령을 순서대로 적어 두었고, 마지막 줄 "힌트를 모두 확인했습니다"는 플레이어가 방금 한 일을 다시 알립니다.
 
 이 화면들의 잘못은 두 가지입니다. 첫째, 가르칠 기능부터 정하고 세계는 그 핑계로 만들었습니다. `pwd`, `ls`, `cd`, `cat`을 가르쳐야 하니 파일 찾기 의뢰를 만들고, 돈을 붙이고, 메일과 은행과 상점과 평판을 붙인 다음 '생활형 커리어 RPG'라는 이름을 달았습니다. 그래서 메뉴마다 튜토리얼의 핑계로 보입니다. 둘째, 기계의 말과 사람의 말을 구분하지 않았습니다. 시스템 메시지는 서버 사정을 늘어놓는데, 주인공이 반응하는 대사는 한 줄도 없습니다.
 
-소유자가 고쳐 쓴 첫 문장은 "오늘 탐정 사무소를 차리며 컴퓨터라는 걸 새로 장만했는데, 정말 의뢰가 오는 건가?"입니다. 이 한 문장에 주인공이 탐정이라는 것, 오늘 개업했다는 것, 컴퓨터가 새로 산 도구라는 것, 아직 손님이 없다는 것이 다 들어 있습니다. 분위기를 따로 쓰지 않았는데 사실을 말하니 분위기가 따라왔습니다.
+고쳐 쓴 첫 문장은 "오늘 탐정 사무소를 차리며 컴퓨터라는 걸 새로 장만했는데, 정말 의뢰가 오는 건가?"입니다. 이 한 문장에 주인공이 탐정이라는 것, 오늘 개업했다는 것, 컴퓨터가 새로 산 도구라는 것, 아직 손님이 없다는 것이 다 들어 있습니다. 분위기를 따로 쓰지 않았는데 사실을 말하니 분위기가 생겼습니다.
 
 ## Build the Situation Before the Feature
 
@@ -37,7 +37,7 @@ Do not dress a feature up to look like a game. Decide first who the player chara
 | Before (feature first) | After (situation first) |
 | --- | --- |
 | 작은 방, 오래된 컴퓨터 한 대. 오늘부터 컴퓨터로 돈을 버는 일을 시작합니다. | 오늘 탐정 사무소를 차리며 컴퓨터라는 걸 새로 장만했는데, 정말 의뢰가 오는 건가? |
-| 생활형 커리어 RPG (genre label on the title screen) | (delete; the store page names the genre) |
+| 생활형 커리어 RPG (genre label above the screen title) | (delete; the store page names the genre) |
 | 업무용 컴퓨터를 원격으로 확인해 주실 수 있을까요? (a company handing remote access to a stranger) | 의뢰인이 오래된 컴퓨터를 하나 가져왔다. 계약서가 들어 있다는데 어디에 저장했는지 기억하지 못한다고 한다. |
 
 - **Every menu needs a reason in the job.** For the detective: 메일 receives cases, 터미널 examines a client's disk, 브라우저 searches public records, 은행 holds fees and office costs, 상점 sells investigation tools, 평판 records solved and failed cases. A menu with no such reason is cut.
