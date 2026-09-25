@@ -2,6 +2,27 @@
 
 Typography rendering details that make interfaces feel better.
 
+## Size Floors: Small Text Is Not a Default
+
+Generated interfaces reach for small type by reflex: `text-xs` helper text, `11px` badges, `10px` captions, a whole sidebar at `12px`, because small text looks tidy in a mockup. On a real screen at arm's length it is hard to read, and it tells the user the words did not matter. Start every text role at a readable size and go below it only for a reason you can name.
+
+| Role | Floor (CSS px at 100% zoom) |
+| --- | --- |
+| Long-form body text | `16px` |
+| UI text: control labels, menu items, list rows, setting names and their descriptions, dialog and error text | `14px` |
+| Captions and secondary metadata | `13px` |
+| Anything the user must read to act | never below `12px`; a `12px` label is already the exception |
+| Inputs on mobile | `16px` (iOS Safari zooms the page below it) |
+
+- **Below `18px`, keep weight `400` or heavier.** Thin weights are display-only; at text sizes they vanish.
+- **Small and muted compound.** A `12px` caption in low-contrast grey is worse than either alone. If the text is secondary, lower the contrast or the size, not both.
+- **Fit problems are not solved by shrinking.** A label that does not fit gets rewritten shorter, wraps, or gets more room. Dropping it to `10px` hides the problem and creates a worse one.
+- **Density is a product decision, not a per-component one.** A dense professional tool may sit one step lower across the board. Decide that once, in the type scale, and do not let one panel quietly drop below the rest.
+- **The exceptions are narrow and named:** a label under an icon in a compact rail, a keyboard-shortcut hint, a unit suffix beside a large number. Even there, stay at `11px` or above and keep the text non-essential.
+- **Qt:** the Windows default UI font (Segoe UI `9pt`, `12px` at 100% scale) is the floor for the narrow exceptions above, not the size for body text. Use about `11pt` for body and control text and `10pt` for dense secondary text, which lines up with the web table. One desktop app raised every QSS size and every `setPointSizeF` constant by `1pt` (body `10pt` to `11pt`, a dense rack `9pt` to `10pt`) after complaints from users on 27-inch monitors; start there instead of arriving there. Set sizes in points, and keep high-DPI scaling on: with it off, sizes come out in physical pixels and every label shrinks on a 4K screen.
+
+To catch it in review, search the styles for the small end of the scale (`text-xs`, `text-[10px]`, `text-[11px]`, `font-size` under `13px`, `setPointSize` below the default) and check what each one is used for. Captions and hints may stay; labels, descriptions, errors and anything with a button in it go up.
+
 ## Text Wrapping
 
 ### text-wrap: balance
