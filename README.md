@@ -10,7 +10,7 @@ This fork extends the original (which is web/CSS-focused) with the items below. 
 - **Color discipline** (`color.md`) — palette restraint, color tokenization, and dark mode background rules
 - **Interruptions and consent** (`interruptions.md`) — full-screen takeovers, security ceremonies, escape routes, countdown wording, warning habituation, and showing a machine-readable code without teaching people to trust one
 - **Icon discipline** (`icons.md`) — stroke weight matched to text, states through `currentColor`, outline versus fill, sizing, RTL flipping
-- **Product copy** (`write.md`): name things by what the user gets, keep internals off the screen, cut filler, turn raw errors into instructions, disclose what the app does on the user's behalf, and ship every string in every locale
+- **Product copy** (`write.md`): name things by what the user gets, keep internals off the screen, cut filler and marketing voice, turn raw errors into instructions, disclose what the app does on the user's behalf, ship every string in every locale, keep Korean UI in 합니다체, and write READMEs for users and developers rather than as advertisements
 - **Size floors** (`typography.md`): small text is an exception you justify, with web and Qt floors taken from real complaints rather than mockups
 - **Field lessons** from shipping a multi-skin Qt desktop app — QSS selector traps (specificity ties, `Q_OBJECT` class matching), size-hint propagation and scroll-area clipping, item views with custom-painted rows, theme switching that goes stale, offscreen pixel verification (golden galleries, perceptibility measurement), status-glyph legibility, and variable-font weights under QSS
 
