@@ -1,0 +1,12 @@
+{
+  "name": "115dkk",
+  "description": "115dkk's fork of make-interfaces-feel-better.",
+  "owner": { "name": "115dkk" },
+  "plugins": [
+    {
+      "name": "make-interfaces-feel-better",
+      "source": "./",
+      "description": "Design engineering principles for making interfaces feel polished (web and Qt)."
+    }
+  ]
+}
