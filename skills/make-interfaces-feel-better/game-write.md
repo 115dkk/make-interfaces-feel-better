@@ -117,6 +117,24 @@ For games whose voice is absurd humour (병맛). The joke lives in the fiction; 
 - **Once the world coins a word, use it everywhere in the fiction.** If the setting has its own euphemism for death or defeat, crew-loss logs and event text use it too; the settings screen and real error messages outside the fiction do not.
 - **Theme vocabulary still stays off the chrome.** Login, settings and store copy are plain (see "No Marketing Voice" in [write.md](write.md)).
 
+### Learn the Tone From Shipped Lines
+
+Absurd humour is the part of game text a model writes worst: generated jokes explain themselves, pile up in one line or turn cute. Do not invent the tone. Take it from lines a shipped game actually used, and write new lines against them. The examples below are from Trickcal Revive (Epidgames), a Korean game known for this voice, as quoted on its Namu Wiki pages. Use them to learn how the jokes are built, not as lines to copy into another product.
+
+| Technique | Shipped line |
+| --- | --- |
+| The absurd fact, stated with a straight face (fairies seeing a human for the first time) | 손가락이 5개야, 괴물이다! |
+| The protagonist's odd choice, said as if it were reasonable | 신형 마법골렘인가 봐, 분해하면 설탕이 나올지도 몰라! |
+| A deadpan reply that deflates a big reveal | "나 사실 유령이 아니야!" / "그래서?" |
+| One line of parody, no more (God of War) | 당장 나와라! 네 촌장이 돌아왔다! |
+| A fixed speech habit: one character's odd sentence ending (-와요), kept in every line | 모두 용족의 권위에 굴복하게 될 것이와요! |
+| A title that bends an idiom (개판 오분 전) | 왕국 폭발 5분 전 |
+| The world's own word for death, used in earnest | 날 주말농장으로 보내기라도 할 셈이냐 |
+| A serious scene: no meme, short sentences | 희망은⋯ 빛나지 않아도 돼. 마음 속에 품고 살아가면 그만이야. |
+
+- **Player choices follow a fixed shape.** Three options are a good one, a bad one and a weird one; two options are a good one and a weird one. The weird option is where the protagonist's jokes live, and the story does not need to change with the pick.
+- **When the project is itself a fan work, quote the original.** Gather real lines from the source game (wiki quotes, a script dump the owner provides) into the project's research notes before writing, and check every new line against them. When no shipped lines are available, write fewer jokes rather than made-up ones.
+
 ## Before You Finish
 
 | Pattern to search for | What to do |
