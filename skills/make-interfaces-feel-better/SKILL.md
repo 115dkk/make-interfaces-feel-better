@@ -1,7 +1,7 @@
 ---
 name: make-interfaces-feel-better
 description: >-
-  Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing animations, hover states, shadows, borders, typography, icons, micro-interactions, enter/exit animations, or any visual detail work. Covers web (CSS/React) and Qt desktop apps (Qt Widgets, QSS, QPainter, QML). Supports quick and full review modes. Triggers on UI polish, design details, "make it feel better", "feels off", stagger animations, border radius, optical alignment, font smoothing, tabular numbers, image outlines, box shadows, icons, icon stroke weight, icon states, motion restraint, color palette, accent color, dark mode colors, Qt, QWidget, QSS, stylesheet, QPainter, paintEvent, QML, desktop UI, item delegate, sizeHint, HiDPI, theme switch, dark mode toggle, status indicator, full-screen takeover, consent screen, security ceremony, escape hatch, cancel button, countdown timer, warning banner, QR code screen, pairing flow, modal that blocks everything, "this screen is scary", font size, small text, tiny text, legibility, product copy, UX writing, microcopy, labels, setting descriptions, tooltips, empty states, error messages, raw error shown to the user, jargon on screen.
+  Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing animations, hover states, shadows, borders, typography, icons, micro-interactions, enter/exit animations, or any visual detail work. Covers web (CSS/React) and Qt desktop apps (Qt Widgets, QSS, QPainter, QML). Supports quick and full review modes. Triggers on UI polish, design details, "make it feel better", "feels off", stagger animations, border radius, optical alignment, font smoothing, tabular numbers, image outlines, box shadows, icons, icon stroke weight, icon states, motion restraint, color palette, accent color, dark mode colors, Qt, QWidget, QSS, stylesheet, QPainter, paintEvent, QML, desktop UI, item delegate, sizeHint, HiDPI, theme switch, dark mode toggle, status indicator, full-screen takeover, consent screen, security ceremony, escape hatch, cancel button, countdown timer, warning banner, QR code screen, pairing flow, modal that blocks everything, "this screen is scary", font size, small text, tiny text, legibility, product copy, UX writing, microcopy, labels, setting descriptions, tooltips, empty states, error messages, raw error shown to the user, jargon on screen, marketing copy, tagline, landing page, login screen, README, Korean UI register, 해요체.
 ---
 
 # Details that make interfaces feel better
@@ -20,7 +20,7 @@ When reviewing, slow the interface down: replay motion at 10% speed in the brows
 | [Icons](icons.md) | Icon stroke weight, states via `currentColor`, outline vs fill, sizing, RTL flipping |
 | [Performance](performance.md) | Transition specificity, `will-change` usage |
 | [Color](color.md) | Palette restraint, color tokens, dark mode backgrounds |
-| [Writing](write.md) | Product copy: effect over mechanism, internals off the screen, filler, error messages, disclosure, tooltips, every locale |
+| [Writing](write.md) | Product copy and READMEs: effect over mechanism, internals off the screen, filler, marketing voice, error messages, disclosure, tooltips, every locale, Korean register |
 | [Interruptions](interruptions.md) | Full-screen takeovers, consent ceremonies, countdowns, escape routes, warnings, codes and secrets on screen |
 | [Qt](qt.md) | Qt Widgets/QML projects — QSS limits, QPainter chrome, Qt animations, size-hint traps, theme switching, pixel verification |
 
@@ -122,7 +122,7 @@ Small text is an exception you justify, not a default. Web floors: `16px` for lo
 
 ### 24. Write From the User's Side of the Screen
 
-Name and describe things by what the user gets, not how it works. Keep internals (config keys, process names, registry paths, state-machine terms) off the screen, cut sentences that repeat what is already shown or defend the product, and never show a raw error as the message: say what happened and what to do, and keep the raw text in details or the log. See [write.md](write.md).
+Name and describe things by what the user gets, not how it works. Keep internals (config keys, process names, registry paths, state-machine terms) off the screen, cut sentences that repeat what is already shown or defend the product, keep sentimental taglines and self-praise out of screens and READMEs alike, and never show a raw error as the message: say what happened and what to do, and keep the raw text in details or the log. See [write.md](write.md).
 
 ## Common Mistakes
 
@@ -149,6 +149,7 @@ Name and describe things by what the user gets, not how it works. Keep internals
 | `text-xs`, `10px` or `11px` on labels, descriptions or errors | Raise to the size floor; small sizes only for named exceptions (see [typography.md](typography.md)) |
 | Setting description names the config key or the mechanism | Describe the effect on the user and when to change it (see [write.md](write.md)) |
 | `error.message` or an error code rendered as the message | Written message with cause and next action; raw text in details or the log (see [write.md](write.md)) |
+| Tagline verse, an all-caps English slogan, or a README that praises itself | Say what it is and what the user does; facts and limits instead of adjectives (see [write.md](write.md)) |
 
 ## Review Output Format
 
@@ -241,7 +242,7 @@ When there are no findings, omit the findings table, state "No actionable interf
 - [ ] Timers state when the screen ends, never how long is left and never that it closes itself (see [interruptions.md](interruptions.md))
 - [ ] Icon stroke weight matches adjacent text weight, and icon states recolor one SVG through `currentColor` (see [icons.md](icons.md))
 - [ ] No label, description, error or button text below the size floor; small sizes are named exceptions (see [typography.md](typography.md))
-- [ ] Copy says what the user gets, shows no internals, repeats nothing already shown, and every error states the cause and the next action instead of a raw message (see [write.md](write.md))
+- [ ] Copy says what the user gets, shows no internals, repeats nothing already shown, carries no marketing voice, uses 합니다체 rather than 해요체 in Korean, and every error states the cause and the next action instead of a raw message (see [write.md](write.md))
 - [ ] Qt projects: QSS carries colors only, chrome is painted, animations are interruptible code, theme switches re-run the startup styling path, and visual changes are proven with offscreen renders (see [qt.md](qt.md))
 
 ## Reference Files
@@ -252,6 +253,6 @@ When there are no findings, omit the findings table, state "No actionable interf
 - [performance.md](performance.md) — Transition specificity, `will-change` usage
 - [color.md](color.md) — Palette restraint, color tokens, dark mode backgrounds
 - [icons.md](icons.md) — Icon stroke weight, states via `currentColor`, outline vs fill, sizing, RTL flipping
-- [write.md](write.md): product copy, from labels and setting descriptions to error messages
+- [write.md](write.md): product copy and READMEs, from labels and setting descriptions to error messages, marketing voice and Korean register
 - [interruptions.md](interruptions.md) — Full-screen takeovers, consent ceremonies, countdowns, escape routes, warnings, codes and secrets on screen
 - [qt.md](qt.md) — Qt Widgets/QML: QSS limits, design tokens, QPainter chrome, principle mapping, size-hint and item-view traps, theme switching, pixel verification
