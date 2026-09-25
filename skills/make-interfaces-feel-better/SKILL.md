@@ -1,7 +1,7 @@
 ---
 name: make-interfaces-feel-better
 description: >-
-  Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing animations, hover states, shadows, borders, typography, icons, micro-interactions, enter/exit animations, or any visual detail work. Covers web (CSS/React) and Qt desktop apps (Qt Widgets, QSS, QPainter, QML). Supports quick and full review modes. Triggers on UI polish, design details, "make it feel better", "feels off", stagger animations, border radius, optical alignment, font smoothing, tabular numbers, image outlines, box shadows, icons, icon stroke weight, icon states, motion restraint, color palette, accent color, dark mode colors, Qt, QWidget, QSS, stylesheet, QPainter, paintEvent, QML, desktop UI, item delegate, sizeHint, HiDPI, theme switch, dark mode toggle, status indicator, full-screen takeover, consent screen, security ceremony, escape hatch, cancel button, countdown timer, warning banner, QR code screen, pairing flow, modal that blocks everything, "this screen is scary".
+  Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing animations, hover states, shadows, borders, typography, icons, micro-interactions, enter/exit animations, or any visual detail work. Covers web (CSS/React) and Qt desktop apps (Qt Widgets, QSS, QPainter, QML). Supports quick and full review modes. Triggers on UI polish, design details, "make it feel better", "feels off", stagger animations, border radius, optical alignment, font smoothing, tabular numbers, image outlines, box shadows, icons, icon stroke weight, icon states, motion restraint, color palette, accent color, dark mode colors, Qt, QWidget, QSS, stylesheet, QPainter, paintEvent, QML, desktop UI, item delegate, sizeHint, HiDPI, theme switch, dark mode toggle, status indicator, full-screen takeover, consent screen, security ceremony, escape hatch, cancel button, countdown timer, warning banner, QR code screen, pairing flow, modal that blocks everything, "this screen is scary", font size, small text, tiny text, legibility, product copy, UX writing, microcopy, labels, setting descriptions, tooltips, empty states, error messages, raw error shown to the user, jargon on screen.
 ---
 
 # Details that make interfaces feel better
@@ -14,12 +14,13 @@ When reviewing, slow the interface down: replay motion at 10% speed in the brows
 
 | Category | When to Use |
 | --- | --- |
-| [Typography](typography.md) | Text wrapping, font smoothing, tabular numbers, variable fonts (Qt), CJK fallback metrics |
+| [Typography](typography.md) | Size floors, text wrapping, font smoothing, tabular numbers, variable fonts (Qt), CJK fallback metrics |
 | [Surfaces](surfaces.md) | Border radius, optical alignment, shadows, image outlines, hit areas, status glyphs |
 | [Animations](animations.md) | Interruptible animations, enter/exit transitions, icon animations, scale on press, motion restraint |
 | [Icons](icons.md) | Icon stroke weight, states via `currentColor`, outline vs fill, sizing, RTL flipping |
 | [Performance](performance.md) | Transition specificity, `will-change` usage |
 | [Color](color.md) | Palette restraint, color tokens, dark mode backgrounds |
+| [Writing](write.md) | Product copy: effect over mechanism, internals off the screen, filler, error messages, disclosure, tooltips, every locale |
 | [Interruptions](interruptions.md) | Full-screen takeovers, consent ceremonies, countdowns, escape routes, warnings, codes and secrets on screen |
 | [Qt](qt.md) | Qt Widgets/QML projects — QSS limits, QPainter chrome, Qt animations, size-hint traps, theme switching, pixel verification |
 
@@ -115,6 +116,14 @@ One dominant color family plus one accent; every other non-semantic color is der
 
 Qt Style Sheets implement a frozen CSS 2.1 subset: no shadows, no transitions, no transforms, no variables. Use QSS solely for colors/fonts on stock controls via one token-substituted app-wide sheet. All chrome (depth, hover motion, knobs, focus rings) is QPainter custom painting, or QML where available. Form before color: decide an element's shape, states, and motion in paint code first, then tint it with tokens — never start from a QSS edit. See [qt.md](qt.md).
 
+### 23. Readable Text Sizes by Default
+
+Small text is an exception you justify, not a default. Web floors: `16px` for long-form body text, `14px` for UI text (labels, menus, descriptions, errors), `13px` for captions, and nothing the user must read to act below `12px`. Qt: about `11pt` body, `10pt` dense secondary text; the Windows `9pt` default is the floor, not the target. When text does not fit, rewrite or make room instead of shrinking it. See [typography.md](typography.md).
+
+### 24. Write From the User's Side of the Screen
+
+Name and describe things by what the user gets, not how it works. Keep internals (config keys, process names, registry paths, state-machine terms) off the screen, cut sentences that repeat what is already shown or defend the product, and never show a raw error as the message: say what happened and what to do, and keep the raw text in details or the log. See [write.md](write.md).
+
 ## Common Mistakes
 
 | Mistake | Fix |
@@ -137,6 +146,9 @@ Qt Style Sheets implement a frozen CSS 2.1 subset: no shadows, no transitions, n
 | Subtle hover/state tint is painted but imperceptible | Pixel-diff the state render against normal and retune the alpha (see [qt.md](qt.md)) |
 | Panel body repeats the panel title as a static label | The header names the unit; the body holds only parameter captions |
 | Theme switch leaves startup-only styling stale (Qt) | Route startup and switch through one styling path; recreate construction-time chrome (see [qt.md](qt.md)) |
+| `text-xs`, `10px` or `11px` on labels, descriptions or errors | Raise to the size floor; small sizes only for named exceptions (see [typography.md](typography.md)) |
+| Setting description names the config key or the mechanism | Describe the effect on the user and when to change it (see [write.md](write.md)) |
+| `error.message` or an error code rendered as the message | Written message with cause and next action; raw text in details or the log (see [write.md](write.md)) |
 
 ## Review Output Format
 
@@ -145,7 +157,7 @@ Use `full` when no review mode is supplied.
 | Mode | Coverage | Finding cap |
 | --- | --- | --- |
 | `quick` | Primary user path and highest-traffic states; report only `HIGH` and `MEDIUM` issues | 5 |
-| `full` | Entire requested scope across typography, surfaces, animations, icons, performance, color, and (in Qt projects) qt | 15 |
+| `full` | Entire requested scope across typography, surfaces, animations, icons, performance, color, writing, and (in Qt projects) qt | 15 |
 
 ### Scope and Coverage
 
@@ -228,15 +240,18 @@ When there are no findings, omit the findings table, state "No actionable interf
 - [ ] Takeover screens are leavable with both a key and a visible control, the exit is stated in words, and leaving is reported as a cancellation rather than a failure (see [interruptions.md](interruptions.md))
 - [ ] Timers state when the screen ends, never how long is left and never that it closes itself (see [interruptions.md](interruptions.md))
 - [ ] Icon stroke weight matches adjacent text weight, and icon states recolor one SVG through `currentColor` (see [icons.md](icons.md))
+- [ ] No label, description, error or button text below the size floor; small sizes are named exceptions (see [typography.md](typography.md))
+- [ ] Copy says what the user gets, shows no internals, repeats nothing already shown, and every error states the cause and the next action instead of a raw message (see [write.md](write.md))
 - [ ] Qt projects: QSS carries colors only, chrome is painted, animations are interruptible code, theme switches re-run the startup styling path, and visual changes are proven with offscreen renders (see [qt.md](qt.md))
 
 ## Reference Files
 
-- [typography.md](typography.md) — Text wrapping, font smoothing, tabular numbers, variable fonts (Qt), CJK fallback metrics
+- [typography.md](typography.md) — Size floors, text wrapping, font smoothing, tabular numbers, variable fonts (Qt), CJK fallback metrics
 - [surfaces.md](surfaces.md) — Border radius, optical alignment, shadows, image outlines, status glyphs
 - [animations.md](animations.md) — Interruptible animations, enter/exit transitions, icon animations, scale on press
 - [performance.md](performance.md) — Transition specificity, `will-change` usage
 - [color.md](color.md) — Palette restraint, color tokens, dark mode backgrounds
 - [icons.md](icons.md) — Icon stroke weight, states via `currentColor`, outline vs fill, sizing, RTL flipping
+- [write.md](write.md): product copy, from labels and setting descriptions to error messages
 - [interruptions.md](interruptions.md) — Full-screen takeovers, consent ceremonies, countdowns, escape routes, warnings, codes and secrets on screen
 - [qt.md](qt.md) — Qt Widgets/QML: QSS limits, design tokens, QPainter chrome, principle mapping, size-hint and item-view traps, theme switching, pixel verification
