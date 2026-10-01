@@ -165,6 +165,7 @@ When the app does something on the user's behalf (applies a default, starts a se
 - **Buttons and menu items take no sentence ending.** "저장", "다시 연결", "서비스 시작", never "저장해요".
 - **Instructions end in -세요.** "다시 연결을 눌러 재시도하세요." This is the one 해요체 form Korean interfaces conventionally pair with 합니다체 statements; do not let it spread to statements ("확인했어요"). -십시오 is stiffer and fits only a product that is formal throughout.
 - **The only exception is a deliberate character voice,** such as a game's in-world dialogue. Settings, errors and confirmations around it still use 합니다체. See [game-write.md](game-write.md) for how system text and character monologue divide the work.
+- **Speak to the reader; do not narrate.** In Korean the plain present (-ㅂ니다) reads as a description of what someone somewhere does, so a requirement or a step written that way ("FFmpeg를 미리 설치해 둡니다", "AppImage에 실행 권한을 주고 실행합니다", "버전을 3 미만으로 고정합니다") sounds like the writer is talking to the horizon, not to the person who has to do it. A limit written as a state ("PyPI 패키지에는 화면과 녹음이 없습니다", "macOS 앱은 Apple Silicon 전용입니다") has the same problem: the reader has to work out what it means for them. Say what the reader must do ("FFmpeg를 미리 설치해야 합니다"), may do ("전체 옵션은 `impulcifer --help`로 확인할 수 있습니다") or cannot do ("Intel Mac에서는 앱을 쓸 수 없습니다"). Keep plain statements for what the product itself does ("처리가 끝나면 측정 폴더에 다음 파일이 생깁니다"). This holds for help text, dialogs and READMEs alike.
 - **READMEs and documentation use either the plain written style (-다) or 합니다체,** one of them for the whole document, never 해요체.
 
 ## READMEs Are Documents, Not Advertisements
@@ -194,6 +195,7 @@ A README has two readers: someone deciding whether to use the project, and someo
 | Theme words on a login, settings or error screen ("COMMANDER ACCESS") | Plain names: 로그인, 설정 |
 | A README with a bold tagline, adjectives about the project, scarcity or a design manifesto | Delete; keep what it is, requirements, install, use, limits, build, licence |
 | Korean statements ending in -어요, -아요 or -해요 outside character dialogue | 합니다체 for sentences, noun phrases for status and labels |
+| Korean steps or requirements written as plain statements (-둡니다, -고정합니다, -실행합니다) or limits written as states (-입니다, -없습니다) | Say what the reader must, may or cannot do: -해야 합니다, -할 수 있습니다, -할 수 없습니다 |
 
 ## Reporting
 
