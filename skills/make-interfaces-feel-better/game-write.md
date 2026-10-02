@@ -78,7 +78,7 @@ Failure lines carry character too, and escalate with the situation:
 | Several failures in a row | (same) | 설명서를 좀 읽어볼까. |
 | A destructive command | (asks for confirmation) | 잠깐. 이걸 실행해도 되는 건가? |
 
-- **The program itself never has feelings.** "함께해요", "걱정하지 마세요", "다시 시작해볼까요?" are the interface pretending to care, and they stay banned (see [write.md](write.md)). A game has characters who really can feel something; give the emotion to them.
+- **The program itself never has feelings.** "함께해요", "걱정하지 마세요", "다시 시작해볼까요?" are the interface pretending to care, and they stay banned (see Not a Friend in [write.md](write.md#not-a-friend)). A game has characters who really can feel something; give the emotion to them.
 - **Keep the two visually apart.** Different region, typeface or frame for system text and monologue, so the player never wonders whether a line is the machine's state or the character's opinion.
 - **This is the character-voice exception in [write.md](write.md#korean-register).** Monologue and dialogue may use 해요체 or 반말; system text and everything outside the fiction do not.
 
@@ -115,7 +115,7 @@ For games whose voice is absurd humour (병맛). The joke lives in the fiction; 
 - **Keep lines short.** One or two sentences, three at most, per text box.
 - **Fix each character's speech habits.** A character's sentence endings and whether they speak formally or casually stay the same in every scene and every writer's hands.
 - **Once the world coins a word, use it everywhere in the fiction.** If the setting has its own euphemism for death or defeat, crew-loss logs and event text use it too; the settings screen and real error messages outside the fiction do not.
-- **Theme vocabulary still stays off the chrome.** Login, settings and store copy are plain (see "No Marketing Voice" in [write.md](write.md)).
+- **Theme vocabulary still stays off the chrome.** Login, settings and store copy are plain (see Not a Salesperson in [write.md](write.md#not-a-salesperson)).
 
 ### Learn the Tone From Shipped Lines
 

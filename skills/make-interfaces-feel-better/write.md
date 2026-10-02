@@ -2,13 +2,12 @@
 
 Rules for the words an interface shows (labels, descriptions, helper text, tooltips, empty states, dialogs, toasts, status lines, error messages, landing and login pages) and for the README that introduces the project. Toolkit-agnostic. Parts are adapted from `better-writing` in [jakubkrehel/skills](https://github.com/jakubkrehel/skills) (MIT); the rest comes from copy rewrites in shipped products.
 
-Generated interfaces get copy wrong in five recurring ways, and a review should look for all five first:
+Generated interfaces get copy wrong in four recurring ways, and a review should look for all four first:
 
-1. **Filler.** Sentences that tell users what they already know, repeat what the title or status lamp already says, or reassure them about things they never worried about.
+1. **Filler.** Sentences that tell users what they already know or repeat what the title or status lamp already says.
 2. **Internals on the screen.** The developer's vocabulary printed as if it were the user's: config key names, process names, registry paths, component names, state-machine terms.
 3. **Raw errors.** An exception string, an HTTP body or an error code shown as the message, instead of text that says what happened and what to do.
-4. **Marketing voice.** Sentimental taglines, verse-like fragments and self-praise, on product screens and in READMEs alike.
-5. **Chat voice.** The program written as a character that asks, tells, promises, picks things out and waits for the user, or that speaks the user's own lines for them.
+4. **A persona.** The product written as someone: a friend who chats, comforts and asks; a salesperson who praises and defends the product; a writer who reaches for images. On product screens and in READMEs alike.
 
 The fix in every case is to write from the user's side of the screen: what they see, what they get, what they should do next.
 
@@ -63,8 +62,6 @@ Every sentence must do work for the person reading it. Delete the ones that do n
 
 - **Do not say what is already shown.** If the card header names the unit, the body does not repeat the name as a label. A red lamp does not need the word "Rejected" beside it. Say each status once, in one place: the lamp or badge names the state, one line gives the cause.
 - **Do not print fake readouts.** Tick marks with no control pointing at them, counts and statistics the user cannot act on, and theoretical curves beside a measured one are decoration pretending to be information.
-- **Do not defend the product to the user.** Sentences about what the app will not do ("Control Center will not terminate a process owned by another session", "Complete profile contents are never logged", "this is not shown as normal system-wide application") answer questions nobody asked. If a limit matters to the user, state it as what they can do.
-- **No reassurance, sentiment or marketing.** No "Don't worry", no "Oops!", no exclamation marks, no "seamless", "effortless" or "powerful". Errors and destructive actions are plain. Marketing voice gets its own section below.
 - **No obvious explanations.** "Click Save to save your changes" teaches nothing. Explain only what the reader could not guess.
 - **Turn state-machine prose into one instruction.**
 
@@ -75,41 +72,40 @@ Every sentence must do work for the person reading it. Delete the ones that do n
 | Wait for the current service transition to finish, then refresh. Control Center will not start another mutation from this state. | Wait for the current operation to finish, then refresh the status. |
 | Restart required | Reopen apps to see changes |
 
-## No Marketing Voice
+## The Product Has No Persona
 
-Sentimental taglines are the most recognisable mark of generated copy. Every product that uses them sounds like every other one, and so much AI output has leaned on them that readers now take them as a sign that nobody wrote the page. Keep them out of product screens, landing pages, login screens and READMEs alike.
+An interface is an instrument. Every line on it is a **label** that names something, an **instruction** that says what the reader does, a **fact** about what is true or what an action does, or a **result** that says what just happened. Language models write as someone, so generated copy gives the product a persona: a friend, a salesperson or a writer. The three are one bias with one test: ask who is speaking to whom. If the product is speaking to a friend, a customer or a reader of prose, rewrite the line as one of the four kinds.
 
-This is the pattern, from a generated game landing page and its login screen:
+A product's fiction is the exception: a game's characters may chat, joke and feel (see [game-write.md](game-write.md)). The chrome around it may not.
 
-```text
-A SHARED UNIVERSE. YOUR OWN JOURNEY.
+### Not a Friend
 
-작은 시작.
-함께 넓혀가는 우주.
+The product does not talk with the user, comfort them or befriend them. The reader has to work out who is talking, and in Korean the program sounds as if it were trying to make friends.
 
-나만의 기지를 세우고 함선을 준비하세요.
-친구들과 항해의 이야기를 나누며, 더 먼 성계로.
+- **It is not a character.** It does not ask, tell, request, pick things out, keep things ready, wait or remember. Name what the user will see or what is now true. In Korean the benefactive endings (-아/어 주다, -아/어 드리다) and the doing-in-advance ending (-아/어 두다) on the program's actions mark a favour and give the voice away. What an action does is still stated: "고른 USB에 NvStrapsReBar 폴더를 저장합니다" is a fact about the button, "저장해 두었습니다" announces a favour. Endings have no agent either: "Ends in 01:47", not "Closes by itself" (see [interruptions.md](interruptions.md#say-when-it-ends-and-give-the-ending-no-agent)).
+- **It has no feelings.** No "Don't worry", "Oops!", "함께해요", "걱정하지 마세요", greetings, thanks, welcome-backs, exclamation marks or emoji. Errors and destructive actions are plain. In Korean, 해요체 statements carry this voice too (see Korean Register).
+- **It does not reassure or promise.** No "You're all set", "~하기만 하면 됩니다", "언제든 열 수 있습니다", and no promises about the next visit: "다음에 열면 이어서 진행합니다" becomes "다음 실행 때 이 단계부터 이어집니다". A fact the user needs stays as the fact.
+- **It does not hold a dialogue.** A heading that asks ("BIOS 설정에 Re-Size BAR 항목이 있습니까?") answered by options that reply ("있습니다", "없습니다") is a conversation. Write the choice as an instruction and name the options as states: "Re-Size BAR 항목이 있는지 고르세요" with "Re-Size BAR 항목 있음" and "Above 4G Decoding만 있음". A result is stated, not reported back: "복사됨", not "복사했습니다".
+- **It does not speak in the user's voice.** "내가 할 일" or "My steps" makes the reader stop and ask whether "I" is them or the program. Name the owner ("사용자가 할 일") or drop the pronoun ("준비물"). A checkbox the user signs as their own statement is the one place for the user's voice; in Korean write it as the statement, without a pronoun.
 
-실제 종합 관제 화면: 자원 생산, 시설 건설, 주변 성계와 함대 편성
-실제 게임 화면 · 종합 관제
-시간과 함께 성장하는 기지
-실시간 채팅과 접속자
-어디서든 이어가는 항해
+| Before | After |
+| --- | --- |
+| 내가 할 일 / 필요한 것 | 사용자가 할 일 / 준비물 |
+| 누르면 다시 시작하기 전에 한 번 더 묻습니다. | 다시 시작 전에 확인 창이 열립니다. |
+| 앱이 요청하는 것은 2번입니다. | BIOS 화면 진입에 1번, 설정 적용에 1번. |
+| 이 메인보드에 맞는 방법을 앱이 골라 두었습니다. | 이 메인보드에 맞는 방법이 선택되어 있습니다. |
+| You're all set! 🎉 | Setup complete |
 
-COMMANDER ACCESS
-다시 오신 것을 환영합니다
-계정에 로그인하고 개척을 이어가세요.
-```
+### Not a Salesperson
 
-What makes it slop:
+The product does not praise, sell or defend itself. Sentimental taglines are the most recognisable mark of generated copy: every product that uses them sounds like every other one, and readers now take them as a sign that nobody wrote the page.
 
-- **A slogan in English capitals on a non-English page,** and a second-person promise ("your own journey") that says nothing about the product.
-- **Verbless fragments set out like verse** ("작은 시작." / "함께 넓혀가는 우주."). They look deep and state no fact.
-- **Features turned into poetic noun phrases** ("시간과 함께 성장하는 기지", "어디서든 이어가는 항해") instead of what the user can actually do.
-- **Captions that insist the screenshot is real** ("실제 게임 화면"). A caption says what the picture shows. If it has to swear the picture is genuine, the page has a different problem.
-- **Theme vocabulary spilled onto functional screens.** A login form titled "COMMANDER ACCESS", with a welcome-back line and "continue your pioneering", is a login form in costume.
+- **No slogans or verse.** An English slogan in capitals on a non-English page, verbless fragments set out like verse ("작은 시작." / "함께 넓혀가는 우주."), and features turned into poetic noun phrases ("시간과 함께 성장하는 기지", "어디서든 이어가는 항해") look deep and state no fact.
+- **No claims the reader cannot check.** Replace each adjective about the product ("powerful", "seamless", "effortless") with the fact that would justify it, or delete it. No "your journey" promises, and no caption that swears a screenshot is real ("실제 게임 화면"); a caption says what the picture shows.
+- **No costume on functional screens.** A login form titled "COMMANDER ACCESS" with a welcome-back line and "continue your pioneering" is a login form in costume. Login, settings, errors and store copy use plain names.
+- **No defence.** Sentences about what the product will not do ("Control Center will not terminate a process owned by another session", "Complete profile contents are never logged", "this is not shown as normal system-wide application") answer questions nobody asked. If a limit matters to the user, state it as what they can do.
 
-Write the plain version: what the product is, what the user does in it, concrete facts. The rewrite below only rearranges facts the original already states; use the product's real ones.
+These rewrites only rearrange facts the original already states; use the product's real ones.
 
 | Before | After |
 | --- | --- |
@@ -117,29 +113,14 @@ Write the plain version: what the product is, what the user does in it, concrete
 | 실제 종합 관제 화면: 자원 생산, 시설 건설, 주변 성계와 함대 편성 | 종합 관제 화면. 자원 생산, 시설 건설, 함대 편성을 한 화면에서 합니다. |
 | COMMANDER ACCESS / 다시 오신 것을 환영합니다 / 계정에 로그인하고 개척을 이어가세요. | 로그인 (title, fields, a 로그인 button, nothing else) |
 
-- **A product's fiction may have a voice; its chrome does not.** A game's dialogue and events can be as playful as the game wants. The landing page, login, settings, errors and store description around it are plain. Text inside a game (its world, system messages and character dialogue) has its own detailed policy in [game-write.md](game-write.md).
-- **Adjectives about the product itself are claims the reader cannot check.** Replace each with the fact that would have justified it, or delete it.
+### Not a Writer
 
-## The Program Does Not Converse
+Product copy is not prose. A verb that carries an image or a feeling ("담습니다", "NvStrapsReBar가 남긴 상태", "드라이버가 알려 준 크기") makes a functional line read like an essay. Use the verb of the operation (저장, 기록, 표시, 보고, 읽기), keep sentences short and declarative, and give a status a noun phrase.
 
-An interface is an instrument the user operates, not someone the user talks to. Language models write the way they chat, so generated copy keeps turning the program into a conversation partner: it asks, tells, promises, does favours and even speaks the user's lines. The reader then has to work out who is speaking to whom, and in Korean the program sounds as if it were trying to make friends. Write labels, instructions, facts and results; nothing else.
-
-- **The program is not a character.** Do not make it the subject of verbs of talking, wanting or caring: asking, telling, requesting, picking out, keeping something ready, waiting, remembering. In Korean the benefactive endings (-아/어 주다, -아/어 드리다) and the doing-in-advance ending (-아/어 두다) mark a favour and give the voice away. Name what the user will see or what is now true. Stating what an action does stays (see When the App Acts, Say So below): "고른 USB에 NvStrapsReBar 폴더를 저장합니다" is a fact about the button, "저장해 두었습니다" is a favour being announced.
-- **Do not speak in the user's voice.** A label like "내가 할 일" or "My steps" makes the reader stop and ask whether "I" is them or the program. Name the owner ("사용자가 할 일") or drop the pronoun ("준비물"). A checkbox the user signs as their own statement is the one place for the user's voice; write it as the statement, without a pronoun in Korean.
-- **No question-and-answer exchange.** A heading that asks ("BIOS 설정에 Re-Size BAR 항목이 있습니까?") answered by options that reply ("있습니다", "없습니다") is a dialogue. Write the choice as an instruction and name the options as states: "Re-Size BAR 항목이 있는지 고르세요" with "Re-Size BAR 항목 있음" and "Above 4G Decoding만 있음".
-- **No small talk around the task.** No reassurance ("~하기만 하면 됩니다", "언제든 열 수 있습니다", "You're all set"), no promises about the next visit ("다음에 열면 이어서 진행합니다" becomes "다음 실행 때 이 단계부터 이어집니다"), no greetings or thanks. A fact the user needs stays as the fact.
-- **Operational verbs, not literary ones.** Verbs that carry an image or a feeling ("담습니다", "남긴 상태", "알려 준 크기") read as prose. Use the verb of the operation: 저장, 기록, 표시, 보고.
-- **Results are stated, not reported back.** "복사했습니다" is the program telling you what it did; "복사됨" is the result. Short status and results take noun phrases (see Korean Register below).
-
-| Before (chat voice) | After |
+| Before | After |
 | --- | --- |
-| 내가 할 일 / 필요한 것 | 사용자가 할 일 / 준비물 |
 | 설치용 파일과 복구용 원본을 함께 담습니다 | 설치용 파일과 복구용 원본 저장 |
-| 앱이 요청하는 것은 2번입니다. BIOS 설치 중에도 다시 켜집니다. | BIOS 화면 진입에 1번, 설정 적용에 1번. BIOS를 설치하는 동안에도 PC가 다시 켜집니다. |
-| 누르면 다시 시작하기 전에 한 번 더 묻습니다. | 다시 시작 전에 확인 창이 열립니다. |
-| 순서는 앱이 알려 줍니다. | 순서는 앱 화면에 나옵니다. |
-| 이 메인보드에 맞는 방법을 앱이 골라 두었습니다. | 이 메인보드에 맞는 방법이 선택되어 있습니다. |
-| You will be asked once more before Windows restarts. | A confirmation opens before Windows restarts. |
+| NVIDIA 드라이버가 알려 준 BAR 크기 | NVIDIA 드라이버가 보고한 BAR 크기 |
 
 ## Errors Are Instructions
 
@@ -160,10 +141,10 @@ An error message says what happened in the user's terms and what to do next, nex
 
 ## When the App Acts, Say So
 
-When the app does something on the user's behalf (applies a default, starts a service, changes a file), disclose it three times: before the click, in a success message that names what happened, and in a specific message if it fails. Do not replace disclosure with refusal or with an extra modal.
+When the app does something on the user's behalf (applies a default, starts a service, changes a file), disclose it three times: before the click, in a success message that names what happened, and in a specific message if it fails. Do not replace disclosure with refusal or with an extra modal. Disclosure states the action as a fact, never as a favour (see Not a Friend).
 
 - **A confirmation is one dialog with one factual line about the consequence.** No "I understand" checkboxes, no essays to acknowledge, no disabled navigation behind a lock banner.
-- **Buttons start with a verb and repeat the consequence.** "Delete this project?" offers `Delete project` and `Cancel`, never a bare `Yes` and `No` on a consequential action.
+- **The title names the action and the buttons repeat it.** "Delete this project" offers `Delete project` and `Cancel`, never a bare `Yes` and `No`, which make the dialog a question and the buttons replies.
 - **Respect a refusal.** Ask for elevation or permission once; if the user declines, say what is unavailable and how to get it later, and stop asking.
 
 ## Short, Conditional Help
@@ -183,18 +164,18 @@ When the app does something on the user's behalf (applies a default, starts a se
 
 ## Korean Register
 
-- **Do not use 해요체 for statements.** Sentences in the UI use 합니다체 ("PC와 아직 연결하지 않았습니다"). Status lines, empty states and short labels use noun phrases ("승인 요청 없음", "확인 중"). One app rewrote its whole catalogue this way: "기다리는 요청이 없어요" became "승인 요청 없음", and "받은 요청을 확인하고 있어요" became "받은 요청을 확인 중입니다".
+- **Sentences use 합니다체; status lines, empty states, short results and labels use noun phrases.** 해요체 statements are the friend's voice (see Not a Friend). One app rewrote its whole catalogue this way: "기다리는 요청이 없어요" became "승인 요청 없음", and "받은 요청을 확인하고 있어요" became "받은 요청을 확인 중입니다".
 - **Buttons and menu items take no sentence ending.** "저장", "다시 연결", "서비스 시작", never "저장해요".
 - **Instructions end in -세요.** "다시 연결을 눌러 재시도하세요." This is the one 해요체 form Korean interfaces conventionally pair with 합니다체 statements; do not let it spread to statements ("확인했어요"). -십시오 is stiffer and fits only a product that is formal throughout.
+- **Speak to the reader; do not narrate.** In Korean the plain present (-ㅂ니다) reads as a description of what someone somewhere does, so a step or requirement written that way ("FFmpeg를 미리 설치해 둡니다", "버전을 3 미만으로 고정합니다") sounds like the writer is talking to the horizon. A limit written as a state ("macOS 앱은 Apple Silicon 전용입니다") leaves the reader to work out what it means for them. Say what the reader must do ("FFmpeg를 미리 설치해야 합니다"), may do ("전체 옵션은 `impulcifer --help`로 확인할 수 있습니다") or cannot do ("Intel Mac에서는 앱을 쓸 수 없습니다"). Keep plain statements for what the product itself does ("처리가 끝나면 측정 폴더에 다음 파일이 생깁니다"). This holds for help text, dialogs and READMEs alike.
 - **The only exception is a deliberate character voice,** such as a game's in-world dialogue. Settings, errors and confirmations around it still use 합니다체. See [game-write.md](game-write.md) for how system text and character monologue divide the work.
-- **Speak to the reader; do not narrate.** In Korean the plain present (-ㅂ니다) reads as a description of what someone somewhere does, so a requirement or a step written that way ("FFmpeg를 미리 설치해 둡니다", "AppImage에 실행 권한을 주고 실행합니다", "버전을 3 미만으로 고정합니다") sounds like the writer is talking to the horizon, not to the person who has to do it. A limit written as a state ("PyPI 패키지에는 화면과 녹음이 없습니다", "macOS 앱은 Apple Silicon 전용입니다") has the same problem: the reader has to work out what it means for them. Say what the reader must do ("FFmpeg를 미리 설치해야 합니다"), may do ("전체 옵션은 `impulcifer --help`로 확인할 수 있습니다") or cannot do ("Intel Mac에서는 앱을 쓸 수 없습니다"). Keep plain statements for what the product itself does ("처리가 끝나면 측정 폴더에 다음 파일이 생깁니다"). This holds for help text, dialogs and READMEs alike.
 - **READMEs and documentation use either the plain written style (-다) or 합니다체,** one of them for the whole document, never 해요체.
 
 ## READMEs Are Documents, Not Advertisements
 
 A README has two readers: someone deciding whether to use the project, and someone who wants to build or change it. Neither is a customer to be sold to. Give them, in roughly this order, what the project is in one or two plain sentences, what it needs (platform, versions, accounts), how to install it, how to use it, what it does not do yet and its known problems, how to build and test it, and the licence.
 
-- **No self-praise.** No bold tagline, no adjectives about the project itself ("powerful", "blazing fast", "elegant", "the easy way"), no manifesto on why the design is clever, no borrowing credibility by naming who else uses a licence or a technique, no scarcity ("first come, first served", "five spots"). A small project written like a famous product's launch page looks foolish. Plain facts read as confidence.
+- **No salesperson here either** (see Not a Salesperson). No bold tagline, no adjectives about the project itself ("powerful", "blazing fast", "elegant", "the easy way"), no manifesto on why the design is clever, no borrowing credibility by naming who else uses a licence or a technique, no scarcity ("first come, first served", "five spots"). A small project written like a famous product's launch page looks foolish. Plain facts read as confidence.
 - **Explain the design only as far as the reader needs it to use the project.** "Each thread has four fields: focus, decisions, evidence, notes" is useful. A paragraph on why this is the right way to think about work is not.
 - **State limits plainly.** Unsupported platforms, missing features, known bugs. A README that says where the project stops is the one readers trust.
 - **A README in another language is written in that language, not transliterated from English.** A Korean README that follows the English one sentence by sentence comes out as predicate-less fragments, English-style dash and colon lists, a space between an English word and its particle (`Claude Code 나` for `Claude Code나`), literal metaphors, and "not A but B" contrasts nobody asked for. Write each language natively. If the owner keeps a writing guide for that language, such as a guide against translationese, it applies to the README in full.
@@ -208,24 +189,21 @@ A README has two readers: someone deciding whether to use the project, and someo
 | Option labels `Mode 1`, `Level 2`, `Option A` | Name each option by what it does |
 | Strings containing process, PID, registry, HKCU, inject, hook, payload, manifest, helper, broker, verified, mutation, transition | Move to the log or details, or rewrite in the user's terms |
 | `error.message`, `String(err)`, `e.what()`, `QString::fromStdString(ex...)` reaching a label or toast | Map to a written message; keep the raw text in details or the log |
-| "Oops", "Something went wrong" with nothing after it, exclamation marks in errors | State the cause and the next action |
-| "will not", "never", "remains blocked", "is not shown as" in a description | Delete, or turn into what the user can do |
+| "Something went wrong" with nothing after it | State the cause and the next action |
 | A body label repeating the header, a word repeating the lamp | Say it once |
 | An English word inside a non-English screen that is not a unit or a name | Translate it |
 | Two words for one concept across screens | Pick one |
-| An all-caps English slogan, verbless tagline lines, "your journey" promises, captions calling a screenshot real | Say what the product is and what the user does in it |
-| Theme words on a login, settings or error screen ("COMMANDER ACCESS") | Plain names: 로그인, 설정 |
-| A README with a bold tagline, adjectives about the project, scarcity or a design manifesto | Delete; keep what it is, requirements, install, use, limits, build, licence |
+| The program asking, telling, requesting, picking out, keeping ready or waiting; Korean -아/어 주다, -아/어 드리다, -아/어 두다 on its actions | Name what appears or what is now true (Not a Friend) |
+| "Don't worry", "Oops", "You're all set", "함께해요", "~하기만 하면 됩니다", "언제든", exclamation marks, emoji, promises about the next visit | Delete, or state the fact (Not a Friend) |
+| A question heading answered by 있습니다 / 없습니다 or Yes / No; 내, 나, "my", "I" in labels outside a signed attestation | An instruction with options named as states; name the owner (Not a Friend) |
+| Slogans, verse-like taglines, adjectives about the product, "your journey", captions calling a screenshot real, theme words on chrome, a README that sells the project | Say what the product is and what the user does in it; a README keeps what it is, requirements, install, use, limits, build, licence (Not a Salesperson) |
+| "will not", "never", "remains blocked", "is not shown as" about the product | Delete, or turn into what the user can do (Not a Salesperson) |
+| Verbs that carry an image or a feeling (담다, 남기다, 알려 주다) | The verb of the operation (Not a Writer) |
 | Korean statements ending in -어요, -아요 or -해요 outside character dialogue | 합니다체 for sentences, noun phrases for status and labels |
 | Korean steps or requirements written as plain statements (-둡니다, -고정합니다, -실행합니다) or limits written as states (-입니다, -없습니다) | Say what the reader must, may or cannot do: -해야 합니다, -할 수 있습니다, -할 수 없습니다 |
-| The program as the subject of asking, telling, requesting, picking or waiting; Korean -아/어 주다, -아/어 드리다, -아/어 두다 on the program's actions | Name what appears or what is now true; keep plain statements of what an action does |
-| 내, 나, "my", "I" in labels outside a signed attestation | Name the owner or drop the pronoun |
-| A question heading answered by 있습니다 / 없습니다 options | An instruction with options named as states |
-| "~하기만 하면 됩니다", "언제든", "You're all set", promises about the next visit | Delete, or state the fact |
-| Literary verbs on functional copy (담다, 남기다, 알려 주다) | The verb of the operation: 저장, 기록, 표시, 보고 |
 
 ## Reporting
 
-- **Severity.** `HIGH`: the copy misleads, hides how to recover from an error, shows a raw error or internal detail where the user must decide something, or sends the user the wrong way. `MEDIUM`: filler, marketing voice, self-praise in a README, inconsistent terms or register, mechanism-first descriptions, untranslated fragments. `LOW`: isolated wording polish.
+- **Severity.** `HIGH`: the copy misleads, hides how to recover from an error, shows a raw error or internal detail where the user must decide something, or sends the user the wrong way. `MEDIUM`: filler, a persona (friend, salesperson or writer) on a screen or in a README, inconsistent terms or register, mechanism-first descriptions, untranslated fragments. `LOW`: isolated wording polish.
 - **Verification.** Source is enough: check every label against the action it triggers, every error path for a written message and a stated fix, every description against the question "would the user who needs this setting understand it", and terms against the copy around them. When the product has a string catalogue, check every locale, not only the one you wrote in.
 - **Format.** Use the review format in [SKILL.md](SKILL.md), grouped by the rule each finding breaks, with the catalogue key or `path:line` as the location and the before and after text in the row.
