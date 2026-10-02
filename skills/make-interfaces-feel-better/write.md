@@ -2,12 +2,13 @@
 
 Rules for the words an interface shows (labels, descriptions, helper text, tooltips, empty states, dialogs, toasts, status lines, error messages, landing and login pages) and for the README that introduces the project. Toolkit-agnostic. Parts are adapted from `better-writing` in [jakubkrehel/skills](https://github.com/jakubkrehel/skills) (MIT); the rest comes from copy rewrites in shipped products.
 
-Generated interfaces get copy wrong in four recurring ways, and a review should look for all four first:
+Generated interfaces get copy wrong in five recurring ways, and a review should look for all five first:
 
 1. **Filler.** Sentences that tell users what they already know, repeat what the title or status lamp already says, or reassure them about things they never worried about.
 2. **Internals on the screen.** The developer's vocabulary printed as if it were the user's: config key names, process names, registry paths, component names, state-machine terms.
 3. **Raw errors.** An exception string, an HTTP body or an error code shown as the message, instead of text that says what happened and what to do.
 4. **Marketing voice.** Sentimental taglines, verse-like fragments and self-praise, on product screens and in READMEs alike.
+5. **Chat voice.** The program written as a character that asks, tells, promises, picks things out and waits for the user, or that speaks the user's own lines for them.
 
 The fix in every case is to write from the user's side of the screen: what they see, what they get, what they should do next.
 
@@ -119,6 +120,27 @@ Write the plain version: what the product is, what the user does in it, concrete
 - **A product's fiction may have a voice; its chrome does not.** A game's dialogue and events can be as playful as the game wants. The landing page, login, settings, errors and store description around it are plain. Text inside a game (its world, system messages and character dialogue) has its own detailed policy in [game-write.md](game-write.md).
 - **Adjectives about the product itself are claims the reader cannot check.** Replace each with the fact that would have justified it, or delete it.
 
+## The Program Does Not Converse
+
+An interface is an instrument the user operates, not someone the user talks to. Language models write the way they chat, so generated copy keeps turning the program into a conversation partner: it asks, tells, promises, does favours and even speaks the user's lines. The reader then has to work out who is speaking to whom, and in Korean the program sounds as if it were trying to make friends. Write labels, instructions, facts and results; nothing else.
+
+- **The program is not a character.** Do not make it the subject of verbs of talking, wanting or caring: asking, telling, requesting, picking out, keeping something ready, waiting, remembering. In Korean the benefactive endings (-아/어 주다, -아/어 드리다) and the doing-in-advance ending (-아/어 두다) mark a favour and give the voice away. Name what the user will see or what is now true. Stating what an action does stays (see When the App Acts, Say So below): "고른 USB에 NvStrapsReBar 폴더를 저장합니다" is a fact about the button, "저장해 두었습니다" is a favour being announced.
+- **Do not speak in the user's voice.** A label like "내가 할 일" or "My steps" makes the reader stop and ask whether "I" is them or the program. Name the owner ("사용자가 할 일") or drop the pronoun ("준비물"). A checkbox the user signs as their own statement is the one place for the user's voice; write it as the statement, without a pronoun in Korean.
+- **No question-and-answer exchange.** A heading that asks ("BIOS 설정에 Re-Size BAR 항목이 있습니까?") answered by options that reply ("있습니다", "없습니다") is a dialogue. Write the choice as an instruction and name the options as states: "Re-Size BAR 항목이 있는지 고르세요" with "Re-Size BAR 항목 있음" and "Above 4G Decoding만 있음".
+- **No small talk around the task.** No reassurance ("~하기만 하면 됩니다", "언제든 열 수 있습니다", "You're all set"), no promises about the next visit ("다음에 열면 이어서 진행합니다" becomes "다음 실행 때 이 단계부터 이어집니다"), no greetings or thanks. A fact the user needs stays as the fact.
+- **Operational verbs, not literary ones.** Verbs that carry an image or a feeling ("담습니다", "남긴 상태", "알려 준 크기") read as prose. Use the verb of the operation: 저장, 기록, 표시, 보고.
+- **Results are stated, not reported back.** "복사했습니다" is the program telling you what it did; "복사됨" is the result. Short status and results take noun phrases (see Korean Register below).
+
+| Before (chat voice) | After |
+| --- | --- |
+| 내가 할 일 / 필요한 것 | 사용자가 할 일 / 준비물 |
+| 설치용 파일과 복구용 원본을 함께 담습니다 | 설치용 파일과 복구용 원본 저장 |
+| 앱이 요청하는 것은 2번입니다. BIOS 설치 중에도 다시 켜집니다. | BIOS 화면 진입에 1번, 설정 적용에 1번. BIOS를 설치하는 동안에도 PC가 다시 켜집니다. |
+| 누르면 다시 시작하기 전에 한 번 더 묻습니다. | 다시 시작 전에 확인 창이 열립니다. |
+| 순서는 앱이 알려 줍니다. | 순서는 앱 화면에 나옵니다. |
+| 이 메인보드에 맞는 방법을 앱이 골라 두었습니다. | 이 메인보드에 맞는 방법이 선택되어 있습니다. |
+| You will be asked once more before Windows restarts. | A confirmation opens before Windows restarts. |
+
 ## Errors Are Instructions
 
 An error message says what happened in the user's terms and what to do next, next to the thing that failed. The raw error goes to the log.
@@ -196,6 +218,11 @@ A README has two readers: someone deciding whether to use the project, and someo
 | A README with a bold tagline, adjectives about the project, scarcity or a design manifesto | Delete; keep what it is, requirements, install, use, limits, build, licence |
 | Korean statements ending in -어요, -아요 or -해요 outside character dialogue | 합니다체 for sentences, noun phrases for status and labels |
 | Korean steps or requirements written as plain statements (-둡니다, -고정합니다, -실행합니다) or limits written as states (-입니다, -없습니다) | Say what the reader must, may or cannot do: -해야 합니다, -할 수 있습니다, -할 수 없습니다 |
+| The program as the subject of asking, telling, requesting, picking or waiting; Korean -아/어 주다, -아/어 드리다, -아/어 두다 on the program's actions | Name what appears or what is now true; keep plain statements of what an action does |
+| 내, 나, "my", "I" in labels outside a signed attestation | Name the owner or drop the pronoun |
+| A question heading answered by 있습니다 / 없습니다 options | An instruction with options named as states |
+| "~하기만 하면 됩니다", "언제든", "You're all set", promises about the next visit | Delete, or state the fact |
+| Literary verbs on functional copy (담다, 남기다, 알려 주다) | The verb of the operation: 저장, 기록, 표시, 보고 |
 
 ## Reporting
 
