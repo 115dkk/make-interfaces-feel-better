@@ -21,7 +21,7 @@ When reviewing, slow the interface down: replay motion at 10% speed in the brows
 | [Performance](performance.md) | Transition specificity, `will-change` usage |
 | [Color](color.md) | Palette restraint, color tokens, dark mode backgrounds |
 | [Writing](write.md) | Product copy and READMEs: effect over mechanism, internals off the screen, filler, no persona (friend, salesperson, writer), error messages, disclosure, tooltips, every locale, Korean register |
-| [Game writing](game-write.md) | Text inside games: a fiction everyone in it lives as true, no selling to a player who already chose the game (gacha shops included), situation before feature, in-world forms, machine voice vs character monologue, real failures kept out of the fiction, clues instead of hint ladders, absurd humour |
+| [Game writing](game-write.md) | Text inside games: a fiction everyone in it lives as true, no selling to a player who already chose the game (gacha shops included), situation before feature, in-world forms, machine voice vs character monologue, real failures kept out of the fiction, clues instead of hint ladders, words instead of middle dots, absurd humour |
 | [Interruptions](interruptions.md) | Full-screen takeovers, consent ceremonies, countdowns, escape routes, warnings, codes and secrets on screen |
 | [Qt](qt.md) | Qt Widgets/QML projects — QSS limits, QPainter chrome, Qt animations, size-hint traps, theme switching, pixel verification |
 
