@@ -110,9 +110,22 @@ A pitch is written for someone still deciding. The person who opened the game de
 
 | Before | After |
 | --- | --- |
-| ★기간 한정★ 루나 픽업 모집! 10월 19일까지, 놓치면 다시 없을지도? | 루나 픽업 모집 · 10월 19일 종료 |
-| 10회 모집 시 4성 이상 1명 확정! 지금 바로 운명의 동료를 만나보세요! | 10회 모집 · 4성 이상 1명 확정 |
+| ★기간 한정★ 루나 픽업 모집! 10월 19일까지, 놓치면 다시 없을지도? | 루나 픽업 모집 (10월 19일까지) |
+| 10회 모집 시 4성 이상 1명 확정! 지금 바로 운명의 동료를 만나보세요! | 10회 모집하면 4성 이상 1명 확정 |
 | 지휘관님, 저를 꼭 데려가 주실 거죠? (루나, on her own banner) | 루나's own line from the story, or none |
+
+## Join With Words, Not Middle Dots
+
+Korean writing seldom uses the middle dot (·). A tool's status line uses it to pack fields side by side, where it is quick to scan, but inside a game it looks imported and reads cold: a row of fields set in front of the player instead of a line someone wrote. Every screen of a game, the shop and banners included, joins the parts of a line with words: a particle, an ending, a comma, parentheses or a line break.
+
+| Before | After |
+| --- | --- |
+| 계약서 찾기 · 진행 중 | 계약서 찾기 (진행 중) |
+| 루나 · 용족 · 17세 | 루나, 열일곱 살 용족 |
+| 회복약 · 3개 · 체력 50 회복 | 회복약 3개 (먹으면 체력 50 회복) |
+
+- **Many values become lines, not a dotted row.** A character's stats or a pack's contents go one per line, each with its label.
+- **A middle dot is the last resort,** for a dense row outside the fiction with no room for a line break.
 
 ## Clues in the World, Not Hint Ladders
 
@@ -166,6 +179,7 @@ Absurd humour is the part of game text a model writes worst: generated jokes exp
 | The genre name ("RPG", "시뮬레이션"), a title-screen tagline or "모험이 시작됩니다" inside the game | Delete; the store page carries it, as facts |
 | A paid shop or gacha banner with 한정!, 놓치지 마세요, 지금이 기회, 역대급, 운명의, star brackets or exclamation marks | Contents, price, rates and end date only |
 | A character on a banner asking the player to pull or pay | The character's own line from the story, or none |
+| Middle dots (·) joining the parts of a line anywhere in the game | A particle, an ending, a comma, parentheses or a line break |
 | An opening line that sets a mood but not who the player is or what happens today | Rewrite as the situation: role, what happened, what the player waits for |
 | A menu or system with no reason in the protagonist's job | Give it one, or cut it |
 | A case whose premise would be a scam or breach in the game's own world | Change the case |
