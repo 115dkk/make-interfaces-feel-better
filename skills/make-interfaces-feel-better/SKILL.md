@@ -19,7 +19,7 @@ When reviewing, slow the interface down: replay motion at 10% speed in the brows
 | [Animations](animations.md) | Interruptible animations, enter/exit transitions, icon animations, scale on press, motion restraint |
 | [Icons](icons.md) | Icon stroke weight, states via `currentColor`, outline vs fill, sizing, RTL flipping |
 | [Performance](performance.md) | Transition specificity, `will-change` usage |
-| [Color](color.md) | Palette restraint, color tokens, dark mode backgrounds |
+| [Color](color.md) | Palette restraint, perceptual ramps, one color one meaning, one filled action, token roles, dark mode, measured contrast |
 | [Writing](write.md) | Product copy and READMEs: effect over mechanism, internals off the screen, filler, no persona (friend, salesperson, writer), error messages, disclosure, tooltips, every locale, Korean register |
 | [Game writing](game-write.md) | Text inside games: a fiction everyone in it lives as true, no selling to a player who already chose the game (gacha shops included), situation before feature, in-world forms, machine voice vs character monologue, real failures kept out of the fiction, clues instead of hint ladders, words instead of middle dots, absurd humour |
 | [Interruptions](interruptions.md) | Full-screen takeovers, consent ceremonies, countdowns, escape routes, warnings, codes and secrets on screen |
@@ -111,7 +111,7 @@ No custom animation on high-frequency interactions: the attention cost repeats o
 
 ### 21. Restrain the Palette
 
-One dominant color family plus one accent; every other non-semantic color is derived by changing lightness, saturation, or alpha — never by adding a hue. Success/warning/danger are reserved words, not decoration. Never use pure `#000000`/`#FFFFFF` backgrounds or RGB primaries — tint them. See [color.md](color.md).
+One dominant color family plus one accent; every other non-semantic color is derived by changing lightness, chroma, or alpha in a perceptual space (OKLCH, not HSL) — never by adding a hue. A hue means one thing everywhere: success/warning/danger are reserved words, and the accent marks what is interactive. One filled primary action per view. Never use pure `#000000`/`#FFFFFF` backgrounds or RGB primaries; use a near-black or off-white. Contrast is measured, never estimated. See [color.md](color.md).
 
 ### 22. In Qt, QSS Is Only a Color Coat
 
@@ -147,6 +147,7 @@ Name and describe things by what the user gets, not how it works. Keep internals
 | Subtle hover/state tint is painted but imperceptible | Pixel-diff the state render against normal and retune the alpha (see [qt.md](qt.md)) |
 | Panel body repeats the panel title as a static label | The header names the unit; the body holds only parameter captions |
 | Theme switch leaves startup-only styling stale (Qt) | Route startup and switch through one styling path; recreate construction-time chrome (see [qt.md](qt.md)) |
+| A contrast ratio stated without measuring, or a failing pair fixed by changing hue | Measure against the background the element renders on; move lightness, then remeasure (see [color.md](color.md)) |
 | `text-xs`, `10px` or `11px` on labels, descriptions or errors | Raise to the size floor; small sizes only for named exceptions (see [typography.md](typography.md)) |
 | Setting description names the config key or the mechanism | Describe the effect on the user and when to change it (see [write.md](write.md)) |
 | `error.message` or an error code rendered as the message | Written message with cause and next action; raw text in details or the log (see [write.md](write.md)) |
@@ -239,7 +240,7 @@ When there are no findings, omit the findings table, state "No actionable interf
 - [ ] No `transition: all` — only specific properties
 - [ ] `will-change` only on transform/opacity/filter, never `all`
 - [ ] Interactive elements have at least 40×40px hit area
-- [ ] One accent hue; semantic colors never used decoratively; no pure black/white backgrounds (see [color.md](color.md))
+- [ ] One accent hue derived in a perceptual space; each hue keeps one meaning; one filled primary action per view; no pure black/white backgrounds; every contrast value measured (see [color.md](color.md))
 - [ ] Status glyphs are filled shapes that can't be misread as characters; neutral values are omitted, not printed (see [surfaces.md](surfaces.md))
 - [ ] Takeover screens are leavable with both a key and a visible control, the exit is stated in words, and leaving is reported as a cancellation rather than a failure (see [interruptions.md](interruptions.md))
 - [ ] Timers state when the screen ends, never how long is left and never that it closes itself (see [interruptions.md](interruptions.md))
@@ -255,7 +256,7 @@ When there are no findings, omit the findings table, state "No actionable interf
 - [surfaces.md](surfaces.md) — Border radius, optical alignment, shadows, image outlines, status glyphs
 - [animations.md](animations.md) — Interruptible animations, enter/exit transitions, icon animations, scale on press
 - [performance.md](performance.md) — Transition specificity, `will-change` usage
-- [color.md](color.md) — Palette restraint, color tokens, dark mode backgrounds
+- [color.md](color.md) — Palette restraint, perceptual ramps, one color one meaning, token roles, dark mode, measured contrast
 - [icons.md](icons.md) — Icon stroke weight, states via `currentColor`, outline vs fill, sizing, RTL flipping
 - [write.md](write.md): product copy and READMEs, from labels and setting descriptions to error messages, the product's persona and Korean register
 - [game-write.md](game-write.md): text inside games, from the opening situation and character forms to system messages, monologue, the paid shop, hints and absurd humour
