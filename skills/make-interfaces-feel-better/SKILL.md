@@ -21,7 +21,7 @@ When reviewing, slow the interface down: replay motion at 10% speed in the brows
 | [Performance](performance.md) | Transition specificity, `will-change` usage |
 | [Color](color.md) | Palette restraint, color tokens, dark mode backgrounds |
 | [Writing](write.md) | Product copy and READMEs: effect over mechanism, internals off the screen, filler, no persona (friend, salesperson, writer), error messages, disclosure, tooltips, every locale, Korean register |
-| [Game writing](game-write.md) | Text inside games: situation before feature, in-world forms, machine voice vs character monologue, real failures kept out of the fiction, clues instead of hint ladders, absurd humour |
+| [Game writing](game-write.md) | Text inside games: a fiction everyone in it lives as true, no selling to a player who already chose the game (gacha shops included), situation before feature, in-world forms, machine voice vs character monologue, real failures kept out of the fiction, clues instead of hint ladders, absurd humour |
 | [Interruptions](interruptions.md) | Full-screen takeovers, consent ceremonies, countdowns, escape routes, warnings, codes and secrets on screen |
 | [Qt](qt.md) | Qt Widgets/QML projects — QSS limits, QPainter chrome, Qt animations, size-hint traps, theme switching, pixel verification |
 
@@ -152,6 +152,7 @@ Name and describe things by what the user gets, not how it works. Keep internals
 | `error.message` or an error code rendered as the message | Written message with cause and next action; raw text in details or the log (see [write.md](write.md)) |
 | The product chats, comforts, asks or speaks as "I"; tagline verse, self-praise or a README that sells itself | Labels, instructions, facts and results only: the product has no persona (see [write.md](write.md)) |
 | Game text that mentions servers or operators, a system message with feelings, or a numbered hint ladder ending in the answer | Machine text dry, emotion in the character's monologue, real failures outside the fiction, clues in the world (see [game-write.md](game-write.md)) |
+| A genre label or tagline inside the game, hype on a gacha banner or paid shop, a character asking the player to pay | The player already chose the game: delete the pitch; a paid shop states contents, price, rates and end date (see [game-write.md](game-write.md)) |
 
 ## Review Output Format
 
@@ -245,7 +246,7 @@ When there are no findings, omit the findings table, state "No actionable interf
 - [ ] Icon stroke weight matches adjacent text weight, and icon states recolor one SVG through `currentColor` (see [icons.md](icons.md))
 - [ ] No label, description, error or button text below the size floor; small sizes are named exceptions (see [typography.md](typography.md))
 - [ ] Copy says what the user gets, shows no internals, repeats nothing already shown, gives the product no persona, uses 합니다체 rather than 해요체 in Korean, and every error states the cause and the next action instead of a raw message (see [write.md](write.md))
-- [ ] Games: the protagonist's situation explains every feature, system text stays dry while characters carry emotion, and no in-world text mentions the game's own infrastructure (see [game-write.md](game-write.md))
+- [ ] Games: the protagonist's situation explains every feature, system text stays dry while characters carry emotion, no in-world text mentions the game's own infrastructure, and nothing inside the game sells the game, paid shops included (see [game-write.md](game-write.md))
 - [ ] Qt projects: QSS carries colors only, chrome is painted, animations are interruptible code, theme switches re-run the startup styling path, and visual changes are proven with offscreen renders (see [qt.md](qt.md))
 
 ## Reference Files
@@ -257,6 +258,6 @@ When there are no findings, omit the findings table, state "No actionable interf
 - [color.md](color.md) — Palette restraint, color tokens, dark mode backgrounds
 - [icons.md](icons.md) — Icon stroke weight, states via `currentColor`, outline vs fill, sizing, RTL flipping
 - [write.md](write.md): product copy and READMEs, from labels and setting descriptions to error messages, the product's persona and Korean register
-- [game-write.md](game-write.md): text inside games, from the opening situation and character forms to system messages, monologue, hints and absurd humour
+- [game-write.md](game-write.md): text inside games, from the opening situation and character forms to system messages, monologue, the paid shop, hints and absurd humour
 - [interruptions.md](interruptions.md) — Full-screen takeovers, consent ceremonies, countdowns, escape routes, warnings, codes and secrets on screen
 - [qt.md](qt.md) — Qt Widgets/QML: QSS limits, design tokens, QPainter chrome, principle mapping, size-hint and item-view traps, theme switching, pixel verification
