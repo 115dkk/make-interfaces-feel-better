@@ -2,6 +2,13 @@
 
 Detailed policy for game text, under [write.md](write.md). Every rule in `write.md` still applies to a game's chrome: the store page, login, settings, real errors and the menus around the fiction. This file covers only what a game adds, which is a world with characters who can speak. The failures below come from generated games, and the fixes from rewrites the owner made.
 
+Generated games forget two facts, and a review should check both first:
+
+1. **The game is fiction, and everyone inside it lives as if it were true.** The people in it have jobs, reasons and feelings; machines in it behave like machines; the world takes its own words seriously. Nothing inside admits to being a game: no server, operator or tutorial in a character's world, no premise that would fall apart in the world the game depicts, no menu that exists only because a feature had to be taught.
+2. **Whoever opened the game has already chosen it.** They bought it, or installed it and pressed start. The store page and the landing page are where the game meets someone still deciding, and even there [write.md](write.md#not-a-salesperson) keeps the pitch to facts. Inside the game nothing sells the game. A free gacha game is no exception: its shop says what a purchase contains and costs, and nothing more.
+
+Every section below applies one of these. Situation, inputs, the two speakers, real failures, clues and humour follow from the first; the genre label, mood taglines and the paid shop from the second.
+
 ## 사례: 터미널을 가르치는 '생활형 커리어 RPG'
 
 터미널 명령을 가르치는 생성형 게임의 첫 화면 세 장입니다. 캐릭터 생성, 메일로 받은 첫 의뢰, 터미널 순서입니다.
@@ -91,6 +98,22 @@ Inside the fiction, nothing may mention the game's own infrastructure: no 운영
 - **Say each failure once.** One notice, one retry control.
 - **Debug and preview tools do not ship.** "완료 흐름 미리보기" belongs behind a developer flag.
 
+## The Player Already Chose the Game
+
+A pitch is written for someone still deciding. The person who opened the game decided already, so text inside it that sells the game has the wrong reader.
+
+- **No pitch for the game itself.** A genre label, a tagline on the title screen, "모험이 시작됩니다" and a feature list in the opening are store copy. Delete them; the opening is the situation (see [Build the Situation Before the Feature](#build-the-situation-before-the-feature)).
+- **What is spent decides the side.** A merchant in the world who sells for coin earned in play is a character and may haggle like one. Once the currency can be bought with real money, the screen is chrome and follows [write.md](write.md) like settings and login do. Gacha banners and paid shops are on this side.
+- **A paid shop states four things.** What the pull or pack contains, the price, the rates and when it ends, the last as a date (see [interruptions.md](interruptions.md#say-when-it-ends-and-give-the-ending-no-agent)).
+- **No pressure on top of the facts.** "한정!", "놓치지 마세요", "지금이 기회", "역대급", "운명의 만남", star brackets, exclamation marks and a second countdown are the salesperson. An end date is a fact; urgency added to it is a pitch.
+- **Characters are not sales staff.** A character's own line from the story may appear on a banner. A line that asks the player to pull or pay is the salesperson speaking through that character.
+
+| Before | After |
+| --- | --- |
+| ★기간 한정★ 루나 픽업 모집! 10월 19일까지, 놓치면 다시 없을지도? | 루나 픽업 모집 · 10월 19일 종료 |
+| 10회 모집 시 4성 이상 1명 확정! 지금 바로 운명의 동료를 만나보세요! | 10회 모집 · 4성 이상 1명 확정 |
+| 지휘관님, 저를 꼭 데려가 주실 거죠? (루나, on her own banner) | 루나's own line from the story, or none |
+
 ## Clues in the World, Not Hint Ladders
 
 A numbered hint ladder (힌트 1 개념, 힌트 2 도구, 힌트 3 명령어, 힌트 4 예시) hands out the answer in instalments. Put the clues where a person in that room would find them instead:
@@ -103,6 +126,7 @@ The player then reads the error, looks around, searches, works out a fix and typ
 
 - **Help must still exist for a player who is stuck.** Make it something the character consults (the manual, `man`, a forum post), reachable at any time. Removing it leaves the player with no way forward.
 - **Do not announce that hints have run out** or that the player has read them all.
+- **Do It Here in write.md stops at the edge of the fiction.** Settings, the paid shop and real errors still put the control on the screen (see [write.md](write.md#do-it-here-or-link-straight-there)). Inside a puzzle the way to the answer is the game: a boot screen that says to check the disk, or a character who decides to read the manual, sends the player elsewhere on purpose.
 
 ## Humour and Absurd Tone
 
@@ -139,7 +163,9 @@ Absurd humour is the part of game text a model writes worst: generated jokes exp
 
 | Pattern to search for | What to do |
 | --- | --- |
-| The genre name ("RPG", "시뮬레이션") shown inside the game | Delete; the store page carries it |
+| The genre name ("RPG", "시뮬레이션"), a title-screen tagline or "모험이 시작됩니다" inside the game | Delete; the store page carries it, as facts |
+| A paid shop or gacha banner with 한정!, 놓치지 마세요, 지금이 기회, 역대급, 운명의, star brackets or exclamation marks | Contents, price, rates and end date only |
+| A character on a banner asking the player to pull or pay | The character's own line from the story, or none |
 | An opening line that sets a mood but not who the player is or what happens today | Rewrite as the situation: role, what happened, what the player waits for |
 | A menu or system with no reason in the protagonist's job | Give it one, or cut it |
 | A case whose premise would be a scam or breach in the game's own world | Change the case |
@@ -153,4 +179,4 @@ Absurd humour is the part of game text a model writes worst: generated jokes exp
 
 ## Reporting
 
-Use the severity scale and format in [write.md](write.md#reporting). Out-of-world infrastructure text inside the fiction, a real outage presented as a story event, and a hint ladder that prints the answer are `HIGH`: they break the game the text is meant to serve. A premise that does not hold up, mood lines, sign-up wording and unused customisation are `MEDIUM`.
+Use the severity scale and format in [write.md](write.md#reporting). Out-of-world infrastructure text inside the fiction, a real outage presented as a story event, and a hint ladder that prints the answer are `HIGH`: they break the game the text is meant to serve. A paid shop that hides or blurs what a purchase contains, its price or its rates is `HIGH` too, because it misleads. A premise that does not hold up, mood lines, sign-up wording, unused customisation and a pitch inside the game are `MEDIUM`.

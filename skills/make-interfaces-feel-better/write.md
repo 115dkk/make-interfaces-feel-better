@@ -163,6 +163,8 @@ Text that sends the user somewhere else to finish the job is a patch over a miss
 | To change the output device, go to Settings > Audio > Output. | The output device picker, on this screen |
 | 새 버전을 받으려면 정보 탭에서 업데이트 확인을 누르세요. | An `업데이트 확인` button where the version is shown |
 
+Inside a game's fiction, finding the way can be the puzzle itself (see [game-write.md](game-write.md#clues-in-the-world-not-hint-ladders)). The chrome around it still follows this section.
+
 ## Short, Conditional Help
 
 - **A tooltip gives the item's name and what choosing it does,** in one or two sentences, with the trade-off in plain words: "Removing the buffer reduces latency, but sound may play without EQ."
@@ -210,7 +212,7 @@ A README has two readers: someone deciding whether to use the project, and someo
 | An English word inside a non-English screen that is not a unit or a name | Translate it |
 | Two words for one concept across screens | Pick one |
 | One move named differently across the steps of a flow (다음 / 계속 / 진행, Next / Continue) | One word per move, on every step |
-| Directions to another screen or menu ("설정 > 알림에서", "Go to Settings > ...") | Put the control here or link straight to it; keep directions for places the product cannot reach (Do It Here, or Link Straight There) |
+| Directions to another screen or menu ("설정 > 알림에서", "Go to Settings > ...") | Put the control here or link straight to it; keep directions for places the product cannot reach (Do It Here, or Link Straight There); inside a game's fiction see game-write.md |
 | The program asking, telling, requesting, picking out, keeping ready or waiting; Korean -아/어 주다, -아/어 드리다, -아/어 두다 on its actions | Name what appears or what is now true (Not a Friend) |
 | "Don't worry", "Oops", "You're all set", "함께해요", "~하기만 하면 됩니다", "언제든", exclamation marks, emoji, promises about the next visit | Delete, or state the fact (Not a Friend) |
 | A question heading answered by 있습니다 / 없습니다 or Yes / No; 내, 나, "my", "I" in labels outside a signed attestation | An instruction with options named as states; name the owner (Not a Friend) |
