@@ -17,6 +17,8 @@ Before writing or reviewing, read the copy nearby. Note the product's terms, its
 
 Keep terms consistent. If it is "Archive" in the menu, it is not "Move to storage" in the toast. If the product says "apps", no string says "processes".
 
+A multi-step flow uses one word for each move. If one step advances with 다음, every step does; 계속 on the next step makes the user wonder whether that button does something else. The same holds for the word that enters the flow and the word that finishes it.
+
 ## Say What the User Gets, Not How It Works
 
 A setting, option or button is named and described by its effect on the user, not by the mechanism behind it. The mechanism is true, and it is useless to someone who does not already know it.
@@ -147,6 +149,20 @@ When the app does something on the user's behalf (applies a default, starts a se
 - **The title names the action and the buttons repeat it.** "Delete this project" offers `Delete project` and `Cancel`, never a bare `Yes` and `No`, which make the dialog a question and the buttons replies.
 - **Respect a refusal.** Ask for elevation or permission once; if the user declines, say what is unavailable and how to get it later, and stop asking.
 
+## Do It Here, or Link Straight There
+
+Text that sends the user somewhere else to finish the job is a patch over a missing control. Before writing directions, give the screen the control.
+
+- **If the action can happen on this screen, put it here.** A notice that a feature is off carries the switch that turns it on. An error caused by a setting carries a button that changes it.
+- **If it belongs on another screen, link straight to it.** The link opens that screen at the control itself, not at the top of a long page.
+- **Directions are the last resort,** for places the product cannot reach: another program, the BIOS, an operating-system setting with no deep link. Then give the steps in order, in the words that place shows on its own screen.
+
+| Before (directions) | After (the control) |
+| --- | --- |
+| 알림 꺼짐. 설정 > 알림에서 켜세요. | 알림 꺼짐, with an `알림 켜기` button beside it |
+| To change the output device, go to Settings > Audio > Output. | The output device picker, on this screen |
+| 새 버전을 받으려면 정보 탭에서 업데이트 확인을 누르세요. | An `업데이트 확인` button where the version is shown |
+
 ## Short, Conditional Help
 
 - **A tooltip gives the item's name and what choosing it does,** in one or two sentences, with the trade-off in plain words: "Removing the buffer reduces latency, but sound may play without EQ."
@@ -193,6 +209,8 @@ A README has two readers: someone deciding whether to use the project, and someo
 | A body label repeating the header, a word repeating the lamp | Say it once |
 | An English word inside a non-English screen that is not a unit or a name | Translate it |
 | Two words for one concept across screens | Pick one |
+| One move named differently across the steps of a flow (다음 / 계속 / 진행, Next / Continue) | One word per move, on every step |
+| Directions to another screen or menu ("설정 > 알림에서", "Go to Settings > ...") | Put the control here or link straight to it; keep directions for places the product cannot reach (Do It Here, or Link Straight There) |
 | The program asking, telling, requesting, picking out, keeping ready or waiting; Korean -아/어 주다, -아/어 드리다, -아/어 두다 on its actions | Name what appears or what is now true (Not a Friend) |
 | "Don't worry", "Oops", "You're all set", "함께해요", "~하기만 하면 됩니다", "언제든", exclamation marks, emoji, promises about the next visit | Delete, or state the fact (Not a Friend) |
 | A question heading answered by 있습니다 / 없습니다 or Yes / No; 내, 나, "my", "I" in labels outside a signed attestation | An instruction with options named as states; name the owner (Not a Friend) |
