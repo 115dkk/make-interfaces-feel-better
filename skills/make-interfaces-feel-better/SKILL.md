@@ -20,7 +20,7 @@ When reviewing, slow the interface down: replay motion at 10% speed in the brows
 | [Icons](icons.md) | Icon stroke weight, states via `currentColor`, outline vs fill, sizing, RTL flipping |
 | [Performance](performance.md) | Transition specificity, `will-change` usage |
 | [Color](color.md) | Palette restraint, perceptual ramps, one color one meaning, one filled action, token roles, dark mode, measured contrast |
-| [Writing](write.md) | Product copy and READMEs: effect over mechanism, internals off the screen, filler, no persona (friend, salesperson, writer), error messages, disclosure, tooltips, every locale, one middle dot joining two items, Korean register |
+| [Writing](write.md) | Product copy and READMEs: effect over mechanism, internals off the screen, filler, no persona (friend, salesperson, writer), error messages, disclosure, tooltips, explanations shelved behind an info button or expander, every locale, one middle dot joining two items, Korean register |
 | [Game writing](game-write.md) | Text inside games: a fiction everyone in it lives as true, no selling to a player who already chose the game (gacha shops included), situation before feature, in-world forms, machine voice vs character monologue, real failures kept out of the fiction, clues instead of hint ladders, words instead of middle dots, absurd humour |
 | [Interruptions](interruptions.md) | Full-screen takeovers, consent ceremonies, countdowns, escape routes, warnings, codes and secrets on screen |
 | [Qt](qt.md) | Qt Widgets/QML projects — QSS limits, QPainter chrome, Qt animations, size-hint traps, theme switching, pixel verification |
@@ -123,7 +123,7 @@ Small text is an exception you justify, not a default. Web floors: `16px` for lo
 
 ### 24. Write From the User's Side of the Screen
 
-Name and describe things by what the user gets, not how it works. Keep internals (config keys, process names, registry paths, state-machine terms) off the screen, cut sentences that repeat what is already shown or defend the product, give the product no persona (not a friend who chats and comforts, not a salesperson who praises or defends it, not a writer who reaches for images), and never show a raw error as the message: say what happened and what to do, and keep the raw text in details or the log. See [write.md](write.md).
+Name and describe things by what the user gets, not how it works. Keep internals (config keys, process names, registry paths, state-machine terms) off the screen, cut sentences that repeat what is already shown or defend the product, give the product no persona (not a friend who chats and comforts, not a salesperson who praises or defends it, not a writer who reaches for images), shelve explanations of a control behind an info button or expander beside it instead of printing them under it, and never show a raw error as the message: say what happened and what to do, and keep the raw text in details or the log. See [write.md](write.md).
 
 ## Common Mistakes
 
@@ -150,6 +150,7 @@ Name and describe things by what the user gets, not how it works. Keep internals
 | A contrast ratio stated without measuring, or a failing pair fixed by changing hue | Measure against the background the element renders on; move lightness, then remeasure (see [color.md](color.md)) |
 | `text-xs`, `10px` or `11px` on labels, descriptions or errors | Raise to the size floor; small sizes only for named exceptions (see [typography.md](typography.md)) |
 | Setting description names the config key or the mechanism | Describe the effect on the user and when to change it (see [write.md](write.md)) |
+| An explanation printed under every setting, always visible | The label carries the effect; the explanation goes behind an info button or expander beside the item (see [write.md](write.md)) |
 | `error.message` or an error code rendered as the message | Written message with cause and next action; raw text in details or the log (see [write.md](write.md)) |
 | The product chats, comforts, asks or speaks as "I"; tagline verse, self-praise or a README that sells itself | Labels, instructions, facts and results only: the product has no persona (see [write.md](write.md)) |
 | Game text that mentions servers or operators, a system message with feelings, or a numbered hint ladder ending in the answer | Machine text dry, emotion in the character's monologue, real failures outside the fiction, clues in the world (see [game-write.md](game-write.md)) |
@@ -246,7 +247,7 @@ When there are no findings, omit the findings table, state "No actionable interf
 - [ ] Timers state when the screen ends, never how long is left and never that it closes itself (see [interruptions.md](interruptions.md))
 - [ ] Icon stroke weight matches adjacent text weight, and icon states recolor one SVG through `currentColor` (see [icons.md](icons.md))
 - [ ] No label, description, error or button text below the size floor; small sizes are named exceptions (see [typography.md](typography.md))
-- [ ] Copy says what the user gets, shows no internals, repeats nothing already shown, gives the product no persona, uses 합니다체 rather than 해요체 in Korean, never lists with middle dots (one per line, joining two items), and every error states the cause and the next action instead of a raw message (see [write.md](write.md))
+- [ ] Copy says what the user gets, shows no internals, repeats nothing already shown, gives the product no persona, shelves explanations behind an info button or expander instead of printing them under each setting, uses 합니다체 rather than 해요체 in Korean, never lists with middle dots (one per line, joining two items), and every error states the cause and the next action instead of a raw message (see [write.md](write.md))
 - [ ] Games: the protagonist's situation explains every feature, system text stays dry while characters carry emotion, no in-world text mentions the game's own infrastructure, and nothing inside the game sells the game, paid shops included (see [game-write.md](game-write.md))
 - [ ] Qt projects: QSS carries colors only, chrome is painted, animations are interruptible code, theme switches re-run the startup styling path, and visual changes are proven with offscreen renders (see [qt.md](qt.md))
 
