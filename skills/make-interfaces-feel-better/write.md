@@ -65,6 +65,7 @@ Every sentence must do work for the person reading it. Delete the ones that do n
 - **Do not say what is already shown.** If the card header names the unit, the body does not repeat the name as a label. A red lamp does not need the word "Rejected" beside it. Say each status once, in one place: the lamp or badge names the state, one line gives the cause.
 - **Do not print fake readouts.** Tick marks with no control pointing at them, counts and statistics the user cannot act on, and theoretical curves beside a measured one are decoration pretending to be information.
 - **No obvious explanations.** "Click Save to save your changes" teaches nothing. Explain only what the reader could not guess.
+- **Do not state what every app does.** Behaviour the reader already knows from every other program is not a feature and not a limit: "뒤로가기는 취소할 수 없지만 다시 앞으로 갈 수 있습니다", "Closing the window does not delete your files", "Settings take effect after you save them". Write only where this product departs from that expectation or where a common action costs the reader something here, as in "저장하지 않은 입력은 뒤로가기를 누르면 사라집니다". This holds on screens and in READMEs alike.
 - **Turn state-machine prose into one instruction.**
 
 | Before | After |
@@ -227,7 +228,7 @@ A README has two readers: someone deciding whether to use the project, and someo
 
 - **No salesperson here either** (see Not a Salesperson). No bold tagline, no adjectives about the project itself ("powerful", "blazing fast", "elegant", "the easy way"), no manifesto on why the design is clever, no borrowing credibility by naming who else uses a licence or a technique, no scarcity ("first come, first served", "five spots"). A small project written like a famous product's launch page looks foolish. Plain facts read as confidence.
 - **Explain the design only as far as the reader needs it to use the project.** "Each thread has four fields: focus, decisions, evidence, notes" is useful. A paragraph on why this is the right way to think about work is not.
-- **State limits plainly.** Unsupported platforms, missing features, known bugs. A README that says where the project stops is the one readers trust.
+- **State limits plainly.** Unsupported platforms, missing features, known bugs. A README that says where the project stops is the one readers trust. A limit here is where this project stops, not behaviour every program shares (see Cut Filler).
 - **A README in another language is written in that language, not transliterated from English.** A Korean README that follows the English one sentence by sentence comes out as predicate-less fragments, English-style dash and colon lists, a space between an English word and its particle (`Claude Code 나` for `Claude Code나`), literal metaphors, and "not A but B" contrasts nobody asked for. Write each language natively. If the owner keeps a writing guide for that language, such as a guide against translationese, it applies to the README in full.
 - **One register for the whole document** (see Korean Register above for Korean).
 
@@ -241,6 +242,7 @@ A README has two readers: someone deciding whether to use the project, and someo
 | `error.message`, `String(err)`, `e.what()`, `QString::fromStdString(ex...)` reaching a label or toast | Map to a written message; keep the raw text in details or the log |
 | "Something went wrong" with nothing after it | State the cause and the next action |
 | A body label repeating the header, a word repeating the lamp | Say it once |
+| A sentence about behaviour every program shares (going back, closing a window, saving, undoing) | Delete it; keep it only where this product departs from the expectation or the action costs the reader something (Cut Filler) |
 | A paragraph printed under a setting or option to explain it, visible at all times | Let the label carry the effect; move the explanation behind an info button or expander beside the item (Explanations Go on the Shelf) |
 | An English word inside a non-English screen that is not a unit or a name | Translate it |
 | Two words for one concept across screens | Pick one |
