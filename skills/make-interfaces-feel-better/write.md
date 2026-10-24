@@ -178,7 +178,7 @@ A screen is made of controls, their labels and their state. An explanation of wh
 | --- | --- |
 | A `게임 그래픽 가속` switch with this printed under it at all times: 게임에서 그래픽 카드를 사용해 더 빠른 게임을 즐기기 위한 옵션입니다. 화면이 정상적으로 표시되지 않을 경우에만 Off로 설정하십시오. | The `게임 그래픽 가속` switch with an info button beside it, which opens: 게임 화면 처리에 그래픽 카드를 씁니다. 화면이 제대로 표시되지 않으면 끄세요. |
 
-The shelved note is rewritten as well: "더 빠른 게임을 즐기기 위한" sells the setting (see Not a Salesperson), and -십시오 is stiffer than the rest of the screen (see Korean Register).
+The shelved note is rewritten as well: "더 빠른 게임을 즐기기 위한" sells the setting (see Not a Salesperson), and "Off" leaves an English word on a Korean screen (see Every Language, Fully).
 
 ## Short, Conditional Help
 
@@ -216,8 +216,8 @@ Inside a game's fiction the parts of a line are joined with words instead (see [
 
 - **Sentences use 합니다체; status lines, empty states, short results and labels use noun phrases.** 해요체 statements are the friend's voice (see Not a Friend). One app rewrote its whole catalogue this way: "기다리는 요청이 없어요" became "승인 요청 없음", and "받은 요청을 확인하고 있어요" became "받은 요청을 확인 중입니다".
 - **Buttons and menu items take no sentence ending.** "저장", "다시 연결", "서비스 시작", never "저장해요".
-- **Instructions end in -세요.** "다시 연결을 눌러 재시도하세요." This is the one 해요체 form Korean interfaces conventionally pair with 합니다체 statements; do not let it spread to statements ("확인했어요"). -십시오 is stiffer and fits only a product that is formal throughout.
-- **Speak to the reader; do not narrate.** In Korean the plain present (-ㅂ니다) reads as a description of what someone somewhere does, so a step or requirement written that way ("FFmpeg를 미리 설치해 둡니다", "버전을 3 미만으로 고정합니다") sounds like the writer is talking to the horizon. A limit written as a state ("macOS 앱은 Apple Silicon 전용입니다") leaves the reader to work out what it means for them. Say what the reader must do ("FFmpeg를 미리 설치해야 합니다"), may do ("전체 옵션은 `impulcifer --help`로 확인할 수 있습니다") or cannot do ("Intel Mac에서는 앱을 쓸 수 없습니다"). Keep plain statements for what the product itself does ("처리가 끝나면 측정 폴더에 다음 파일이 생깁니다"). This holds for help text, dialogs and READMEs alike.
+- **Instructions end in -십시오 or -세요, whichever fits the product's overall tone.** "다시 연결을 눌러 재시도하십시오." or "다시 연결을 눌러 재시도하세요." -세요 can feel too familiar in a formal product, and -십시오 too stiff in a casual one; pick one and use it on every screen. -세요 is the one 해요체 form that pairs with 합니다체 statements, so do not let it spread to statements ("확인했어요").
+- **Speaking to the reader instead of narrating their steps** ("승리하려면 이 치트키를 입력합니다" is narration) is a Korean writing rule, kept with the translationese rules in the 체계적 추론자 v4 style of [115dkk/good-korean-claude](https://github.com/115dkk/good-korean-claude). Help text, dialogs and READMEs follow it.
 - **The only exception is a deliberate character voice,** such as a game's in-world dialogue. Settings, errors and confirmations around it still use 합니다체. See [game-write.md](game-write.md) for how system text and character monologue divide the work.
 - **READMEs and documentation use either the plain written style (-다) or 합니다체,** one of them for the whole document, never 해요체.
 
@@ -254,8 +254,6 @@ A README has two readers: someone deciding whether to use the project, and someo
 | "will not", "never", "remains blocked", "is not shown as" about the product | Delete, or turn into what the user can do (Not a Salesperson) |
 | Verbs that carry an image or a feeling (담다, 남기다, 알려 주다) | The verb of the operation (Not a Writer) |
 | Korean statements ending in -어요, -아요 or -해요 outside character dialogue | 합니다체 for sentences, noun phrases for status and labels |
-| Korean steps or requirements written as plain statements (-둡니다, -고정합니다, -실행합니다) or limits written as states (-입니다, -없습니다) | Say what the reader must, may or cannot do: -해야 합니다, -할 수 있습니다, -할 수 없습니다 |
-
 ## Reporting
 
 - **Severity.** `HIGH`: the copy misleads, hides how to recover from an error, shows a raw error or internal detail where the user must decide something, or sends the user the wrong way. `MEDIUM`: filler, a persona (friend, salesperson or writer) on a screen or in a README, inconsistent terms or register, mechanism-first descriptions, explanations printed on the screen instead of shelved, untranslated fragments. `LOW`: isolated wording polish.
