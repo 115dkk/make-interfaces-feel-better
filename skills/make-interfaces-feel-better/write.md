@@ -31,7 +31,7 @@ A setting, option or button is named and described by its effect on the user, no
 | Provide this device to ASIO applications | Use in ASIO apps |
 | Hook child processes | Apply to apps opened by other apps |
 
-- **A description says what changes and, when it helps, when to change it.** "Choose how fonts are read. Try the other option if a font displays incorrectly." The second sentence is what makes the setting usable.
+- **A description says what changes and, when it helps, when to change it.** "Choose how fonts are read. Try the other option if a font displays incorrectly." The second sentence is what makes the setting usable. The description sits behind a disclosure control next to the setting, not printed under it (see Explanations Go on the Shelf).
 - **Options get names, never numbers.** `Mode 0` to `Mode 6` becomes `Automatic`, `Sharp pixels, no smoothing`, `Natural spacing`, and so on. If you cannot name an option, the user cannot choose it.
 - **A setting describes its ON state.** "Send read receipts", not "Don't send read receipts".
 - **Standard platform phrases are not automatically right.** Pick the phrase that says what the action does on this screen. A Korean "실행 취소" for undo made users think of launching a program; "수정 취소" said what it does.
@@ -165,9 +165,24 @@ Text that sends the user somewhere else to finish the job is a patch over a miss
 
 Inside a game's fiction, finding the way can be the puzzle itself (see [game-write.md](game-write.md#clues-in-the-world-not-hint-ladders)). The chrome around it still follows this section.
 
+## Explanations Go on the Shelf
+
+A screen is made of controls, their labels and their state. An explanation of what a control does or when to change it is reference material, and reference material is shelved: it sits behind a disclosure control (an info button that opens a popover, or an expander under the item), closed until the reader opens it. Printed under every setting, explanations spill across the screen, push the controls apart and turn a settings page into prose that everyone has to read past, while the few readers who need a given note are served just as well one click away.
+
+- **The label carries the effect.** A label that says what the setting does (see Say What the User Gets) leaves most readers nothing to look up.
+- **The shelf is next to the item.** The info button sits beside the label it explains, or the expander directly under it. Not a help page elsewhere, and not a note that is always open.
+- **Shelved text follows the same rules.** It says what changes and when to change it, in the user's terms, with no persona and no selling.
+- **What the reader needs in order to act stays on the screen.** A confirmation's consequence line, an error with its fix, a warning before an action that cannot be undone, and help that applies to the current state (see Short, Conditional Help) are not reference material.
+
+| Before | After |
+| --- | --- |
+| A `게임 그래픽 가속` switch with this printed under it at all times: 게임에서 그래픽 카드를 사용해 더 빠른 게임을 즐기기 위한 옵션입니다. 화면이 정상적으로 표시되지 않을 경우에만 Off로 설정하십시오. | The `게임 그래픽 가속` switch with an info button beside it, which opens: 그래픽 카드로 게임 화면을 그립니다. 화면이 제대로 표시되지 않으면 끄세요. |
+
+The shelved note is rewritten as well: "더 빠른 게임을 즐기기 위한" sells the setting (see Not a Salesperson), and -십시오 is stiffer than the rest of the screen (see Korean Register).
+
 ## Short, Conditional Help
 
-- **A tooltip gives the item's name and what choosing it does,** in one or two sentences, with the trade-off in plain words: "Removing the buffer reduces latency, but sound may play without EQ."
+- **A tooltip or a shelved note gives the item's name and what choosing it does,** in one or two sentences, with the trade-off in plain words: "Removing the buffer reduces latency, but sound may play without EQ."
 - **Show help and dependent options only when they apply.** A firewall paragraph appears only when the device is actually disconnected; a sub-option appears only when its parent is on (hidden, not merely disabled).
 - **Empty states point forward:** what this place is, how to fill it, one action. But when the view's own state already says why it is empty, do not add a hint that restates it.
 - **Placeholders are examples, not labels.** Every field keeps a visible label.
@@ -226,6 +241,7 @@ A README has two readers: someone deciding whether to use the project, and someo
 | `error.message`, `String(err)`, `e.what()`, `QString::fromStdString(ex...)` reaching a label or toast | Map to a written message; keep the raw text in details or the log |
 | "Something went wrong" with nothing after it | State the cause and the next action |
 | A body label repeating the header, a word repeating the lamp | Say it once |
+| A paragraph printed under a setting or option to explain it, visible at all times | Let the label carry the effect; move the explanation behind an info button or expander beside the item (Explanations Go on the Shelf) |
 | An English word inside a non-English screen that is not a unit or a name | Translate it |
 | Two words for one concept across screens | Pick one |
 | More than one middle dot (·) in a line, a dot between the items of a list, or the Hangul letter ㆍ standing in for one | One dot joining two items; commas or separate elements for a list; U+00B7 (One Middle Dot, Two Items) |
@@ -242,6 +258,6 @@ A README has two readers: someone deciding whether to use the project, and someo
 
 ## Reporting
 
-- **Severity.** `HIGH`: the copy misleads, hides how to recover from an error, shows a raw error or internal detail where the user must decide something, or sends the user the wrong way. `MEDIUM`: filler, a persona (friend, salesperson or writer) on a screen or in a README, inconsistent terms or register, mechanism-first descriptions, untranslated fragments. `LOW`: isolated wording polish.
+- **Severity.** `HIGH`: the copy misleads, hides how to recover from an error, shows a raw error or internal detail where the user must decide something, or sends the user the wrong way. `MEDIUM`: filler, a persona (friend, salesperson or writer) on a screen or in a README, inconsistent terms or register, mechanism-first descriptions, explanations printed on the screen instead of shelved, untranslated fragments. `LOW`: isolated wording polish.
 - **Verification.** Source is enough: check every label against the action it triggers, every error path for a written message and a stated fix, every description against the question "would the user who needs this setting understand it", and terms against the copy around them. When the product has a string catalogue, check every locale, not only the one you wrote in.
 - **Format.** Use the review format in [SKILL.md](SKILL.md), grouped by the rule each finding breaks, with the catalogue key or `path:line` as the location and the before and after text in the row.
