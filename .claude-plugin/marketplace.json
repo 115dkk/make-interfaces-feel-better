@@ -1,12 +1,17 @@
 {
-  "name": "115dkk",
-  "description": "115dkk's fork of make-interfaces-feel-better.",
-  "owner": { "name": "115dkk" },
+  "name": "115dkk-screen",
+  "owner": {
+    "name": "115dkk",
+    "url": "https://github.com/115dkk"
+  },
+  "description": "make-interfaces-feel-better as an installable Claude Code plugin: interface design details, product copy rules and a hook that checks Korean copy against them.",
   "plugins": [
     {
       "name": "make-interfaces-feel-better",
       "source": "./",
-      "description": "Design engineering principles for making interfaces feel polished (web and Qt)."
+      "description": "Design engineering principles for interfaces (web and Qt), product copy rules, and a PreToolUse hook that checks Korean interface copy and READMEs against write.md.",
+      "category": "design",
+      "keywords": ["design", "ui", "qt", "copywriting", "korean", "hooks"]
     }
   ]
 }
