@@ -50,11 +50,11 @@ npx skills add 115dkk/make-interfaces-feel-better
 
 ## Copy check hook
 
-The plugin registers a `PreToolUse` hook on `Write`, `Edit` and `MultiEdit`. Before the edit lands, the hook takes the lines it adds that contain Hangul, together with the other lines it adds within three lines of them, and asks a separate model, Claude Sonnet 5.5 at medium effort through your own `claude` CLI, whether any interface copy or README prose among them clearly breaks a rule in [`write.md`](skills/make-interfaces-feel-better/write.md).
+The plugin registers a `PreToolUse` hook on `Write`, `Edit` and `MultiEdit`. Before the edit lands, the hook takes the lines it adds that contain Hangul, together with the other lines it adds within three lines of them, and asks a separate model, Claude Sonnet 5.5 at medium effort through your own `claude` CLI, whether any interface copy, README prose or page published for users (a privacy policy, terms of use, a help site) among them clearly breaks a rule in [`write.md`](skills/make-interfaces-feel-better/write.md).
 
-- A breach denies the edit. The reason quotes each offending expression, names the rule and gives a corrected wording, and Claude rewrites the text before writing it.
+- A breach denies the edit. The reason quotes each offending expression, one finding for each place a rule is broken, names the rule and gives a corrected wording, and Claude rewrites the text before writing it.
 - The nearby lines let the judge see code next to the copy, such as `{error.message}` rendered on the line below a Korean label.
-- Anything else goes through unchanged. Edits that add no line with Hangul, Markdown files other than READMEs, tests, `.github`, and files under `~/.claude` and `~/.codex` are passed without calling the model.
+- Anything else goes through unchanged. Edits that add no line with Hangul, agent instruction files (`CLAUDE.md`, `AGENTS.md`, `SKILL.md` and Markdown under `skills/` or `.claude/`), tests, `.github`, and files under `~/.claude` and `~/.codex` are passed without calling the model. For other Markdown files the judge decides whether the text is a page users read or an internal document it leaves alone.
 - If the judge cannot run (no `claude` on `PATH`, a timeout, an error), the edit goes through and Claude is told it was not checked.
 
 Each judged edit costs one model call, about 5 to 10 seconds, on your Claude plan. The hook needs `python3` and `claude` on `PATH`. Copy in other languages is not judged yet.
