@@ -35,9 +35,28 @@ This fork extends the original (which is web/CSS-focused) with the items below. 
 
 ## Installation
 
+As a Claude Code plugin, which also installs the copy check hook described below:
+
+```
+/plugin marketplace add 115dkk/make-interfaces-feel-better
+/plugin install make-interfaces-feel-better@115dkk-screen
+```
+
+As a plain skill for Claude Code, Codex and other agents (no hook):
+
 ```bash
 npx skills add 115dkk/make-interfaces-feel-better
 ```
+
+## Copy check hook
+
+The plugin registers a `PreToolUse` hook on `Write`, `Edit` and `MultiEdit`. Before the edit lands, the hook takes the lines it adds that contain Hangul and asks a separate model, Claude Sonnet 5.5 at medium effort through your own `claude` CLI, whether any interface copy or README prose among them clearly breaks a rule in [`write.md`](skills/make-interfaces-feel-better/write.md).
+
+- A breach denies the edit. The reason quotes each offending expression, names the rule and gives a corrected wording, and Claude rewrites the text before writing it.
+- Anything else goes through unchanged. Lines without Hangul, Markdown files other than READMEs, tests, `.github`, and files under `~/.claude` and `~/.codex` are passed without calling the model.
+- If the judge cannot run (no `claude` on `PATH`, a timeout, an error), the edit goes through and Claude is told it was not checked.
+
+Each judged edit costs one model call, about 5 to 10 seconds, on your Claude plan. The hook needs `python3` and `claude` on `PATH`. Copy in other languages is not judged yet.
 
 ## Usage
 
