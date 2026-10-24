@@ -182,7 +182,7 @@ Inside a game's fiction, finding the way can be the puzzle itself (see [game-wri
 
 ## One Middle Dot, Two Items
 
-On a tool's screen a middle dot (·) may join two short facts about one thing where a line break would waste room, such as a device row's kind and plug-in format: `external device · VST 3`. That is all it does there. It is not a list separator and not a stand-in for layout. Generated interfaces string fields and list items into dotted rows, and every dot makes the reader work out where one item ends and the next begins.
+On a tool's screen a middle dot (·) may join two short facts about one thing where a line break would waste room, such as a device row's kind and plug-in format: `external device · VST 3`. That is all it does there. It is not a list separator and not a stand-in for layout. Generated interfaces string fields and list items into dotted rows, and every dot makes the reader work out where one item ends and the next begins. Korean makes this worse: the orthography still lists the middle dot, but everyday writing joins words with a particle, a comma, a hyphen or nothing at all (`대한민국과 미얀마`, `철수, 영희`, `한국-미얀마 관계`, `한미 관계`), and the dot survives mainly in official documents. Korean readers are not used to it, so a run of dots on a Korean screen is tiring to read.
 
 - **One dot per line, joining two items.** A second dot turns the line into a row of fields. Give each field its own place: a label, a second line, a column.
 - **Never list with it.** Channels, tags, formats and steps are lists. Separate them with commas, or give each item its own element (a chip, a row, a bullet).
