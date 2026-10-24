@@ -180,6 +180,23 @@ Inside a game's fiction, finding the way can be the puzzle itself (see [game-wri
 - **Text must fit without shrinking.** When a string does not fit, rewrite it shorter or give it room; do not drop the font size (see [typography.md](typography.md)) and do not add `nowrap` or fixed widths to shared components, because the longest locale will overflow them.
 - **If the product ships a subset font, new copy must fit the subset.** Reword rather than silently falling back to another font.
 
+## One Middle Dot, Two Items
+
+On a tool's screen a middle dot (·) may join two short facts about one thing where a line break would waste room, such as a device row's kind and plug-in format: `external device · VST 3`. That is all it does there. It is not a list separator and not a stand-in for layout. Generated interfaces string fields and list items into dotted rows, and every dot makes the reader work out where one item ends and the next begins.
+
+- **One dot per line, joining two items.** A second dot turns the line into a row of fields. Give each field its own place: a label, a second line, a column.
+- **Never list with it.** Channels, tags, formats and steps are lists. Separate them with commas, or give each item its own element (a chip, a row, a bullet).
+- **It does not replace layout.** Spacing, alignment, dividers and separate fields tell facts apart; a dot does not stand in for them.
+- **Type the punctuation mark, U+00B7.** Korean documents often use the Hangul letter araea ㆍ (U+318D) in its place. It is a different character, so search and string comparison miss it, and some fonts draw it as a brush stroke.
+
+| Before | After |
+| --- | --- |
+| 스피커: L · R · C · LFE · SL · SR | 스피커: L, R, C, LFE, SL, SR, or one chip per channel |
+| 장치 3개 · 마지막 확인 10:42 · 정상 | 정상 in the status lamp; 장치 3개 and 마지막 확인 10:42 as two fields |
+| external device · VST 3 | Unchanged: two facts about one device |
+
+Inside a game's fiction the parts of a line are joined with words instead (see [game-write.md](game-write.md#join-with-words-not-middle-dots)).
+
 ## Korean Register
 
 - **Sentences use 합니다체; status lines, empty states, short results and labels use noun phrases.** 해요체 statements are the friend's voice (see Not a Friend). One app rewrote its whole catalogue this way: "기다리는 요청이 없어요" became "승인 요청 없음", and "받은 요청을 확인하고 있어요" became "받은 요청을 확인 중입니다".
@@ -211,6 +228,7 @@ A README has two readers: someone deciding whether to use the project, and someo
 | A body label repeating the header, a word repeating the lamp | Say it once |
 | An English word inside a non-English screen that is not a unit or a name | Translate it |
 | Two words for one concept across screens | Pick one |
+| More than one middle dot (·) in a line, a dot between the items of a list, or the Hangul letter ㆍ standing in for one | One dot joining two items; commas or separate elements for a list; U+00B7 (One Middle Dot, Two Items) |
 | One move named differently across the steps of a flow (다음 / 계속 / 진행, Next / Continue) | One word per move, on every step |
 | Directions to another screen or menu ("설정 > 알림에서", "Go to Settings > ...") | Put the control here or link straight to it; keep directions for places the product cannot reach (Do It Here, or Link Straight There); inside a game's fiction see game-write.md |
 | The program asking, telling, requesting, picking out, keeping ready or waiting; Korean -아/어 주다, -아/어 드리다, -아/어 두다 on its actions | Name what appears or what is now true (Not a Friend) |
