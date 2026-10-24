@@ -176,7 +176,7 @@ A screen is made of controls, their labels and their state. An explanation of wh
 
 | Before | After |
 | --- | --- |
-| A `게임 그래픽 가속` switch with this printed under it at all times: 게임에서 그래픽 카드를 사용해 더 빠른 게임을 즐기기 위한 옵션입니다. 화면이 정상적으로 표시되지 않을 경우에만 Off로 설정하십시오. | The `게임 그래픽 가속` switch with an info button beside it, which opens: 그래픽 카드로 게임 화면을 그립니다. 화면이 제대로 표시되지 않으면 끄세요. |
+| A `게임 그래픽 가속` switch with this printed under it at all times: 게임에서 그래픽 카드를 사용해 더 빠른 게임을 즐기기 위한 옵션입니다. 화면이 정상적으로 표시되지 않을 경우에만 Off로 설정하십시오. | The `게임 그래픽 가속` switch with an info button beside it, which opens: 게임 화면 처리에 그래픽 카드를 씁니다. 화면이 제대로 표시되지 않으면 끄세요. |
 
 The shelved note is rewritten as well: "더 빠른 게임을 즐기기 위한" sells the setting (see Not a Salesperson), and -십시오 is stiffer than the rest of the screen (see Korean Register).
 
