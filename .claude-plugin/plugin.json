@@ -1,11 +1,18 @@
 {
   "name": "make-interfaces-feel-better",
-  "version": "1.0.0",
+  "version": "1.0.38",
   "description": "Design engineering principles for interfaces (web and Qt), product copy rules, and a PreToolUse hook that checks Korean interface copy and READMEs against write.md.",
   "author": {
     "name": "115dkk",
     "url": "https://github.com/115dkk"
   },
   "license": "MIT",
-  "keywords": ["design", "ui", "qt", "copywriting", "korean", "hooks"]
+  "keywords": [
+    "design",
+    "ui",
+    "qt",
+    "copywriting",
+    "korean",
+    "hooks"
+  ]
 }
