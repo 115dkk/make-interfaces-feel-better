@@ -54,10 +54,21 @@ The plugin registers a `PreToolUse` hook on `Write`, `Edit` and `MultiEdit`. Bef
 
 - A breach denies the edit. The reason quotes each offending expression, one finding for each place a rule is broken, names the rule and gives a corrected wording, and Claude rewrites the text before writing it.
 - The nearby lines let the judge see code next to the copy, such as `{error.message}` rendered on the line below a Korean label.
-- Anything else goes through unchanged. Edits that add no line with Hangul, agent instruction files (`CLAUDE.md`, `AGENTS.md`, `SKILL.md` and Markdown under `skills/` or `.claude/`), tests, `.github`, and files under `~/.claude` and `~/.codex` are passed without calling the model. For other Markdown files the judge decides whether the text is a page users read or an internal document it leaves alone.
+- Anything else goes through unchanged. Edits that add no line with Hangul, agent instruction files (`CLAUDE.md`, `AGENTS.md`, `SKILL.md` and Markdown under `skills/` or `.claude/`), tests, `.github`, files under `~/.claude` and `~/.codex`, and files listed in the repository's `.hookignore` are passed without calling the model. For other Markdown files the judge decides whether the text is a page users read or an internal document it leaves alone.
 - If the judge cannot run (no `claude` on `PATH`, a timeout, an error), the edit goes through and Claude is told it was not checked.
 
 Each judged edit costs one model call, about 5 to 10 seconds, on your Claude plan. The hook needs `python3` and `claude` on `PATH`. Copy in other languages is not judged yet.
+
+To keep the hook off files it should not judge, such as quoted source text or copy you have already settled, list them in a `.hookignore` file at the root of the repository. It uses `.gitignore` syntax:
+
+```gitignore
+# Legal text supplied by counsel, kept word for word
+public/legal/
+# Strings copied from the platform's own guidelines
+src/i18n/platform-*.json
+```
+
+The hook reads only the `.hookignore` at the root of the git repository that contains the edited file, not one in a subdirectory. As in git, a file inside an excluded directory cannot be brought back with `!`. The translationese hook of [good-korean-claude](https://github.com/115dkk/good-korean-claude) follows the same file.
 
 ## Usage
 
