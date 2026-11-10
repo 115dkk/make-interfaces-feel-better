@@ -70,6 +70,8 @@ src/i18n/platform-*.json
 
 The hook reads only the `.hookignore` at the root of the git repository that contains the edited file, not one in a subdirectory. As in git, a file inside an excluded directory cannot be brought back with `!`. The translationese hook of [good-korean-claude](https://github.com/115dkk/good-korean-claude) follows the same file.
 
+Claude Code keeps running the hooks of the plugin version it loaded at startup until the process exits, and `/clear` does not change that, so a session that was already open when the plugin updated still calls the old hook. When the hook finds that it is not the version recorded in `installed_plugins.json`, it runs the installed version's script with that version's `write.md` instead, so new rules and `.hookignore` handling reach sessions that are already open. This only happens in sessions that loaded a version with this behaviour. A change to `hooks/hooks.json` itself, such as a new hook or new arguments, still needs a restart of Claude Code.
+
 ## Usage
 
 Once installed, Claude will automatically apply these principles when building UI components, reviewing frontend code, or implementing animations.
