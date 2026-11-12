@@ -10,8 +10,8 @@ This fork extends the original (which is web/CSS-focused) with the items below. 
 - **Color discipline** (`color.md`) — palette restraint, color tokenization, and dark mode background rules
 - **Interruptions and consent** (`interruptions.md`) — full-screen takeovers, security ceremonies, escape routes, countdown wording, warning habituation, and showing a machine-readable code without teaching people to trust one
 - **Icon discipline** (`icons.md`) — stroke weight matched to text, states through `currentColor`, outline versus fill, sizing, RTL flipping
-- **Product copy** (`write.md`): name things by what the user gets, keep internals off the screen, cut filler, give the product no persona (it does not chat, comfort, sell itself or write prose), turn raw errors into instructions, shelve explanations behind an info button or expander instead of printing them under every setting, disclose what the app does on the user's behalf, ship every string in every locale, use a middle dot only to join two items and never to list, keep Korean UI in 합니다체, and write READMEs for users and developers rather than as advertisements
-- **Game writing** (`game-write.md`): build the protagonist's situation before the feature, let the machine speak like a machine and the characters like people, keep real outages out of the fiction, and put clues in the world instead of numbered hint ladders
+- **Product copy** (`write.md`): name things by what the user gets, keep internals off the screen, cut filler, give the product no persona (it does not chat, comfort, sell itself or write prose), say what the thing is in the headline, let a policy page prove by its contents, turn raw errors into instructions, shelve explanations behind an info button or expander instead of printing them under every setting, fill key names in from the binding and teach a shortcut where it is used, disclose what the app does on the user's behalf, ship every string in every locale, use a middle dot only to join two items and never to list, keep Korean UI in 합니다체, and write READMEs for users and developers rather than as advertisements
+- **Game writing** (`game-write.md`): build the protagonist's situation before the feature, let the machine speak like a machine and the characters like people, keep keys, guide arrows and the account out of characters' mouths, give characters work to do instead of features to recite, teach one control at a time, name chapters without giving the story away, keep real outages out of the fiction, and put clues in the world instead of numbered hint ladders
 - **Size floors** (`typography.md`): small text is an exception you justify, with web and Qt floors taken from real complaints rather than mockups
 - **Field lessons** from shipping a multi-skin Qt desktop app — QSS selector traps (specificity ties, `Q_OBJECT` class matching), size-hint propagation and scroll-area clipping, item views with custom-painted rows, theme switching that goes stale, offscreen pixel verification (golden galleries, perceptibility measurement), status-glyph legibility, and variable-font weights under QSS
 
@@ -69,6 +69,21 @@ src/i18n/platform-*.json
 ```
 
 The hook reads only the `.hookignore` at the root of the git repository that contains the edited file, not one in a subdirectory. As in git, a file inside an excluded directory cannot be brought back with `!`. The translationese hook of [good-korean-claude](https://github.com/115dkk/good-korean-claude) follows the same file.
+
+### Games
+
+In a game the hook also judges the text inside the fiction (dialogue, monologue, quest, item and skill text) and adds [`game-write.md`](skills/make-interfaces-feel-better/game-write.md) to the rules. It does this only in a repository that says it is a game, by having a `.hookgame` file at its root.
+
+- An empty `.hookgame`, or one that holds only comments, makes every file in the repository part of the game.
+- A `.hookgame` with patterns, in the same `.gitignore` syntax as `.hookignore`, makes only the matching files part of the game. The rest of the repository is judged against `write.md` alone.
+
+```gitignore
+# Only these directories hold the game's text
+src/game/
+public/locales/
+```
+
+A repository without `.hookgame` is never judged against `game-write.md`. A game file still costs one model call for each edit: both rule files go to the judge together, and a denial is headed 게임 문구 판정(write.md, game-write.md). Files listed in `.hookignore` are still passed without a call, and `.hookgame` is read only at the root of the git repository that contains the edited file.
 
 Claude Code keeps running the hooks of the plugin version it loaded at startup until the process exits, and `/clear` does not change that, so a session that was already open when the plugin updated still calls the old hook. When the hook finds that it is not the version recorded in `installed_plugins.json`, it runs the installed version's script with that version's `write.md` instead, so new rules and `.hookignore` handling reach sessions that are already open. This only happens in sessions that loaded a version with this behaviour. A change to `hooks/hooks.json` itself, such as a new hook or new arguments, still needs a restart of Claude Code.
 

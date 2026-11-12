@@ -13,6 +13,12 @@ Write/Edit/MultiEdit이 새로 들이는 줄 가운데 한글이 든 줄과 그 
 대상 파일이 거기 걸리면 모델을 부르지 않고 통과시킨다. 하위 디렉터리의 .hookignore는 읽지 않는다.
 ?와 [...]는 git과 달리 UTF-8 바이트 하나가 아니라 글자 하나에 맞는다.
 
+--game-rules를 받았고 편집 대상 파일이 든 git 저장소의 루트에 .hookgame이 있으면 그 저장소를 게임으로 본다.
+이때는 --rules의 규칙 뒤에 --game-rules의 규칙을 붙여 한 번에 판정하고, 게임 안의 글(대사, 독백, 퀘스트와
+아이템과 스킬 문구)도 판정 대상에 넣는다. .hookgame이 비었거나 주석뿐이면 저장소의 모든 파일이 게임에 들고,
+패턴이 있으면(.hookignore와 같은 문법) 거기 걸리는 파일만 게임에 든다. .hookgame이 없는 저장소에서는
+--game-rules를 쓰지 않는다.
+
 Claude Code 프로세스는 뜰 때 정한 플러그인 폴더의 훅을 끝날 때까지 쓴다. 그래서 플러그인을 올린 뒤에도
 오래 떠 있는 세션은 옛 판의 이 스크립트를 부른다. 플러그인 캐시(plugins/cache/<마켓플레이스>/<플러그인>/<판>)에
 있는 이 스크립트가 installed_plugins.json에 적힌 설치 판이 아니면, 설치 판의 같은 스크립트를 대신 실행하고
@@ -29,6 +35,9 @@ Claude Code 프로세스는 뜰 때 정한 플러그인 폴더의 훅을 끝날 
                      지침 파일은 모델을 부르지 않고 통과시킨다.
                      korean: 파일 속 한국어 문장 전부를 판정한다.
   --label TEXT       거부 사유 첫 줄에 붙일 이름.
+  --game-rules PATH  게임 저장소에서 --rules의 규칙 뒤에 붙일 규칙 원문 파일(game-write.md).
+                     저장소 루트에 .hookgame이 있고 편집 대상 파일이 거기 걸릴 때만 쓴다.
+  --game-label TEXT  게임 규칙을 붙였을 때 --label 대신 거부 사유 첫 줄에 붙일 이름.
   --model ID, --effort LEVEL
                      판정 모델과 effort. 기본값은 claude-sonnet-5-5, medium.
 
@@ -51,6 +60,7 @@ CONTEXT = 3
 GUARD_ENV = "KOREAN_JUDGE_ACTIVE"
 FORWARD_ENV = "KOREAN_JUDGE_FORWARDED"
 HOOKIGNORE = ".hookignore"
+HOOKGAME = ".hookgame"
 # git도 Windows와 macOS에서는 기본으로 대소문자를 가리지 않는다.
 IGNORECASE = sys.platform in ("win32", "darwin")
 NOTHING = r"(?!)"
@@ -117,6 +127,15 @@ SCOPES = {
     ),
 }
 
+# 게임 저장소에서 SCOPES의 범위 뒤에 붙인다.
+GAME_SCOPE = (
+    " The repository marks this file as part of a game, so text inside the game's fiction is in "
+    "scope as well: what characters say and think, narration, quest, item and skill text, and the "
+    "system lines shown around them. The rule text has two parts, and the second part holds the "
+    "rules for games: it says what a character may say and what belongs to the system. Where the "
+    "two parts differ about text inside the fiction, the second part decides."
+)
+
 INSTRUCTIONS = """You are a gate that judges Korean text before an AI coding agent writes it to a file.
 You receive the file path, the lines the edit adds that contain Hangul, and the other lines it
 adds within {context} lines of them. The nearby lines show the code around the copy, such as a
@@ -146,6 +165,8 @@ def parse_args(argv):
     parser.add_argument("--section")
     parser.add_argument("--scope", choices=sorted(SCOPES), required=True)
     parser.add_argument("--label", default="규칙 판정")
+    parser.add_argument("--game-rules")
+    parser.add_argument("--game-label")
     parser.add_argument("--model", default="claude-sonnet-5-5")
     parser.add_argument("--effort", default="medium")
     return parser.parse_args(argv)
@@ -380,13 +401,13 @@ def trim_trailing_spaces(line):
     return line if cut is None else line[:cut]
 
 
-def load_hookignore(root):
-    """root/.hookignore를 (정규식, 부정, 디렉터리 전용, 이름만 비교) 목록으로 읽는다."""
+def load_patterns(root, name):
+    """root/name을 (정규식, 부정, 디렉터리 전용, 이름만 비교) 목록으로 읽는다. 파일을 읽지 못하면 None을 돌려준다."""
     try:
-        with open(os.path.join(root, HOOKIGNORE), encoding="utf-8-sig", errors="replace", newline="") as handle:
+        with open(os.path.join(root, name), encoding="utf-8-sig", errors="replace", newline="") as handle:
             text = handle.read()
     except OSError:
-        return []
+        return None
     flags = re.DOTALL | (re.IGNORECASE if IGNORECASE else 0)
     patterns = []
     for line in text.split("\n"):
@@ -412,20 +433,21 @@ def load_hookignore(root):
     return patterns
 
 
-def hookignore_match(relative, is_dir, patterns):
-    """저장소 루트 기준 경로 하나를 패턴 목록에 대 보고, 마지막으로 맞은 패턴에 따라 제외 여부를 정한다."""
-    excluded = False
+def pattern_match(relative, is_dir, patterns):
+    """저장소 루트 기준 경로 하나를 패턴 목록에 대 보고, 마지막으로 맞은 패턴에 따라 걸리는지를 정한다."""
+    matched = False
     name = relative.rsplit("/", 1)[-1]
     for regex, negate, dir_only, basename_only in patterns:
         if (is_dir or not dir_only) and regex.fullmatch(name if basename_only else relative):
-            excluded = not negate
-    return excluded
+            matched = not negate
+    return matched
 
 
-def hookignored(path, cwd):
-    """path가 그 저장소 루트의 .hookignore에 걸리는지 돌려준다.
+def listed(path, cwd, name, if_empty=False):
+    """path가 그 저장소 루트의 name 파일(.hookignore나 .hookgame)에 걸리는지 돌려준다.
 
-    git과 같이 상위 디렉터리가 제외되면 그 안의 파일은 !로 다시 넣을 수 없다.
+    파일이 없으면 False를, 파일은 있는데 패턴이 하나도 없으면 if_empty를 돌려준다. git과 같이 상위 디렉터리가
+    걸리면 그 안의 파일은 !로 다시 뺄 수 없다.
     """
     base = cwd if isinstance(cwd, str) and cwd else os.getcwd()
     path = os.path.abspath(os.path.join(base, path))
@@ -436,14 +458,16 @@ def hookignored(path, cwd):
         relative = os.path.relpath(path, root).replace(os.sep, "/")
     except ValueError:
         return False
-    patterns = load_hookignore(root)
-    if not patterns or relative == ".." or relative.startswith("../"):
+    patterns = load_patterns(root, name)
+    if patterns is None or relative == ".." or relative.startswith("../"):
         return False
+    if not patterns:
+        return if_empty
     parts = relative.split("/")
     for end in range(1, len(parts)):
-        if hookignore_match("/".join(parts[:end]), True, patterns):
+        if pattern_match("/".join(parts[:end]), True, patterns):
             return True
-    return hookignore_match(relative, False, patterns)
+    return pattern_match(relative, False, patterns)
 
 
 def skipped_path(path, scope):
@@ -592,7 +616,8 @@ def main(argv):
         return 0
     tool_input = payload.get("tool_input") or {}
     path = str(tool_input.get("file_path") or "")
-    if not path or skipped_path(path, args.scope) or hookignored(path, payload.get("cwd")):
+    cwd = payload.get("cwd")
+    if not path or skipped_path(path, args.scope) or listed(path, cwd, HOOKIGNORE):
         return 0
     lines = added_lines(payload["tool_name"], tool_input, path)
     if not lines:
@@ -602,8 +627,17 @@ def main(argv):
     if not rule_text:
         emit({"systemMessage": args.label + ": 규칙 원문(" + args.rules + ")을 읽지 못해 판정 없이 통과했습니다."})
         return 0
+    scope = SCOPES[args.scope]
+    # 저장소가 .hookgame으로 게임이라고 밝혔을 때만 게임 규칙을 붙이고 게임 안의 글을 판정 대상에 넣는다.
+    # 게임 규칙 원문을 읽지 못하면 --rules의 규칙만으로 판정한다.
+    game = bool(args.game_rules) and listed(path, cwd, HOOKGAME, if_empty=True)
+    game_text = load_rules(args.game_rules, None) if game else ""
+    if game_text:
+        rule_text += "\n\n" + game_text
+        scope += GAME_SCOPE
+        args.label = args.game_label or args.label
     rules = (
-        INSTRUCTIONS.replace("{scope}", SCOPES[args.scope])
+        INSTRUCTIONS.replace("{scope}", scope)
         .replace("{context}", str(CONTEXT))
         .replace("{label}", args.label)
         .replace("{rules}", rule_text)
