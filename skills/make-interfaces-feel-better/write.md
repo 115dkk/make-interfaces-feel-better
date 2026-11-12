@@ -1,6 +1,6 @@
 # Writing: Product Copy
 
-Rules for the words an interface shows (labels, descriptions, helper text, tooltips, empty states, dialogs, toasts, status lines, error messages, landing and login pages) and for the README that introduces the project. Toolkit-agnostic. Parts are adapted from `better-writing` in [jakubkrehel/skills](https://github.com/jakubkrehel/skills) (MIT); the rest comes from copy rewrites in shipped products.
+Rules for the words an interface shows (labels, descriptions, helper text, tooltips, empty states, dialogs, toasts, status lines, error messages, landing and login pages), for pages published for users (a privacy policy, terms of use) and for the README that introduces the project. Toolkit-agnostic. Parts are adapted from `better-writing` in [jakubkrehel/skills](https://github.com/jakubkrehel/skills) (MIT); the rest comes from copy rewrites in shipped products.
 
 Generated interfaces get copy wrong in four recurring ways, and a review should look for all four first:
 
@@ -18,6 +18,8 @@ Before writing or reviewing, read the copy nearby. Note the product's terms, its
 Keep terms consistent. If it is "Archive" in the menu, it is not "Move to storage" in the toast. If the product says "apps", no string says "processes".
 
 A multi-step flow uses one word for each move. If one step advances with 다음, every step does; 계속 on the next step makes the user wonder whether that button does something else. The same holds for the word that enters the flow and the word that finishes it.
+
+One action keeps one name on every screen that mentions it. A move taught as 구르기 in the tutorial is not 순간이동 in the next dialog and 회피 in the key list.
 
 ## Say What the User Gets, Not How It Works
 
@@ -63,6 +65,7 @@ Anything only the developer needs goes in the log, a details panel or the docume
 Every sentence must do work for the person reading it. Delete the ones that do not.
 
 - **Do not say what is already shown.** If the card header names the unit, the body does not repeat the name as a label. A red lamp does not need the word "Rejected" beside it. Say each status once, in one place: the lamp or badge names the state, one line gives the cause.
+- **A label and its value do not say the same thing.** A row labelled "한 레벨 더 올리면" with the value "배우면 Lv 1", under a header that already reads "아직 안 배웠어요", states one fact three times and still does not say what the skill does. Put the effect in the value ("피해 +20%"), or drop the row when it has nothing to add.
 - **Do not print fake readouts.** Tick marks with no control pointing at them, counts and statistics the user cannot act on, and theoretical curves beside a measured one are decoration pretending to be information.
 - **No obvious explanations.** "Click Save to save your changes" teaches nothing. Explain only what the reader could not guess.
 - **Do not state what every app does.** Behaviour the reader already knows from every other program is not a feature and not a limit: "뒤로가기는 취소할 수 없지만 다시 앞으로 갈 수 있습니다", "Closing the window does not delete your files", "Settings take effect after you save them". Write only where this product departs from that expectation or where a common action costs the reader something here, as in "저장하지 않은 입력은 뒤로가기를 누르면 사라집니다". This holds on screens and in READMEs alike.
@@ -103,10 +106,13 @@ The product does not talk with the user, comfort them or befriend them. The read
 
 The product does not praise, sell or defend itself. Sentimental taglines are the most recognisable mark of generated copy: every product that uses them sounds like every other one, and readers now take them as a sign that nobody wrote the page.
 
-- **No slogans or verse.** An English slogan in capitals on a non-English page, verbless fragments set out like verse ("작은 시작." / "함께 넓혀가는 우주."), and features turned into poetic noun phrases ("시간과 함께 성장하는 기지", "어디서든 이어가는 항해") look deep and state no fact.
-- **No claims the reader cannot check.** Replace each adjective about the product ("powerful", "seamless", "effortless") with the fact that would justify it, or delete it. No "your journey" promises, and no caption that swears a screenshot is real ("실제 게임 화면"); a caption says what the picture shows.
+- **No slogans or verse.** An English slogan in capitals on a non-English page, verbless fragments set out like verse ("작은 시작." / "함께 넓혀가는 우주."), and features turned into poetic noun phrases ("시간과 함께 성장하는 기지", "어디서든 이어가는 항해") look deep and state no fact. A line that stops at a particle and leaves the reader to supply the verb ("객석의 빈자리를 시민과 작품을 잇는 기회로") is the same fragment.
+- **The headline says what the thing is.** Readers of a cover line built on wordplay ("버려지는 문화의 빈자리, 이제는 당신의 한자리") asked what the page was about; the facts were three screens further down. Write the line a reader could repeat to someone else: what it is, who it is for, what it costs. Before keeping a pun, check the other meanings of its words: 한자리 is also a post in office.
+- **No claims the reader cannot check.** Replace each adjective about the product ("powerful", "seamless", "effortless") with the fact that would justify it, or delete it. No "your journey" promises, and no caption that swears a screenshot is real ("실제 게임 화면"); a caption says what the picture shows. A promise about what the reader will feel or become is such a claim: "가격 부담을 덜고 새로운 취향을 발견합니다" becomes what the service does, "정가의 50%로 추첨에 당첨된 작품을 관람합니다".
+- **A figure proves the sentence it sits under.** A fall in total ticket sales printed under "관객은 인기작에 몰리고" shows a smaller market, not a concentrated one; the share of sales taken by the ten largest productions would show it. A figure that only shares the topic is decoration (see Cut Filler). Keep the tense and scope of the source as well: a closure announced for next year is not "문을 닫았습니다".
 - **No costume on functional screens.** A login form titled "COMMANDER ACCESS" with a welcome-back line and "continue your pioneering" is a login form in costume. Login, settings, errors and store copy use plain names.
 - **No defence.** Sentences about what the product will not do ("Control Center will not terminate a process owned by another session", "Complete profile contents are never logged", "this is not shown as normal system-wide application") answer questions nobody asked. If a limit matters to the user, state it as what they can do.
+- **A policy page proves by its contents.** A privacy policy that opens with "게임은 무료 테스트이고 광고·결제가 없으며, 이름·이메일·전화번호 같은 연락처는 받지 않습니다" is the same defence: it reassures before it informs, and it draws the eye away from what the table below does list (IP addresses, chat). The table of collected items already shows what is absent from it. Keep a negative only where the law asks for the statement (which cookies are set) or where it changes what the reader does: "연락처를 받지 않아 비밀번호를 잃어버리면 찾기 어렵습니다. 다른 사이트와 다른 비밀번호를 쓰세요."
 
 These rewrites only rearrange facts the original already states; use the product's real ones.
 
@@ -115,6 +121,8 @@ These rewrites only rearrange facts the original already states; use the product
 | A SHARED UNIVERSE. YOUR OWN JOURNEY. / 작은 시작. 함께 넓혀가는 우주. | 여러 사람이 한 서버에서 함께 하는 우주 전략 게임입니다. 기지를 짓고 자원을 생산해 주변 성계로 함대를 보냅니다. |
 | 실제 종합 관제 화면: 자원 생산, 시설 건설, 주변 성계와 함대 편성 | 종합 관제 화면. 자원 생산, 시설 건설, 함대 편성을 한 화면에서 합니다. |
 | COMMANDER ACCESS / 다시 오신 것을 환영합니다 / 계정에 로그인하고 개척을 이어가세요. | 로그인 (title, fields, a 로그인 button, nothing else) |
+| 버려지는 문화의 빈자리, 이제는 당신의 한자리 / 객석의 빈자리를 시민과 작품을 잇는 기회로 | 공연, 전시, 영화의 빈 객석을 정가의 50%에 추첨으로 배정합니다. |
+| 게임은 무료 테스트이고 광고·결제가 없으며, 이름·이메일·전화번호 같은 연락처는 받지 않습니다. (the first paragraph of a privacy policy) | (delete; the table of collected items follows) |
 
 ### Not a Writer
 
@@ -188,6 +196,13 @@ The shelved note is rewritten as well: "더 빠른 게임을 즐기기 위한" s
 - **Empty states point forward:** what this place is, how to fill it, one action. But when the view's own state already says why it is empty, do not add a hint that restates it.
 - **Placeholders are examples, not labels.** Every field keeps a visible label.
 
+## Keys and Shortcuts
+
+- **A key name comes from the binding, not from the string.** Where keys can be rebound, or the same screen also runs on touch, a letter typed into a sentence goes stale. One game still said "펫 창은 P야" after the pet window moved to L and P opened the party window. Fill the key in from the current binding, and on touch name the on-screen control instead. A stale key name sends the reader the wrong way, so it is `HIGH`.
+- **Every key list is rendered from the bindings.** Two lists on consecutive screens that disagree (Space for 말 걸기 and 줍기 in one, X in the next) come from typing the list twice.
+- **A shortcut is taught where it is used.** Show the key on the control it triggers, as a hint on the button or in its tooltip ("가방 (I)"), and teach a control at the moment the reader first needs it. A table of every key shown on first run, 24 rows under "처음 오셨다면 한 번 훑어보세요", asks the reader to memorise what they cannot use yet. The full list is reference material and lives in settings (see Explanations Go on the Shelf).
+- **A key with two jobs states the condition on the row.** "Space 순간이동" and "Space 말 걸기" in one list need the condition: "가까이 있으면 말 걸기".
+
 ## Every Language, Fully
 
 - **Every locale gets every string.** A Korean screen with an English lump in the middle ("Peaking" as a card title, `PK`/`DEV` badges) is untranslated, not "technical". Units and product names are the deliberate exceptions.
@@ -242,18 +257,22 @@ A README has two readers: someone deciding whether to use the project, and someo
 | `error.message`, `String(err)`, `e.what()`, `QString::fromStdString(ex...)` reaching a label or toast | Map to a written message; keep the raw text in details or the log |
 | "Something went wrong" with nothing after it | State the cause and the next action |
 | A body label repeating the header, a word repeating the lamp | Say it once |
+| A row whose value restates its label or the state shown above it ("한 레벨 더 올리면" / "배우면 Lv 1") | The effect as the value, or no row (Cut Filler) |
 | A sentence about behaviour every program shares (going back, closing a window, saving, undoing) | Delete it; keep it only where this product departs from the expectation or the action costs the reader something (Cut Filler) |
 | A paragraph printed under a setting or option to explain it, visible at all times | Let the label carry the effect; move the explanation behind an info button or expander beside the item (Explanations Go on the Shelf) |
 | An English word inside a non-English screen that is not a unit or a name | Translate it |
 | Two words for one concept across screens | Pick one |
 | More than one middle dot (·) in a line, a dot between the items of a list, or the Hangul letter ㆍ standing in for one | One dot joining two items; commas or separate elements for a list; U+00B7 (One Middle Dot, Two Items) |
-| One move named differently across the steps of a flow (다음 / 계속 / 진행, Next / Continue) | One word per move, on every step |
+| One move named differently across the steps of a flow (다음 / 계속 / 진행, Next / Continue), or one action named differently across the tutorial, a dialog and the key list | One word per move, on every step and every screen |
+| A key or button name typed into a sentence or label ("K를 누르면", "펫 창(P)") where keys can be rebound or the screen also runs on touch | Fill the key in from the current binding; on touch name the on-screen control (Keys and Shortcuts) |
+| A table of every shortcut shown on first run; two key lists that disagree | A key hint on each control, each control taught when first needed, the full list in settings; every list rendered from the bindings (Keys and Shortcuts) |
 | Directions to another screen or menu ("설정 > 알림에서", "Go to Settings > ...") | Put the control here or link straight to it; keep directions for places the product cannot reach (Do It Here, or Link Straight There); inside a game's fiction see game-write.md |
 | The program asking, telling, requesting, picking out, keeping ready or waiting; Korean -아/어 주다, -아/어 드리다, -아/어 두다 on its actions | Name what appears or what is now true (Not a Friend) |
 | "Don't worry", "Oops", "You're all set", "함께해요", "~하기만 하면 됩니다", "언제든", exclamation marks, emoji, promises about the next visit | Delete, or state the fact (Not a Friend) |
 | A question heading answered by 있습니다 / 없습니다 or Yes / No; 내, 나, "my", "I" in labels outside a signed attestation | An instruction with options named as states; name the owner (Not a Friend) |
-| Slogans, verse-like taglines, adjectives about the product, "your journey", captions calling a screenshot real, theme words on chrome, a README that sells the project | Say what the product is and what the user does in it; a README keeps what it is, requirements, install, use, limits, build, licence (Not a Salesperson) |
-| "will not", "never", "remains blocked", "is not shown as" about the product | Delete, or turn into what the user can do (Not a Salesperson) |
+| Slogans, verse-like taglines, a line that stops at a particle (~기회로, ~세상으로), a headline that is wordplay, adjectives about the product, "your journey", a promise about what the reader will feel or become (~을 발견합니다, ~이 달라집니다), captions calling a screenshot real, theme words on chrome, a README that sells the project | Say what the product is and what the user does in it; a README keeps what it is, requirements, install, use, limits, build, licence (Not a Salesperson) |
+| A figure beside a claim | Check that it proves that claim, and that its tense and scope match the source (Not a Salesperson) |
+| "will not", "never", "remains blocked", "is not shown as" about the product; a policy page or README that opens with what the product does not collect, charge or show (~는 받지 않습니다, ~가 없으며) | Delete, or turn into what the user can do; keep a negative the law asks for or one that changes what the reader does (Not a Salesperson) |
 | Verbs that carry an image or a feeling (담다, 남기다, 알려 주다) | The verb of the operation (Not a Writer) |
 | Korean statements ending in -어요, -아요 or -해요 outside character dialogue | 합니다체 for sentences, noun phrases for status and labels |
 ## Reporting
