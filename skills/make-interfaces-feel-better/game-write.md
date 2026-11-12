@@ -4,10 +4,10 @@ Detailed policy for game text, under [write.md](write.md). Every rule in `write.
 
 Generated games forget two facts, and a review should check both first:
 
-1. **The game is fiction, and everyone inside it lives as if it were true.** The people in it have jobs, reasons and feelings; machines in it behave like machines; the world takes its own words seriously. Nothing inside admits to being a game: no server, operator or tutorial in a character's world, no premise that would fall apart in the world the game depicts, no menu that exists only because a feature had to be taught.
+1. **The game is fiction, and everyone inside it lives as if it were true.** The people in it have jobs, reasons and feelings; machines in it behave like machines; the world takes its own words seriously. Nothing inside admits to being a game: no server, operator or tutorial in a character's world, no key, guide arrow or account in a character's mouth, no premise that would fall apart in the world the game depicts, no menu that exists only because a feature had to be taught.
 2. **Whoever opened the game has already chosen it.** They bought it, or installed it and pressed start. The store page and the landing page are where the game meets someone still deciding, and even there [write.md](write.md#not-a-salesperson) keeps the pitch to facts. Inside the game nothing sells the game. A free gacha game is no exception: its shop says what a purchase contains and costs, and nothing more.
 
-Every section below applies one of these. Situation, inputs, the two speakers, real failures, clues and humour follow from the first; the genre label, mood taglines and the paid shop from the second.
+Every section below applies one of these. Situation, inputs, the two speakers, real failures, what characters may say about the screen and about features, chapter names, clues and humour follow from the first; the genre label, mood taglines, the paid shop and the first minutes of play from the second.
 
 ## 사례: 터미널을 가르치는 '생활형 커리어 RPG'
 
@@ -36,6 +36,39 @@ Every section below applies one of these. Situation, inputs, the two speakers, r
 이 화면들의 잘못은 두 가지입니다. 첫째, 가르칠 기능부터 정하고 세계는 그 핑계로 만들었습니다. `pwd`, `ls`, `cd`, `cat`을 가르쳐야 하니 파일 찾기 의뢰를 만들고, 돈을 붙이고, 메일과 은행과 상점과 평판을 붙인 다음 '생활형 커리어 RPG'라는 이름을 달았습니다. 그래서 메뉴마다 튜토리얼의 핑계로 보입니다. 둘째, 기계의 말과 사람의 말을 구분하지 않았습니다. 시스템 메시지는 서버 사정을 늘어놓는데, 주인공이 반응하는 대사는 한 줄도 없습니다.
 
 고쳐 쓴 첫 문장은 "오늘 탐정 사무소를 차리며 컴퓨터라는 걸 새로 장만했는데, 정말 의뢰가 오는 건가?"입니다. 이 한 문장에 주인공이 탐정이라는 것, 오늘 개업했다는 것, 컴퓨터가 새로 산 도구라는 것, 아직 손님이 없다는 것이 다 들어 있습니다. 분위기를 따로 쓰지 않았는데 사실을 말하니 분위기가 생겼습니다.
+
+## 사례: 웹 MMORPG의 첫 10분
+
+생성형 도구로 만든 웹 MMORPG에서 훈련장을 마치고 마을에 들어선 뒤 10분 동안 나오는 화면들입니다.
+
+**경비병의 첫 대화**
+
+- 대화창 제목은 "시작의 마을에 온 걸 환영해요!"이고, 바로 아래에서 경비병이 "어이, 처음 보는 얼굴이군."이라고 합니다. 한 창에서 프로그램과 경비병이 따로 인사합니다.
+- 경비병은 "마을 구경부터 시켜 주지. 바닥의 화살표만 따라가면 돼."라고 합니다. 화살표는 플레이어의 화면에만 나오는 안내 표시입니다. 같은 창 맨 아래에는 "화살표를 따라 마을을 한 바퀴 돌아 보세요"라는 안내가 이미 있습니다.
+- 경비병은 구경을 시켜 주겠다고 하고는 길 안내를 화살표에 맡깁니다. 나중에 촌장은 "경비병이 마을 구경은 시켜 주던가?"라고 묻습니다. 대사에서 약속한 일이 게임에서는 일어나지 않습니다.
+
+**조작법 창**
+
+- 훈련장에서는 이동, 공격, 구르기, 스킬, 물약을 그 키가 필요한 순간에 하나씩 배웁니다. 마을에 들어서면 "처음 오셨다면 한 번 훑어보세요"라는 창이 뜨고, 거기에 키 24줄이 한꺼번에 나옵니다. 그중 12줄은 가방, 길드, 우편함 같은 창을 여는 키입니다.
+- 경비병 대화창의 조작 목록에서는 Space가 "말 걸기 · 줍기"인데, 이 창에서는 X가 "줍기 · 말 걸기"입니다. 같은 키의 동작이 훈련장에서는 구르기, 대화창에서는 순간이동, 이 창에서는 회피입니다.
+
+**촌장과 조련사**
+
+- 촌장은 "K를 누르면 배울 수 있는 기술이 보일 걸세."라고 합니다. 터치 화면에는 K가 없고, 키를 바꾼 플레이어에게는 틀린 안내입니다.
+- 펫 조련사는 "펫 창은 P야!"라고 하는데, 펫 창은 L이고 P를 누르면 파티 창이 열립니다. 키 배치를 바꿀 때 대사에 적어 둔 글자는 고치지 않았습니다.
+
+**창고지기**
+
+- 머리 위에 뜨는 대사 넷 가운데 "네 다른 캐릭터들도 이 창고를 같이 써."는 패치 노트의 "같은 계정의 모든 캐릭터가 함께 사용합니다"를 반말로 옮긴 것입니다. 세계 안에 사는 사람은 계정도, 플레이어의 다른 캐릭터도 모릅니다.
+- "어이, 짐이 무거워 보이는데?"와 "맡길 거 있으면 줘. 잃어버릴 일은 없어!"는 남의 물건을 맡아 주는 사람이 할 말이 아닙니다. 먼저 불러 세우고, 짐을 훑어보고, 내놓으라 하고, 묻지도 않은 안전을 약속하는 것은 물건을 노리는 사람이 하는 일입니다. 앞의 대사는 가방이 비어 있어도 나옵니다.
+- "상자 하나, 상자 둘… 영차!"만 자기 일을 하는 사람의 말입니다.
+
+**퀘스트 카드**
+
+- 마을을 한 바퀴 도는 퀘스트의 카드에서 촌장 이름 아래에 "1막 · 지하묘지"가 적혀 있습니다. 말하는 사람의 이름 아래는 장소를 적는 자리라서, 마을이 지하묘지라는 뜻이 됩니다.
+- 이 막의 이야기는 묘지에서 나는 덜그럭 소리가 무엇인지 모르는 데서 시작하고, 촌장은 나중에 "해골이 걸어 다닌다고?!"라며 놀랍니다. 그런데 막 이름과, 처음부터 열 수 있는 업적 "1막 이야기 끝내기 (해골 왕)" 때문에 플레이어는 그 답을 먼저 압니다.
+
+이 화면들의 잘못은 하나입니다. 기능을 먼저 만들고, 그 사용법을 가장 가까이 있는 캐릭터에게 말하게 했습니다. 안내 화살표를 넣고는 경비병에게 화살표를 말하게 했고, 스킬창을 넣고는 촌장에게 키를 말하게 했고, 계정 공유 창고를 넣고는 창고지기에게 계정을 말하게 했습니다. 고칠 방법은 같은 게임 안에 있습니다. 훈련장에서는 조작이 시스템 안내로 하나씩 나오고, 경비병의 혼잣말 "…투구 안이 생각보다 덥군."은 그 자리에 서 있는 사람의 말입니다.
 
 ## Build the Situation Before the Feature
 
@@ -98,6 +131,39 @@ Inside the fiction, nothing may mention the game's own infrastructure: no 운영
 - **Say each failure once.** One notice, one retry control.
 - **Debug and preview tools do not ship.** "완료 흐름 미리보기" belongs behind a developer flag.
 
+## Characters Cannot See the Screen
+
+Keys, buttons, guide arrows, map markers, windows, menus, the account and the player's other characters exist on the player's side of the screen. Nobody who lives in the world can see them, so a character who mentions one stops being a person there and becomes the tutorial. It is the same breach as naming the server, and generated games commit it more often, because the nearest character is the easiest place to put an instruction.
+
+| Before (the character reads out the interface) | After (the character speaks, the system instructs) |
+| --- | --- |
+| Guard: 마을 구경부터 시켜 주지. 바닥의 화살표만 따라가면 돼. | Guard: 촌장님은 광장 북쪽 큰 건물 앞에 계셔. 인사부터 드려. System line under the dialogue: 화살표를 따라 마을을 한 바퀴 도세요. |
+| Elder: 맨손으로 가진 말고 기술 하나는 익혀 가게. K를 누르면 배울 수 있는 기술이 보일 걸세. | Elder: 맨손으로 가진 말고 기술 하나는 익혀 가게. Quest goal: 스킬창에서 스킬 하나 배우기, with the current key beside it |
+| Keeper: 네 다른 캐릭터들도 이 창고를 같이 써. | A note on the storage window: 계정의 모든 캐릭터가 함께 쓰는 창고입니다. |
+
+- **The test is whether a person standing there could say it.** "광장 북쪽 큰 건물 앞에 계셔" is a direction in the world. "화살표만 따라가면 돼" describes the player's screen.
+- **The instruction goes on the system line, once.** Control hints, quest goals and guide markers are the game's own voice (see [Two Speakers](#two-speakers-the-machine-and-the-character)). When the dialogue box already carries a system line about the arrows, the guard's version repeats it as well as breaking the fiction.
+- **A marker that exists in the world is the exception.** A painted signpost or a trail of lanterns in the town can be pointed at. An animated arrow laid over the ground cannot.
+- **Keys are filled in from the binding, never typed into a line.** A typed key goes stale when the binding changes and means nothing on touch: one tamer still said "펫 창은 P야!" after the pet window moved to L. Quest goals follow the same rule ("K 스킬창에서 스킬 하나 배우기"). See [Keys and Shortcuts](write.md#keys-and-shortcuts).
+- **The game does what a line promises.** A guard says he will show the player around and then leaves it to arrows, and the elder later asks whether the guard showed them around. With the tutorial's own announcement, the game now has three lines about something that never happens. Either the guard walks ahead, or the lines change.
+- **A dialogue box has one greeter.** A title reading "시작의 마을에 온 걸 환영해요!" above the guard's own "어이, 처음 보는 얼굴이군" is the program greeting on top of the character (see [Not a Friend](write.md#not-a-friend)). The title is the place name.
+
+## Characters Have Work, Not Features
+
+A character added together with a feature tends to recite the feature: its ambient lines are the patch note in casual speech. Write the lines from the work the character does in the world, and leave the feature to the window that opens.
+
+| Line (a storage keeper's four ambient lines) | What it is |
+| --- | --- |
+| 네 다른 캐릭터들도 이 창고를 같이 써. | The patch note: "같은 계정의 모든 캐릭터가 함께 사용합니다" |
+| 맡길 거 있으면 줘. 잃어버릴 일은 없어! | A guarantee about the save system |
+| 어이, 짐이 무거워 보이는데? | A prompt to use the feature, shown even when the bag is empty |
+| 상자 하나, 상자 둘… 영차! | The keeper at work. Keep this one. |
+
+- **Ambient lines are the character's own day.** A guard's "…투구 안이 생각보다 덥군." and the keeper's "상자 하나, 상자 둘… 영차!" need no feature behind them. One such line does more than three that explain a window.
+- **A line about the player's state appears only in that state.** "짐이 무거워 보이는데?" shown at random tells a player with an empty bag something false. Tie it to a bag that is nearly full, where it is a hint the world gives, or cut it.
+- **A character sounds like their trade.** People who hold other people's goods (a storekeeper, a banker, a cloakroom attendant) wait to be approached, state their terms and keep a record. A keeper who hails the player ("어이"), sizes up what they carry, tells them to hand it over ("줘") and promises safety nobody asked about ("잃어버릴 일은 없어!") makes the moves of someone after the goods, and players take him for a robber. Give the trade its institution: "맡길 물건 있으면 이리 줘. 장부에 적어 두지."
+- **An unasked promise belongs to a character the story wants doubted.** Reassurance nobody requested is how a con artist talks. Spend it on a character who is one.
+
 ## The Player Already Chose the Game
 
 A pitch is written for someone still deciding. The person who opened the game decided already, so text inside it that sells the game has the wrong reader.
@@ -114,6 +180,15 @@ A pitch is written for someone still deciding. The person who opened the game de
 | 10회 모집 시 4성 이상 1명 확정! 지금 바로 운명의 동료를 만나보세요! | 10회 모집하면 4성 이상 1명 확정 |
 | 지휘관님, 저를 꼭 데려가 주실 거죠? (루나, on her own banner) | 루나's own line from the story, or none |
 
+## The First Minutes Show What the Player Can Use
+
+A player who has just started has chosen the game already, so nothing needs to show them how much there is. They need what they can use now.
+
+- **One control per moment.** Teach a key at the step where the player first needs it, on the system line, with the step waiting for that one action.
+- **No key table on arrival.** After a training ground that taught six controls one at a time, a window listing 24 keys under "처음 오셨다면 한 번 훑어보세요" undoes the work, and half of its rows open windows the player has no reason to open yet. Window shortcuts go on the menu buttons as hints, and the full list stays in settings (see [Keys and Shortcuts](write.md#keys-and-shortcuts)).
+- **A later ability brings its own key.** The key for a hidden skill or an ultimate appears when the player earns the skill.
+- **Other players' news waits.** A server-first raid record shown during the tutorial is news for players who can enter raids. Hold records, rankings and server-wide announcements until the tutorial ends or the player reaches that content.
+
 ## Join With Words, Not Middle Dots
 
 Korean writing seldom uses the middle dot (·). A tool's status line uses it to pack fields side by side, where it is quick to scan, but inside a game it looks imported and reads cold: a row of fields set in front of the player instead of a line someone wrote. Every screen of a game, the shop and banners included, joins the parts of a line with words: a particle, an ending, a comma, parentheses or a line break.
@@ -126,6 +201,14 @@ Korean writing seldom uses the middle dot (·). A tool's status line uses it to 
 
 - **Many values become lines, not a dotted row.** A character's stats or a pack's contents go one per line, each with its label.
 - **A middle dot is the last resort,** for a dense row outside the fiction with no room for a line break.
+
+## Chapter Names Keep the Story's Secrets
+
+A chapter label printed on every quest card and an achievement list open from the first minute are read before the story happens.
+
+- **Name a chapter by its story, not by its dungeon.** "1막 · 지하묘지" on a quest about walking around the town tells the player where the act ends before the elder has heard the first rattle. A title that keeps the question open (the first quest's own "덜그럭 소리") or the number alone gives nothing away.
+- **Hide what the story has not revealed.** "1막 이야기 끝내기 (해골 왕)" names the boss while the elder still thinks someone is playing with bones. Show a boss's name once the player has met it.
+- **Put a label where that kind of fact goes.** The line under a speaker's name is read as who or where they are, so an act label there turns the town into a crypt. It belongs with the quest tag: "메인 퀘스트 1막".
 
 ## Clues in the World, Not Hint Ladders
 
@@ -186,6 +269,12 @@ Absurd humour is the part of game text a model writes worst: generated jokes exp
 | Sign-up wording (핸들, 사용할 수 있는, 실명이 아니어도) on a character form | Ask for the fact in the character's world |
 | Appearance or customisation that nothing in the game shows | Give it an on-screen reason, or cut it |
 | 운영자, 실행 환경, 서버, 연습용, 튜토리얼 in in-world text | Move real failures to an out-of-game notice; keep them out of the fiction |
+| A character's line that names a key or button, a guide arrow or map marker, a window or menu, the account or the player's other characters ("K를 누르면", "Z를 꾹 눌러", "바닥의 화살표만 따라가면", "펫 창은 P야", "네 다른 캐릭터들도") | The character says what a person standing there could say; the instruction goes on the system line or the quest goal, once, with the key filled in from the binding |
+| A character promising something the game does not do (a guide who leaves the guiding to arrows) | Make it happen, or change the line and every line that refers to it |
+| A character's ambient line that explains a feature, vouches for the system or prompts the player to use it; a line about the player's state shown whatever the state | A line from the character's own work; state lines only in that state |
+| A keeper, banker or merchant who hails the player, remarks on what they carry, tells them to hand it over or promises safety nobody asked about ("어이, 짐이 무거워 보이는데?", "잃어버릴 일은 없어!") | The character waits to be approached, states terms and keeps a record |
+| A window listing every key on first entry; a key shown for an ability the player does not have; other players' records or server news during the tutorial | One control per moment, hints on the buttons, the list in settings; news held until the player can use it |
+| A chapter label or achievement text naming a dungeon or boss the story has not revealed; an act label under the speaker's name | A story title that keeps the question open, or the number; names hidden until revealed; the label beside the quest tag |
 | A system message that expresses feelings, or a character who never reacts | Machine text dry; emotion in the character's monologue |
 | 힌트 1, 힌트 2, ... ending in the literal answer | Clues in the world, plus help the character can consult |
 | A preview, skip or debug control in a release build | Remove behind a developer flag |
@@ -193,4 +282,4 @@ Absurd humour is the part of game text a model writes worst: generated jokes exp
 
 ## Reporting
 
-Use the severity scale and format in [write.md](write.md#reporting). Out-of-world infrastructure text inside the fiction, a real outage presented as a story event, and a hint ladder that prints the answer are `HIGH`: they break the game the text is meant to serve. A paid shop that hides or blurs what a purchase contains, its price or its rates is `HIGH` too, because it misleads. A premise that does not hold up, mood lines, sign-up wording, unused customisation and a pitch inside the game are `MEDIUM`.
+Use the severity scale and format in [write.md](write.md#reporting). Out-of-world infrastructure text inside the fiction, a real outage presented as a story event, and a hint ladder that prints the answer are `HIGH`: they break the game the text is meant to serve. A paid shop that hides or blurs what a purchase contains, its price or its rates is `HIGH` too, because it misleads. A character who names a key, a guide marker, a window, the account or the player's other characters is out-of-world text inside the fiction and `HIGH` in the same way, and so is a key in a line or goal that no longer matches the binding. A premise that does not hold up, mood lines, sign-up wording, unused customisation, a pitch inside the game, a character reciting a feature, a keeper who talks like a robber, a key table on arrival, news shown to a newcomer and a chapter label that gives the story away are `MEDIUM`.
