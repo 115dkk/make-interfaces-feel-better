@@ -1,7 +1,7 @@
 {
   "name": "make-interfaces-feel-better",
   "version": "1.0.49",
-  "description": "Design engineering principles for interfaces (web and Qt), product copy rules, and a PreToolUse hook that checks Korean interface copy and READMEs against write.md.",
+  "description": "Design engineering principles for interfaces (web and Qt), product copy rules, and a PreToolUse hook that checks Korean interface copy and READMEs against write.md, and game text against game-write.md in a repository marked as a game.",
   "author": {
     "name": "115dkk",
     "url": "https://github.com/115dkk"

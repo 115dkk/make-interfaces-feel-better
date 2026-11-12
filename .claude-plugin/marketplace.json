@@ -9,7 +9,7 @@
     {
       "name": "make-interfaces-feel-better",
       "source": "./",
-      "description": "Design engineering principles for interfaces (web and Qt), product copy rules, and a PreToolUse hook that checks Korean interface copy and READMEs against write.md.",
+      "description": "Design engineering principles for interfaces (web and Qt), product copy rules, and a PreToolUse hook that checks Korean interface copy and READMEs against write.md, and game text against game-write.md in a repository marked as a game.",
       "category": "design",
       "keywords": ["design", "ui", "qt", "copywriting", "korean", "hooks"]
     }

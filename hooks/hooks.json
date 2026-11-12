@@ -1,5 +1,5 @@
 {
-  "description": "Checks Korean interface copy and READMEs against write.md before they are written.",
+  "description": "Checks Korean interface copy and READMEs against write.md before they are written, and game text against game-write.md as well in a repository that has a .hookgame file.",
   "hooks": {
     "PreToolUse": [
       {
@@ -12,10 +12,14 @@
               "${CLAUDE_PLUGIN_ROOT}/hooks/korean_judge.py",
               "--rules",
               "${CLAUDE_PLUGIN_ROOT}/skills/make-interfaces-feel-better/write.md",
+              "--game-rules",
+              "${CLAUDE_PLUGIN_ROOT}/skills/make-interfaces-feel-better/game-write.md",
               "--scope",
               "copy",
               "--label",
-              "화면 문구 판정(write.md)"
+              "화면 문구 판정(write.md)",
+              "--game-label",
+              "게임 문구 판정(write.md, game-write.md)"
             ],
             "timeout": 180,
             "statusMessage": "write.md copy check (Claude Sonnet 5.5)"

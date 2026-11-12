@@ -20,8 +20,8 @@ When reviewing, slow the interface down: replay motion at 10% speed in the brows
 | [Icons](icons.md) | Icon stroke weight, states via `currentColor`, outline vs fill, sizing, RTL flipping |
 | [Performance](performance.md) | Transition specificity, `will-change` usage |
 | [Color](color.md) | Palette restraint, perceptual ramps, one color one meaning, one filled action, token roles, dark mode, measured contrast |
-| [Writing](write.md) | Product copy and READMEs: effect over mechanism, internals off the screen, filler, no persona (friend, salesperson, writer), error messages, disclosure, tooltips, explanations shelved behind an info button or expander, every locale, one middle dot joining two items, Korean register |
-| [Game writing](game-write.md) | Text inside games: a fiction everyone in it lives as true, no selling to a player who already chose the game (gacha shops included), situation before feature, in-world forms, machine voice vs character monologue, real failures kept out of the fiction, clues instead of hint ladders, words instead of middle dots, absurd humour |
+| [Writing](write.md) | Product copy and READMEs: effect over mechanism, internals off the screen, filler, no persona (friend, salesperson, writer), headlines that say what the thing is, policy pages, error messages, disclosure, tooltips, explanations shelved behind an info button or expander, key names filled in from the binding, every locale, one middle dot joining two items, Korean register |
+| [Game writing](game-write.md) | Text inside games: a fiction everyone in it lives as true, no selling to a player who already chose the game (gacha shops included), situation before feature, in-world forms, machine voice vs character monologue, real failures kept out of the fiction, characters who cannot see the screen and have work instead of features to recite, the first minutes of play, chapter names that keep the story's secrets, clues instead of hint ladders, words instead of middle dots, absurd humour |
 | [Interruptions](interruptions.md) | Full-screen takeovers, consent ceremonies, countdowns, escape routes, warnings, codes and secrets on screen |
 | [Qt](qt.md) | Qt Widgets/QML projects — QSS limits, QPainter chrome, Qt animations, size-hint traps, theme switching, pixel verification |
 
@@ -152,8 +152,10 @@ Name and describe things by what the user gets, not how it works. Keep internals
 | Setting description names the config key or the mechanism | Describe the effect on the user and when to change it (see [write.md](write.md)) |
 | An explanation printed under every setting, always visible | The label carries the effect; the explanation goes behind an info button or expander beside the item (see [write.md](write.md)) |
 | `error.message` or an error code rendered as the message | Written message with cause and next action; raw text in details or the log (see [write.md](write.md)) |
+| A key name typed into a sentence where keys can be rebound; a policy page that opens with what the product does not collect | Fill the key in from the current binding; let the list of what is collected be the proof (see [write.md](write.md)) |
 | The product chats, comforts, asks or speaks as "I"; tagline verse, self-praise or a README that sells itself | Labels, instructions, facts and results only: the product has no persona (see [write.md](write.md)) |
 | Game text that mentions servers or operators, a system message with feelings, or a numbered hint ladder ending in the answer | Machine text dry, emotion in the character's monologue, real failures outside the fiction, clues in the world (see [game-write.md](game-write.md)) |
+| A character who names a key, a guide arrow, a window or the player's account; a character reciting a feature; a table of every key on first entry; a chapter label that names the boss | The character says what a person standing there could say and the system line instructs, once, with the key filled in from the binding; one control per moment; chapter names keep the story's secrets (see [game-write.md](game-write.md)) |
 | A genre label or tagline inside the game, hype on a gacha banner or paid shop, a character asking the player to pay | The player already chose the game: delete the pitch; a paid shop states contents, price, rates and end date (see [game-write.md](game-write.md)) |
 
 ## Review Output Format
@@ -248,7 +250,7 @@ When there are no findings, omit the findings table, state "No actionable interf
 - [ ] Icon stroke weight matches adjacent text weight, and icon states recolor one SVG through `currentColor` (see [icons.md](icons.md))
 - [ ] No label, description, error or button text below the size floor; small sizes are named exceptions (see [typography.md](typography.md))
 - [ ] Copy says what the user gets, shows no internals, repeats nothing already shown, gives the product no persona, shelves explanations behind an info button or expander instead of printing them under each setting, uses 합니다체 rather than 해요체 in Korean, never lists with middle dots (one per line, joining two items), and every error states the cause and the next action instead of a raw message (see [write.md](write.md))
-- [ ] Games: the protagonist's situation explains every feature, system text stays dry while characters carry emotion, no in-world text mentions the game's own infrastructure, and nothing inside the game sells the game, paid shops included (see [game-write.md](game-write.md))
+- [ ] Games: the protagonist's situation explains every feature, system text stays dry while characters carry emotion, no in-world text mentions the game's own infrastructure, no character names a key, a guide arrow or the account, controls are taught one at a time, and nothing inside the game sells the game, paid shops included (see [game-write.md](game-write.md))
 - [ ] Qt projects: QSS carries colors only, chrome is painted, animations are interruptible code, theme switches re-run the startup styling path, and visual changes are proven with offscreen renders (see [qt.md](qt.md))
 
 ## Reference Files
