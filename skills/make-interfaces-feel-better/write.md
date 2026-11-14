@@ -118,7 +118,7 @@ These rewrites only rearrange facts the original already states; use the product
 
 | Before | After |
 | --- | --- |
-| A SHARED UNIVERSE. YOUR OWN JOURNEY. / 작은 시작. 함께 넓혀가는 우주. | 여러 사람이 한 서버에서 함께 하는 우주 전략 게임입니다. 기지를 짓고 자원을 생산해 주변 성계로 함대를 보냅니다. |
+| A SHARED UNIVERSE. YOUR OWN JOURNEY. / 작은 시작. 함께 넓혀가는 우주. | (delete) |
 | 실제 종합 관제 화면: 자원 생산, 시설 건설, 주변 성계와 함대 편성 | 종합 관제 화면. 자원 생산, 시설 건설, 함대 편성을 한 화면에서 합니다. |
 | COMMANDER ACCESS / 다시 오신 것을 환영합니다 / 계정에 로그인하고 개척을 이어가세요. | 로그인 (title, fields, a 로그인 button, nothing else) |
 | 버려지는 문화의 빈자리, 이제는 당신의 한자리 / 객석의 빈자리를 시민과 작품을 잇는 기회로 | 공연, 전시, 영화의 빈 객석을 정가의 50%에 추첨으로 배정합니다. |
