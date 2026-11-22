@@ -108,7 +108,7 @@ The product does not praise, sell or defend itself. Sentimental taglines are the
 
 - **No slogans or verse.** An English slogan in capitals on a non-English page, verbless fragments set out like verse ("작은 시작." / "함께 넓혀가는 우주."), and features turned into poetic noun phrases ("시간과 함께 성장하는 기지", "어디서든 이어가는 항해") look deep and state no fact. A line that stops at a particle and leaves the reader to supply the verb ("객석의 빈자리를 시민과 작품을 잇는 기회로") is the same fragment.
 - **The headline says what the thing is.** Readers of a cover line built on wordplay ("버려지는 문화의 빈자리, 이제는 당신의 한자리") asked what the page was about; the facts were three screens further down. Write the line a reader could repeat to someone else: what it is, who it is for, what it costs. Before keeping a pun, check the other meanings of its words: 한자리 is also a post in office.
-- **No claims the reader cannot check.** Replace each adjective about the product ("powerful", "seamless", "effortless") with the fact that would justify it, or delete it. No "your journey" promises, and no caption that swears a screenshot is real ("실제 게임 화면"); a caption says what the picture shows. A promise about what the reader will feel or become is such a claim: "가격 부담을 덜고 새로운 취향을 발견합니다" becomes what the service does, "정가의 50%로 추첨에 당첨된 작품을 관람합니다".
+- **No claims the reader cannot check.** Replace each adjective about the product ("powerful", "seamless", "effortless") with the fact that would justify it, or delete it. No "your journey" promises, and no caption that swears a screenshot is real ("실제 게임 화면"); a caption says what the picture shows. A promise about what the reader will feel or become is such a claim: "가격 부담을 덜고 새로운 취향을 발견합니다" becomes what the reader can do with the service, "추첨에 당첨되면 그 작품을 정가의 50%에 관람할 수 있습니다".
 - **A figure proves the sentence it sits under.** A fall in total ticket sales printed under "관객은 인기작에 몰리고" shows a smaller market, not a concentrated one; the share of sales taken by the ten largest productions would show it. A figure that only shares the topic is decoration (see Cut Filler). Keep the tense and scope of the source as well: a closure announced for next year is not "문을 닫았습니다".
 - **No costume on functional screens.** A login form titled "COMMANDER ACCESS" with a welcome-back line and "continue your pioneering" is a login form in costume. Login, settings, errors and store copy use plain names.
 - **No defence.** Sentences about what the product will not do ("Control Center will not terminate a process owned by another session", "Complete profile contents are never logged", "this is not shown as normal system-wide application") answer questions nobody asked. If a limit matters to the user, state it as what they can do.
@@ -119,7 +119,7 @@ These rewrites only rearrange facts the original already states; use the product
 | Before | After |
 | --- | --- |
 | A SHARED UNIVERSE. YOUR OWN JOURNEY. / 작은 시작. 함께 넓혀가는 우주. | (delete) |
-| 실제 종합 관제 화면: 자원 생산, 시설 건설, 주변 성계와 함대 편성 | 종합 관제 화면. 자원 생산, 시설 건설, 함대 편성을 한 화면에서 합니다. |
+| 실제 종합 관제 화면: 자원 생산, 시설 건설, 주변 성계와 함대 편성 | 종합 관제 화면. 자원 생산, 시설 건설, 함대 편성을 한 화면에서 할 수 있습니다. |
 | COMMANDER ACCESS / 다시 오신 것을 환영합니다 / 계정에 로그인하고 개척을 이어가세요. | 로그인 (title, fields, a 로그인 button, nothing else) |
 | 버려지는 문화의 빈자리, 이제는 당신의 한자리 / 객석의 빈자리를 시민과 작품을 잇는 기회로 | 공연, 전시, 영화의 빈 객석을 정가의 50%에 추첨으로 배정합니다. |
 | 게임은 무료 테스트이고 광고·결제가 없으며, 이름·이메일·전화번호 같은 연락처는 받지 않습니다. (the first paragraph of a privacy policy) | (delete; the table of collected items follows) |
